@@ -1,0 +1,14 @@
+# module restore example for C
+hello_ex1:
+  type: singlesource
+  description: "C++ hello world example"
+  compiler: gnu
+  source: hello.cpp
+  scheduler: local
+  # module collection to restore
+  moduleload:
+    collection:
+      name:
+       - GCC
+  cxxflags:
+    - "-O2"
