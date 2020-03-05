@@ -1,0 +1,30 @@
+name: Test Schemas
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches_ignore: []
+
+jobs:
+  black:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup black linter
+        run: conda create --quiet --name schemas black pytest
+
+      - name: Lint python code
+        run: |
+          export PATH="/usr/share/miniconda/bin:$PATH"
+          source activate schemas
+          black --check .
+
+      - name: Test schamas
+        run: |
+          export PATH="/usr/share/miniconda/bin:$PATH"
+          source activate schemas
+          pip install -r .github/requirements.txt
+          pytest .github/tests/*.py
