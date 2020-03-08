@@ -102,6 +102,37 @@ Adding a new version means that you only need to:
 In both cases, when the version is finished, a release means adding the file to
 buildtest under `buildtest/tools/buildsystem/schemas`
 
+## Development Tips
+
+### Multiple Types
+
+See how [multiple types](https://cswr.github.io/JsonSchema/spec/multiple_types/) are handled.
+Basically, this snippet says that for shell the user can provide a string or an array (a list
+of strings or commands to execute). The variables `items`, and `minItems` apply only
+in the case that an array is used, and `minLength` applies to commands.
+
+```json
+    "shell": {
+      "type": ["string", "array"],
+      "minLength": 2,
+      "minItems": 1,
+      "description": "One or more commands to execute to the shell.",
+      "items": {
+        "type": "string"
+      },
+    },
+```
+
+I believe this says that we require one of "run" or "shell."
+
+```
+   "oneOf": [
+      { "$ref": "#/definitions/shell" }, 
+      { "$ref": "#/definitions/run" } 
+    ]
+```
+
+
 ## Resources
 
 The following sites (along with the files here) can be useful to help with your development
