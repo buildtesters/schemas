@@ -2,9 +2,9 @@
 
 # Copyright (C) 2020 Vanessa Sochat.
 
-# This Source Code Form is subject to the terms of the
-# Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed
-# with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
+# This Source Code Form is subject to the terms of the MIT License.
+# If a copy of the MIT license was not distributed with this file,
+# you can obtain one at https://choosealicense.com/licenses/mit/.
 
 from jsonschema import validate
 
@@ -16,6 +16,7 @@ import pytest
 import yaml
 
 root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+repo_prefix = "https://HPC-buildtest.github.io/schemas"
 
 
 def load_schema(path):
@@ -69,6 +70,31 @@ def test_schema_naming(tmp_path):
             # Assert it loads with jsonschema
             schema_file = os.path.join(schema_dir, schema)
             loaded = load_schema(schema_file)
+
+            # Ensure that other requireds are included and properly formatted
+            fields = ["$id", "$schema", "title", "propertyNames", "properties"]
+            for field in fields:
+                assert field in loaded
+
+            # Type is always required
+            assert "required" in loaded
+            assert "type" in loaded["required"]
+            assert "type" in loaded["properties"]
+
+            # Assert that description, maintainers, and version are in properties
+            properties = ["description", "maintainers"]
+            print("Checking for optional properties %s" % properties)
+            found = list(loaded["properties"].keys())
+            for prop in properties:
+                print("Checking for property %s in %s" % (prop, schema_file))
+                assert prop in found
+                assert prop not in loaded["required"]
+
+            # Check individual schema properties
+            assert loaded["$id"] == "%s/%s/%s" % (repo_prefix, schema_name, schema)
+            assert loaded["$schema"] == "http://json-schema.org/draft-07/schema#"
+            assert loaded["type"] == "object"
+            assert loaded["propertyNames"] == {"pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}
 
             # Assert is named corretly
             print("Checking naming of %s" % schema)
