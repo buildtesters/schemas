@@ -43,7 +43,7 @@ def test_schema_naming(tmp_path):
        - examples folder has subfolders that correspond to existing versions
        - each example has a version that corresponds with it's folder
     """
-    skips = ["README.md", "global"]
+    skips = ["README.md", "global", "LICENSE"]
     print("Root of testing is %s" % root)
 
     # Read in the outer validator (looks for list with keys and version)
@@ -52,7 +52,11 @@ def test_schema_naming(tmp_path):
     outer_schema = load_schema(outer_file)
 
     for schema_name in os.listdir(root):
-        if schema_name in skips or re.search("^([.]|_)", schema_name):
+        if (
+            schema_name in skips
+            or re.search("^([.]|_)", schema_name)
+            or os.path.isfile(schema_name)
+        ):
             continue
 
         schema_dir = os.path.abspath(schema_name)
