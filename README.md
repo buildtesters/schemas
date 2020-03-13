@@ -1,8 +1,9 @@
 # Buildtest Schema
 
-The currently under development types of schemas include:
+The currently (under development) types of schemas include:
 
  - [script](script): a single executable or multiple lines to be run as a test
+ - [global](global): includes a simple global schema that is not expected to change frequently. This mandates that every recipe is a yaml file with a version and one or more named subsections.
 
 ## What is a schema?
 
@@ -21,7 +22,7 @@ the structure for each schema. Since each schema type has different versions,
 we store those as well:
 
 ```bash
-buildtest/tools/buildsystem/schemas
+buildtest/buildsystem/schemas
    script
 ```
 
@@ -46,14 +47,22 @@ For example, the contents of the [script](script) directory here are expected
 to be added present at `buildtest/tools/buildsystem/schemas/script` to go
 along with a class "Script" in the bases file. 
 
+## What are optional shared attributes?
 
-## What are shared attributes?
+### Metadata 
 
 Every build configuration across types can share some high level metadata,
 including a type, description, and maintainers. Additionally, each attribute
 should have a key with a unique name so that more than one configuration
-can be represented in one file. Here is a quick example for a [script](script)
-example:
+can be represented in one file. The fields are summarized below:
+
+| Name | Description | Type | Required for Schema | Required for User |
+| ---- | ----------- | ---- | ------------------- | ----------------- |
+| type | the name of the schema type (e.g., "script") | string | true | true |
+| description | a description of the build | string | true | false |
+| maintainers | a list of one or more maintainers | array | true | false |
+
+Here is a quick example for a [script](script) example:
 
 
 ```yaml
@@ -66,10 +75,39 @@ hello_ex1:
   shell: "echo hello"
 ```
 
+Note that the outer structure (the version and general yaml file with named sections)
+is tested by the [global](global) schema. The contents of the section `hello_ex1`
+are of type script, and thus are tested by the [script](script) schema.
 The above would say to use version 0.0.1 of the script schema to run the test.
 The parameters for the description, and maintainers are optional but shown here.
 Each recipe is tested that these required fields are included (but optional).
 
+
+### Build Steps
+
+By default, each test configuration schema should have the following optional fields:
+
+| Name | Description | Type | Required for Schema | Required for User | Default |
+| ---- | ----------- | ---- | ------------------- | ----------------- | -------- |
+| pre_run | script to run before build | string | true | false | |
+| post_run | script to run after build | string | true | false | |
+| shell | shell interpreter to use for pre and post run | string | true | false | bash |
+
+
+The build command generated based on the configuration type, is sandwiched between
+the pre and post run sections:
+
+ - pre_run
+ - run
+ - post_run
+
+And shell must also be defined (defaulting to usually bash, but this may vary) to
+know the shell to use if these statements are defined. Of course more complex 
+classes that might require additional sections (e.g., pre and
+post compile) can still define these as valid sections for their config recipes,
+and they are handled by a custom class. The only important point
+for now is that `pre_run` and `post_run` are required (and tested for) for
+a general schema (optional for the user).
 
 ## How to contribute
 
@@ -103,6 +141,8 @@ In both cases, when the version is finished, a release means adding the file to
 buildtest under `buildtest/tools/buildsystem/schemas`
 
 ## Development Tips
+
+**Note that these are examples, and not necessarily implemented sections for test config types**
 
 ### Multiple Types
 

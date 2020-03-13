@@ -43,7 +43,7 @@ def test_schema_naming(tmp_path):
        - examples folder has subfolders that correspond to existing versions
        - each example has a version that corresponds with it's folder
     """
-    skips = ["README.md", "global", "LICENSE"]
+    skips = ["README.md", "global", "LICENSE", "examples"]
     print("Root of testing is %s" % root)
 
     # Read in the outer validator (looks for list with keys and version)
@@ -52,6 +52,7 @@ def test_schema_naming(tmp_path):
     outer_schema = load_schema(outer_file)
 
     for schema_name in os.listdir(root):
+
         if (
             schema_name in skips
             or re.search("^([.]|_)", schema_name)
@@ -68,7 +69,7 @@ def test_schema_naming(tmp_path):
         schemas = os.listdir(schema_dir)
         for schema in schemas:
 
-            if schema in ["README.md", "examples"]:
+            if schema in skips:
                 continue
 
             # Assert it loads with jsonschema
@@ -84,6 +85,11 @@ def test_schema_naming(tmp_path):
             assert "required" in loaded
             assert "type" in loaded["required"]
             assert "type" in loaded["properties"]
+
+            # pre_run, post_run, and shell are required for all schemas
+            for section in ["pre_run", "post_run", "shell"]:
+                assert section in loaded["properties"]
+                assert loaded["properties"][section]["type"] == "string"
 
             # Assert that description, maintainers, and version are in properties
             properties = ["description", "maintainers"]

@@ -29,9 +29,17 @@
       "default": "bash",
       "description": "The shell interpreter to use."
     },
+    "pre_run": {
+      "type": "string",
+      "description": "A script run before the default run using the default shell."
+    },
     "run": {
       "type": "string",
       "description": "A script to run using the default shell."
+    },
+    "post_run": {
+      "type": "string",
+      "description": "A script run after the default run using the default shell."
     }
   }
 }

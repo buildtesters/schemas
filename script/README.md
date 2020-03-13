@@ -12,3 +12,19 @@ This line will work share the configuration, as the file will be deployed on Git
 ```
 "$id": "https://HPC-buildtest.github.io/schemas/script/script-v0.0.1.schema.json",
 ```
+
+The fields `$id`, `$schema`, `$title`,  `$type` `required`, `propertyNames`,
+and `properties` are required (and tested for) higher level schema attributes.
+In the table below, we show properties defined under "properties". The
+table below is represented in the schema file.
+
+
+| Name | Description | Type | Required for Schema | Required for User | Default |
+| ---- | ----------- | ---- | ------------------- | ----------------- | -------- |
+| type | the type (must be script) | string | true | true | |
+| description | a description of the build | string | true | false | |
+| maintainers | a list of one or more maintainers | array | true | false | |
+| pre_run | script to run before build | string | true | false | |
+| run | main script to run | string | true | true | |
+| post_run | script to run after build | string | true | false | |
+| shell | shell interpreter to use for pre and post run | string | true | false | bash |
