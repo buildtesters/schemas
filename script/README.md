@@ -24,6 +24,7 @@ table below is represented in the schema file.
 | type | the type (must be script) | string | true | true | |
 | description | a description of the build | string | true | false | |
 | maintainers | a list of one or more maintainers | array | true | false | |
+| env | an object (dict) of custom environment variables | object with objects | true | false |  |
 | pre_run | script to run before build | string | true | false | |
 | run | main script to run | string | true | true | |
 | post_run | script to run after build | string | true | false | |

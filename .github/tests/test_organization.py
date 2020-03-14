@@ -91,6 +91,10 @@ def test_schema_naming(tmp_path):
                 assert section in loaded["properties"]
                 assert loaded["properties"][section]["type"] == "string"
 
+            # env is also required, but it's an object
+            assert "env" in loaded["properties"]
+            assert loaded["properties"]["env"]["type"] == "object"
+
             # Assert that description, maintainers, and version are in properties
             properties = ["description", "maintainers"]
             print("Checking for optional properties %s" % properties)

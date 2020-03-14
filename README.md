@@ -92,7 +92,7 @@ By default, each test configuration schema should have the following optional fi
 | pre_run | script to run before build | string | true | false | |
 | post_run | script to run after build | string | true | false | |
 | shell | shell interpreter to use for pre and post run | string | true | false | bash |
-
+| env | an object (dict) of custom environment variables | object with objects | true | false |  |
 
 The build command generated based on the configuration type, is sandwiched between
 the pre and post run sections:
