@@ -42,9 +42,9 @@ script/
 
 The entire root of this folder could be added to the folder shown above,
 and the subfolder structure would be added to the module. Importantly,
-the lowercase class names should match to a class defined in [buildtest/tools/buildsystem/bases.py]().
+the lowercase class names should match to a class defined in [buildtest/buildsystem/bases.py]().
 For example, the contents of the [script](script) directory here are expected 
-to be added present at `buildtest/tools/buildsystem/schemas/script` to go
+to be added present at `buildtest/buildsystem/schemas/script` to go
 along with a class "Script" in the bases file. 
 
 ## What are optional shared attributes?
@@ -90,19 +90,38 @@ By default, each test configuration schema should have the following optional fi
 | Name | Description | Type | Required for Schema | Required for User | Default |
 | ---- | ----------- | ---- | ------------------- | ----------------- | -------- |
 | pre_run | script to run before build | string | true | false | |
+| run | a script to run (e.g., apppropriate for shell) | string | true | false | |
 | post_run | script to run after build | string | true | false | |
 | shell | shell interpreter to use for pre and post run | string | true | false | bash |
 | env | an object (dict) of custom environment variables | object with objects | true | false |  |
 
-The build command generated based on the configuration type, is sandwiched between
-the pre and post run sections:
+The following fields are optional for the schema, but can be added as required by
+any specific schema and recognized by buildtest:
 
+| Name | Description | Type | Required for Schema | Required for User | Default |
+| ---- | ----------- | ---- | ------------------- | ----------------- | -------- |
+| pre_build | script to run before build | string | true | false | |
+| build | a build step (e.g., apppropriate for compiling) | string | true | false | |
+| post_build | script to run after build | string | true | false | |
+
+Technically, there is no difference between
+how the sections above are handled, but they allow the user to have more fine tuned
+control of order. The "run" section is done after the build, and is provided to support workflows
+that require compilation or similar. For the above sections, they are run in the following order (for
+those defined):
+
+ - pre_build
+ - build
+ - post_build
  - pre_run
  - run
  - post_run
 
-And shell must also be defined (defaulting to usually bash, but this may vary) to
-know the shell to use if these statements are defined. Of course more complex 
+For example, the script type might only require a "run" section, but also allow
+the user to optionally specify a pre_run or post_run. It's up to the test 
+configuration schema to decide if any or all are required
+or optional. shell must also be defined (defaulting to usually bash, but this may vary) to
+know the shell to use for any of these statements. Of course more complex 
 classes that might require additional sections (e.g., pre and
 post compile) can still define these as valid sections for their config recipes,
 and they are handled by a custom class. The only important point
@@ -138,7 +157,7 @@ Adding a new version means that you only need to:
  - add one or more invalid examples to be tested under `.github/tests/invalid/<name>/<version>`
 
 In both cases, when the version is finished, a release means adding the file to
-buildtest under `buildtest/tools/buildsystem/schemas`
+buildtest under `buildtest/buildsystem/schemas`
 
 ## Development Tips
 

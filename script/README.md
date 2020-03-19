@@ -25,7 +25,8 @@ table below is represented in the schema file.
 | description | a description of the build | string | true | false | |
 | maintainers | a list of one or more maintainers | array | true | false | |
 | env | an object (dict) of custom environment variables | object with objects | true | false |  |
+| shell | shell interpreter to use for pre and post run | string | true | false | bash |
 | pre_run | script to run before build | string | true | false | |
 | run | main script to run | string | true | true | |
 | post_run | script to run after build | string | true | false | |
-| shell | shell interpreter to use for pre and post run | string | true | false | bash |
+
