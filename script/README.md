@@ -29,4 +29,4 @@ table below is represented in the schema file.
 | pre_run | script to run before build | string | true | false | |
 | run | main script to run | string | true | true | |
 | post_run | script to run after build | string | true | false | |
-
+| executor | name of executor to dispatch job defined in buildtest configuration | string | true | false | |
