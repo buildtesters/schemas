@@ -47,7 +47,7 @@ def test_schema_naming(tmp_path):
     print("Root of testing is %s" % root)
 
     # Read in the outer validator (looks for list with keys and version)
-    outer_file = os.path.join(root, "global", "outer.schema.json")
+    outer_file = os.path.join(root, "global", "global.schema.json")
     assert os.path.exists(outer_file)
     outer_schema = load_schema(outer_file)
 
