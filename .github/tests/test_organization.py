@@ -81,36 +81,13 @@ def test_schema_naming(tmp_path):
             for field in fields:
                 assert field in loaded
 
-            # Type is always required
-            assert "required" in loaded
-            assert "type" in loaded["required"]
-            assert "type" in loaded["properties"]
-
-            # pre_run, post_run, and shell are required for all schemas
-            for section in ["pre_run", "post_run", "shell"]:
-                assert section in loaded["properties"]
-                assert loaded["properties"][section]["type"] == "string"
-
-            # env is also required, but it's an object
-            assert "env" in loaded["properties"]
-            assert loaded["properties"]["env"]["type"] == "object"
-
-            # Assert that description, maintainers, and version are in properties
-            properties = ["description", "maintainers"]
-            print("Checking for optional properties %s" % properties)
-            found = list(loaded["properties"].keys())
-            for prop in properties:
-                print("Checking for property %s in %s" % (prop, schema_file))
-                assert prop in found
-                assert prop not in loaded["required"]
-
             # Check individual schema properties
             assert loaded["$id"] == "%s/%s/%s" % (repo_prefix, schema_name, schema)
             assert loaded["$schema"] == "http://json-schema.org/draft-07/schema#"
             assert loaded["type"] == "object"
             assert loaded["propertyNames"] == {"pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}
 
-            # Assert is named corretly
+            # Assert is named correctly
             print("Checking naming of %s" % schema)
             match = re.search(
                 "%s-v(?P<version>[0-9]{1}[.][0-9]{1}[.][0-9]{1})[.]schema[.]json"
@@ -122,6 +99,71 @@ def test_schema_naming(tmp_path):
             # Ensure we found a version
             assert match.groups()
             version = match["version"]
+
+            assert "required" in loaded
+            # check "type" and "run" are required keys
+            assert "type" in loaded["required"]
+            assert "run" in loaded["required"]
+
+            # check all keys are properties
+            found = [
+                "type",
+                "description",
+                "maintainers",
+                "env",
+                "executor",
+                "shell",
+                "pre_run",
+                "run",
+                "post_run",
+                "status",
+            ]
+            print(f"Checking all keys: {found} in schema 'properties'")
+            loaded_properties = list(loaded["properties"].keys())
+            for prop in found:
+                print("Checking for property %s in %s" % (prop, schema_file))
+                assert prop in loaded_properties
+
+            # 'type' key takes a pattern string that must start and end with the word 'script'
+            assert loaded["properties"]["type"]["pattern"] == "^script$"
+
+            # check all properties that are string types
+            for section in [
+                "type",
+                "description",
+                "pre_run",
+                "post_run",
+                "shell",
+                "executor",
+            ]:
+                assert loaded["properties"][section]["type"] == "string"
+
+            # check all properties that are object types
+            assert loaded["properties"]["env"]["type"] == "object"
+            assert loaded["properties"]["status"]["type"] == "object"
+
+            # check all properties that are array types
+            assert loaded["properties"]["maintainers"]["type"] == "array"
+
+            # check status object
+            status_properties = loaded["properties"]["status"]["properties"]
+            assert "returncode" in status_properties
+            assert "regex" in status_properties
+            # regex has required fields for stream and exp, both must be defined
+            assert "required" in status_properties["regex"]
+            # check type for returncode and regex key
+            assert status_properties["returncode"]["type"] == "integer"
+            assert status_properties["regex"]["type"] == "object"
+
+            status_regex_properties = loaded["properties"]["status"]["properties"][
+                "regex"
+            ]["properties"]
+            # check for key 'stream' and 'exp' in regex object
+            assert "stream" in status_regex_properties
+            assert "exp" in status_regex_properties
+            # check type for 'stream' and 'exp' key in regex object
+            assert status_regex_properties["stream"]["type"] == "string"
+            assert status_regex_properties["exp"]["type"] == "string"
 
             # Ensure a version folder exists with at least one recipe
             print("Checking examples for %s" % schema)

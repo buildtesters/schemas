@@ -35,6 +35,41 @@ def load_recipe(path):
     return content
 
 
+def check_invalid_recipes(recipes, invalids, loaded, version):
+    for recipe in recipes:
+        assert recipe
+        assert re.search("(yml|yaml)$", recipe)
+        recipe_path = os.path.join(invalids, recipe)
+        content = load_recipe(recipe_path)
+
+        # Ensure version is correct in header
+        assert content["version"] == version
+        del content["version"]
+
+        # For each section, assume folder type and validate
+        for name in content.keys():
+            with pytest.raises(ValidationError) as excinfo:
+                validate(instance=content[name], schema=loaded)
+            print("Testing %s from recipe %s should be invalid" % (name, recipe))
+
+
+def check_valid_recipes(recipes, valids, loaded, version):
+    for recipe in recipes:
+        assert recipe
+        assert re.search("(yml|yaml)$", recipe)
+        recipe_path = os.path.join(valids, recipe)
+        content = load_recipe(recipe_path)
+
+        # Ensure version is correct in header
+        assert content["version"] == version
+        del content["version"]
+
+        # For each section, assume folder type and validate
+        for name in content.keys():
+            validate(instance=content[name], schema=loaded)
+            print("Testing %s from recipe %s should be valid" % (name, recipe))
+
+
 def test_script_schema(tmp_path):
     """the script test_organization is responsible for all the schemas
        in the root of the repository, under <schema>/examples.
@@ -56,7 +91,7 @@ def test_script_schema(tmp_path):
             schema_file = os.path.join(schema_dir, schema)
             loaded = load_schema(schema_file)
 
-            # Assert is named corretly
+            # Assert is named correctly
             print("Getting version of %s" % schema)
             match = re.search(
                 "%s-v(?P<version>[0-9]{1}[.][0-9]{1}[.][0-9]{1})[.]schema[.]json"
@@ -72,24 +107,14 @@ def test_script_schema(tmp_path):
             # Ensure a version folder exists with invalids
             print("Checking that invalids exist for %s" % schema)
             invalids = os.path.join(here, "invalid", schema_name, version)
+            valids = os.path.join(here, "valid", schema_name, version)
+
             assert os.path.exists(invalids)
-            recipes = os.listdir(invalids)
-            assert recipes
+            invalid_recipes = os.listdir(invalids)
+            valid_recipes = os.listdir(valids)
 
-            for recipe in recipes:
-                assert recipe
-                assert re.search("(yml|yaml)$", recipe)
-                recipe_path = os.path.join(invalids, recipe)
-                content = load_recipe(recipe_path)
+            assert invalid_recipes
+            assert valid_recipes
 
-                # Ensure version is correct in header
-                assert content["version"] == version
-                del content["version"]
-
-                # For each section, assume folder type and validate
-                for name, section in content.items():
-                    print(
-                        "Testing %s from recipe %s should be invalid" % (name, recipe)
-                    )
-                    with pytest.raises(ValidationError) as excinfo:
-                        validate(instance=content, schema=loaded)
+            check_valid_recipes(valid_recipes, valids, loaded, version)
+            check_invalid_recipes(invalid_recipes, invalids, loaded, version)

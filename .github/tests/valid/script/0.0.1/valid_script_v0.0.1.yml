@@ -1,0 +1,62 @@
+version: 0.0.1
+multiline_run:
+  type: script
+  description: multiline run command
+  run: |
+    echo "1"
+    echo "2"
+
+single_command_run:
+  type: script
+  description: single command as a string for run command
+  run: "hostname"
+
+declare_env:
+  type: script
+  description: declaring environment variables
+  env:
+    FOO: BAR
+    X: 1
+  run: |
+    echo $FOO
+    echo $X
+
+declare_shell:
+  type: script
+  description: declare shell to sh
+  shell: sh
+  run: hostname
+
+declare_maintainer:
+  type: script
+  description: assign maintainer to test
+  maintainer:
+    - shahzebsiddiqui
+  run: echo hello world
+
+status_returncode:
+  type: script
+  description: This test pass because using a valid return code
+  run: hostname
+  status:
+    returncode: 0
+
+status_regex:
+  type: script
+  description: This test pass with a regular expression status check
+  run: hostname
+  status:
+    regex:
+      stream: stdout
+      exp: "^$"
+
+status_regex_returncode:
+  type: script
+  description: This test fails because returncode and regex specified
+  run: hostname
+  status:
+    returncode: 0
+    regex:
+      stream: stdout
+      exp: "^hello"
+
