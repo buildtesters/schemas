@@ -1,0 +1,65 @@
+{
+  "$id": "https://HPC-buildtest.github.io/schemas/settings/settings.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Buildtest Settings Schema",
+  "type": "object",
+  "required": ["editor", "executors"],
+  "additionalProperties": false,
+  "properties": {
+      "editor": { 
+          "type": "string",
+          "enum": ["vi", "vim", "nano", "emacs"]
+      },
+      "executors": {
+          "type": "object",
+          "patternProperties": {
+              "^.*$": {
+                 "anyOf": [
+                     {"$ref": "#/definitions/local"},
+                     {"$ref": "#/definitions/slurm"}
+                 ]
+             }
+          }
+      },
+      "additionalProperties": false       
+  },
+  "definitions": {
+      "local": {
+          "type": "object",          
+          "properties": {
+              "description": {"type": "string"},
+              "type": {
+                  "type": "string",
+                  "enum": ["local"]
+               },
+               "options": {
+                   "type": "array",
+                   "items": {
+                       "type": "string"
+                   }
+               }
+           },
+          "required": ["type"]
+       },
+
+      "slurm": {
+          "type": "object",          
+          "properties": {
+              "description": {"type": "string"},
+              "type": {
+                  "type": "string",
+                  "enum": ["slurm"]
+               },
+              "launcher": {
+                  "type": "string",
+                  "enum": ["sbatch"]
+               },
+               "options": {
+                   "type": "array",
+                   "items": {"type": "string"}
+               }
+           },
+          "required": ["type","launcher"]
+       }
+    }
+}

@@ -1,0 +1,9 @@
+editor: vi
+executors:
+  slurm-executor:
+    type: slurm
+    description: submit jobs on local machine
+    launcher: sbatch
+    options:
+      - "-p admin"
+      - "-t 01:00"

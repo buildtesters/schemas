@@ -1,0 +1,5 @@
+editor: vi
+executors:
+  default:
+    type: localhost
+    description: submit jobs on local machine

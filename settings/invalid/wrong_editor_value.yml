@@ -1,0 +1,5 @@
+editor: badoption
+executors:
+  default:
+    type: local
+    description: submit jobs on local machine

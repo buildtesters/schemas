@@ -43,7 +43,7 @@ def test_schema_naming(tmp_path):
        - examples folder has subfolders that correspond to existing versions
        - each example has a version that corresponds with it's folder
     """
-    skips = ["README.md", "global", "LICENSE", "examples"]
+    skips = ["README.md", "global", "LICENSE", "examples", "settings"]
     print("Root of testing is %s" % root)
 
     # Read in the outer validator (looks for list with keys and version)
