@@ -146,7 +146,7 @@ If you want to make a new schema to add to buildtest:
 Be sure to update properties and take account for:
   - a property being required or not
   - requirements for the values provided (types, lengths, etc.) 
-  - If you need help, see [resources](#resources) or [ask a question](https://github.com/HPC-buildtest/schemas/issues)
+  - If you need help, see [resources](#resources) or [ask a question](https://github.com/buildtesters/schemas/issues)
 
 ### Adding a new version
 

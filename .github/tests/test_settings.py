@@ -42,7 +42,7 @@ def check_fields(recipe):
 
     assert (
         recipe["$id"]
-        == "https://HPC-buildtest.github.io/schemas/settings/settings.schema.json"
+        == "https://buildtesters.github.io/schemas/settings/settings.schema.json"
     )
     assert recipe["$schema"] == "http://json-schema.org/draft-07/schema#"
     assert recipe["type"] == "object"

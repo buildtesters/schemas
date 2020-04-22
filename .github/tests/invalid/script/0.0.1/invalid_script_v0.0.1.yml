@@ -58,3 +58,22 @@ invalid_returncode_type:
   run: hostname
   status:
     returncode: ["1"]
+
+invalid_shell_usr_bin_bash:
+  type: script
+  description: invalid shell name, since we only support 'sh', 'bash', 'python' '/bin/bash' /bin/sh
+  shell: /usr/bin/bash
+  run: hostname
+
+invalid_shell_type:
+  type: script
+  description: invalid shell type must be a string
+  shell: ["/bin/bash"]
+  run: hostname
+
+invalid_type_shell_shebang:
+  type: script
+  description: invalid type for shell shebang, must be a string
+  shell:
+    shebang: ["#!/bin/bash"]
+  run: hostname

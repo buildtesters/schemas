@@ -21,10 +21,48 @@ declare_env:
     echo $FOO
     echo $X
 
-declare_shell:
+declare_shell_sh:
   type: script
-  description: declare shell to sh
+  description: declare shell name to sh
   shell: sh
+  run: hostname
+
+declare_shell_bash:
+  type: script
+  description: declare shell name to bash
+  shell: bash
+  run: hostname
+
+declare_shell_python:
+  type: script
+  description: declare shell name to python
+  shell: python
+  run: |
+    print("Hello World")
+
+declare_shell_bin_bash:
+  type: script
+  description: declare shell name to /bin/bash
+  shell: "/bin/bash -e"
+  run: hostname
+
+declare_shell_name_bin_sh:
+  type: script
+  description: declare shell name to /bin/sh
+  shell: "/bin/sh -e"
+  run: hostname
+
+
+declare_shell_opts:
+  type: script
+  description: declare shell name to sh
+  shell: "sh -e"
+  run: hostname
+
+declare_shebang:
+  type: script
+  description: declare shell name to sh
+  shebang: "#!/usr/bin/env bash"
   run: hostname
 
 declare_maintainer:

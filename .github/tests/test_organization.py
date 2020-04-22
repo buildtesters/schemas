@@ -16,7 +16,7 @@ import pytest
 import yaml
 
 root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-repo_prefix = "https://HPC-buildtest.github.io/schemas"
+repo_prefix = "https://buildtesters.github.io/schemas"
 
 
 def load_schema(path):
@@ -134,6 +134,7 @@ def test_schema_naming(tmp_path):
                 "pre_run",
                 "post_run",
                 "shell",
+                "shebang",
                 "executor",
             ]:
                 assert loaded["properties"][section]["type"] == "string"
@@ -144,6 +145,12 @@ def test_schema_naming(tmp_path):
 
             # check all properties that are array types
             assert loaded["properties"]["maintainers"]["type"] == "array"
+
+            assert "pattern" in loaded["properties"]["shell"]
+            assert (
+                loaded["properties"]["shell"]["pattern"]
+                == "^(/bin/bash|/bin/sh|sh|bash|python).*"
+            )
 
             # check status object
             status_properties = loaded["properties"]["status"]["properties"]
