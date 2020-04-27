@@ -1,19 +1,8 @@
-#!/usr/bin/python
-
-# Copyright (C) 2020 Vanessa Sochat.
-
-# This Source Code Form is subject to the terms of the MIT License.
-# If a copy of the MIT license was not distributed with this file,
-# you can obtain one at https://choosealicense.com/licenses/mit/.
-
-from jsonschema import validate
-
 import json
 import os
 import re
-import shutil
-import pytest
 import yaml
+from jsonschema import validate
 
 root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 repo_prefix = "https://buildtesters.github.io/schemas"

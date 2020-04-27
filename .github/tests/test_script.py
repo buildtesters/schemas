@@ -1,19 +1,11 @@
-#!/usr/bin/python
-
-# Copyright (C) 2020 Vanessa Sochat.
-
-# This Source Code Form is subject to the terms of the MIT License.
-# If a copy of the MIT license was not distributed with this file,
-# you can obtain one at https://choosealicense.com/licenses/mit/.
-
-from jsonschema import validate
-from jsonschema.exceptions import ValidationError
-
 import json
 import os
 import re
 import pytest
 import yaml
+
+from jsonschema import validate
+from jsonschema.exceptions import ValidationError
 
 here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(os.path.dirname(here))
