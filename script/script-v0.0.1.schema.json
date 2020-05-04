@@ -44,17 +44,9 @@
       "pattern": "^(/bin/bash|/bin/sh|sh|bash|python).*"
     },
     "shebang": { "type": "string" },
-    "pre_run": {
-      "type": "string",
-      "description": "A script run before the default run using the default shell."
-    },
     "run": {
       "type": "string",
       "description": "A script to run using the default shell."
-    },
-    "post_run": {
-      "type": "string",
-      "description": "A script run after the default run using the default shell."
     },
     "status": {
       "type": "object",

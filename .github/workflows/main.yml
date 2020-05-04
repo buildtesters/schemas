@@ -27,4 +27,4 @@ jobs:
           export PATH="/usr/share/miniconda/bin:$PATH"
           source activate schemas
           pip install -r .github/requirements.txt
-          pytest .github/tests/*.py
+          pytest -vra tests

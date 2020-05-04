@@ -1,0 +1,20 @@
+version: 0.0.1
+hello_world_gnu:
+  type: compiler
+  module:
+     - "module purge && module load gcc/4.0"
+     - "module purge && module load gcc/6.0"
+  compiler:
+    source: src/hello.c
+    gnu:
+      cflags: -O1
+
+hello_world_intel:
+  type: compiler
+  module:
+   -  "module purge &&  module load intel/17"
+   -  "module purge &&  module load intel/18"
+  compiler:
+    source: src/hello.c
+    intel:
+     cflags: -O1

@@ -7,7 +7,7 @@ from jsonschema import validate
 from jsonschema.exceptions import ValidationError
 
 here = os.path.dirname(os.path.abspath(__file__))
-root = os.path.dirname(os.path.dirname(here))
+root = os.path.dirname(here)
 
 
 def load_schema(path):
@@ -27,7 +27,7 @@ def load_recipe(path):
 
 
 def check_invalid_recipes(recipes, invalids, loaded):
-    """This method validates all recipes found in .github/tests/invalid/global with global schema: global/global.schema.json"""
+    """This method validates all recipes found in tests/invalid/global with global schema: global/global.schema.json"""
 
     for recipe in recipes:
         assert recipe
@@ -41,7 +41,7 @@ def check_invalid_recipes(recipes, invalids, loaded):
 
 
 def check_valid_recipes(recipes, valids, loaded):
-    """This method validates all recipes found in .github/tests/valid/global with global schema: global/global.schema.json"""
+    """This method validates all recipes found in tests/valid/global with global schema: global/global.schema.json"""
 
     for recipe in recipes:
         assert recipe

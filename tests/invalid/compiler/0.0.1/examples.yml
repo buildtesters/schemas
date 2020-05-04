@@ -1,0 +1,106 @@
+version: 0.0.1
+
+missing_type:
+  description: "type key is missing, this is a required field"
+  module:
+   -  "module purge &&  module load intel/17"
+   -  "module purge &&  module load intel/18"
+  compiler:
+    source: src/hello.c
+    intel:
+     cflags: -O1
+
+missing_compiler:
+  type: compiler
+  description: "compiler key is missing, this is a required field"
+  module:
+   -  "module purge &&  module load intel/17"
+   -  "module purge &&  module load intel/18"
+
+invalid_type_value:
+  type: script
+  description: "invalid value for type field must be 'compiler' "
+  module:
+     - "module purge && module load gcc/4.0"
+     - "module purge && module load gcc/6.0"
+  compiler:
+    source: src/hello.c
+    gnu:
+      cflags: -O1
+
+invalid_description_value:
+  type: compiler
+  description: 1
+  module:
+     - "module purge && module load gcc/4.0"
+     - "module purge && module load gcc/6.0"
+  compiler:
+    source: src/hello.c
+    gnu:
+      cflags: -O1
+
+invalid_type_module:
+  type: compiler
+  description: "type for 'module' key, expecting type 'array' but received 'string' "
+  module: "module purge && module load gcc/4.0"
+  compiler:
+    source: src/hello.c
+    gnu:
+      cflags: -O1
+
+missing_source_in_compiler:
+  type: compiler
+  description: "missing source key in compiler object"
+  module:
+  - "module purge && module load gcc/4.0"
+  compiler:
+    gnu:
+      cflags: -O1
+
+missing_a_compilername_in_compiler:
+  type: compiler
+  description: "missing key 'gnu' or 'intel' in compiler object"
+  module:
+  - "module purge && module load gcc/4.0"
+  compiler:
+    source: src/hello.c
+
+
+compiler_required_mismatch:
+  type: compiler
+  description: "this test checks required in compiler object we can't specify multiple compiler in same compiler instance"
+  foo: bar
+  module:
+  - "module purge && module load gcc/4.0"
+  compiler:
+    source: src/hello.c
+    gnu:
+      cflags: -O1
+      ldflags: -lm
+    intel:
+      cflags: -O1
+      ldflags: -lm
+
+test_additionalProperties_compiler:
+  type: compiler
+  description: "test additionalProperties in compiler object. Schema does not allow for additional keys"
+  module:
+  - "module purge && module load gcc/4.0"
+  compiler:
+    source: src/hello.c
+    foo: bar
+    gnu:
+      cflags: -O1
+      ldflags: -lm
+
+test_additionalProperties_main_schema:
+  type: compiler
+  description: "test additionalProperties in main schema"
+  foo: bar
+  module:
+  - "module purge && module load gcc/4.0"
+  compiler:
+    source: src/hello.c
+    gnu:
+      cflags: -O1
+      ldflags: -lm

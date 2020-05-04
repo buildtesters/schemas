@@ -6,7 +6,7 @@ from jsonschema import validate
 from jsonschema.exceptions import ValidationError
 
 here = os.path.dirname(os.path.abspath(__file__))
-root = os.path.dirname(os.path.dirname(here))
+root = os.path.dirname(here)
 
 
 def load_schema(path):
@@ -139,7 +139,7 @@ def check_definitions(definitions):
     assert slurm_properties["options"]["items"]["type"] == "string"
 
 
-def test_settings():
+def test_settings_schema():
 
     settings_schema = os.path.join(root, "settings", "settings.schema.json")
     # check if file exists
@@ -152,6 +152,12 @@ def test_settings():
     check_fields(recipe)
     check_properties(recipe["properties"])
     check_definitions(recipe["definitions"])
+
+
+def test_settings_examples():
+    settings_schema = os.path.join(root, "settings", "settings.schema.json")
+    # load schema and ensure type is a dict
+    recipe = load_schema(settings_schema)
 
     valid_recipes = os.path.join(root, "settings", "valid")
     invalid_recipes = os.path.join(root, "settings", "invalid")

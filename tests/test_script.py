@@ -8,7 +8,7 @@ from jsonschema import validate
 from jsonschema.exceptions import ValidationError
 
 here = os.path.dirname(os.path.abspath(__file__))
-root = os.path.dirname(os.path.dirname(here))
+root = os.path.dirname(here)
 
 
 def load_schema(path):
@@ -62,7 +62,96 @@ def check_valid_recipes(recipes, valids, loaded, version):
             print("Testing %s from recipe %s should be valid" % (name, recipe))
 
 
-def test_script_schema(tmp_path):
+def test_script_schema():
+    """This test validates schema: script-v0.0.1.schema.json"""
+    repo_prefix = "https://buildtesters.github.io/schemas"
+    schema_name = "script"
+    schema = "script-v0.0.1.schema.json"
+    schema_file = os.path.join(root, schema_name, schema)
+    # ensure schema file exists
+    assert schema_file
+    loaded = load_recipe(schema_file)
+    # ensure load_recipe returns a dict object and not None
+    assert isinstance(loaded, dict)
+
+    # Checking schema fields
+    fields = [
+        "$id",
+        "$schema",
+        "title",
+        "type",
+        "propertyNames",
+        "properties",
+        "required",
+    ]
+    for field in fields:
+        assert field in loaded
+
+    # Check individual schema properties
+    assert loaded["$id"] == "%s/%s/%s" % (repo_prefix, schema_name, schema)
+    assert loaded["$schema"] == "http://json-schema.org/draft-07/schema#"
+    assert loaded["type"] == "object"
+    assert loaded["propertyNames"] == {"pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}
+    assert loaded["type"] == "object"
+    assert loaded["required"] == ["type", "run"]
+
+    # check all properties keys
+    found = [
+        "type",
+        "description",
+        "maintainers",
+        "env",
+        "executor",
+        "shell",
+        "run",
+        "status",
+    ]
+    print(f"Checking all keys: {found} in schema 'properties'")
+    properties = loaded["properties"]
+
+    for prop in found:
+        print("Checking for property %s in %s" % (prop, schema_file))
+        assert prop in properties
+
+    # check all properties that are string types
+    for section in ["type", "description", "shell", "shebang", "executor", "run"]:
+        assert properties[section]["type"] == "string"
+
+    # 'type' key takes a pattern string that must start and end with the word 'script'
+    assert properties["type"]["pattern"] == "^script$"
+
+    # check all properties that are object types
+    assert properties["env"]["type"] == "object"
+    assert properties["status"]["type"] == "object"
+
+    # check all properties that are array types
+    assert properties["maintainers"]["type"] == "array"
+
+    assert "pattern" in properties["shell"]
+    assert (
+        loaded["properties"]["shell"]["pattern"]
+        == "^(/bin/bash|/bin/sh|sh|bash|python).*"
+    )
+
+    # check status object
+    status_properties = properties["status"]["properties"]
+    assert "returncode" in status_properties
+    assert "regex" in status_properties
+    # regex has required fields for stream and exp, both must be defined
+    assert "required" in status_properties["regex"]
+    # check type for returncode and regex key
+    assert status_properties["returncode"]["type"] == "integer"
+    assert status_properties["regex"]["type"] == "object"
+
+    status_regex_properties = status_properties["regex"]["properties"]
+    # check for key 'stream' and 'exp' in regex object
+    # check type for 'stream' and 'exp' key in regex object
+    for item in ["stream", "exp"]:
+        assert item in status_regex_properties
+        assert status_regex_properties[item]["type"] == "string"
+
+
+def test_script_examples(tmp_path):
     """the script test_organization is responsible for all the schemas
        in the root of the repository, under <schema>/examples.
        A schema specific test is intended to run tests that
