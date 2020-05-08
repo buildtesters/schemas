@@ -16,14 +16,6 @@
       "type": "string",
       "description": "A description for the build recipe."
     },
-    "maintainers": {
-      "type": "array",
-      "description": "One or more maintainers or aliases",
-      "minItems": 1,
-      "items": {
-        "type": "string"
-      }
-    },
     "env": {
       "type": "object",
       "description": "One or more key value pairs for an environment (key=value)",

@@ -23,7 +23,6 @@ table below is represented in the schema file.
 | ---- | ----------- | ---- | ------------------- | ----------------- | -------- |
 | type | the type (must be script) | string | true | true | |
 | description | a description of the build | string | true | false | |
-| maintainers | a list of one or more maintainers | array | true | false | |
 | env | an object (dict) of custom environment variables | object with objects | true | false |  |
 | shell | shell interpreter to use for run section | string | true | false | bash |
 | run | main script to run | string | true | true | |
