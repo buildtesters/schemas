@@ -16,12 +16,6 @@ missing_run_key:
       systemctl is-active slurmd
       systemctl is-enabled slurmd | grep enabled
 
-invalid_maintainer:
-  type: script
-  description: maintainer value should be a list not a string
-  maintainers: "I should be a list"
-  run: hostname
-
 invalid_env_type:
   type: script
   description: env key should be a dictionary

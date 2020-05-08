@@ -42,6 +42,7 @@ def check_invalid_recipes(recipes, invalids, loaded, version):
         for name in content.keys():
             with pytest.raises(ValidationError) as excinfo:
                 validate(instance=content[name], schema=loaded)
+            print(excinfo.type, excinfo.value)
             print("Testing %s from recipe %s should be invalid" % (name, recipe))
 
 
@@ -99,7 +100,6 @@ def test_script_schema():
     found = [
         "type",
         "description",
-        "maintainers",
         "env",
         "executor",
         "shell",
@@ -123,9 +123,6 @@ def test_script_schema():
     # check all properties that are object types
     assert properties["env"]["type"] == "object"
     assert properties["status"]["type"] == "object"
-
-    # check all properties that are array types
-    assert properties["maintainers"]["type"] == "array"
 
     assert "pattern" in properties["shell"]
     assert (

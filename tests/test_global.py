@@ -32,11 +32,13 @@ def check_invalid_recipes(recipes, invalids, loaded):
     for recipe in recipes:
         assert recipe
         assert re.search("(yml|yaml)$", recipe)
+
         recipe_path = os.path.join(invalids, recipe)
         content = load_recipe(recipe_path)
 
         with pytest.raises(ValidationError) as excinfo:
             validate(instance=content, schema=loaded)
+        print(excinfo.type, excinfo.value)
         print("Recipe File: %s  should be invalid" % recipe_path)
 
 
@@ -94,9 +96,19 @@ def test_global_schema():
 
     # check properties
     properties = recipe["properties"]
-    assert "version" in properties
+    global_properties = ["version", "maintainers"]
+    for key in global_properties:
+        assert key in properties
+
+    # check version field
     assert "type" in properties["version"]
     assert properties["version"]["type"] == "string"
+
+    # check maintainers field
+    assert "type" in properties["maintainers"]
+    assert properties["maintainers"]["type"] == "array"
+    assert "minItems" in properties["maintainers"]
+    assert properties["maintainers"]["minItems"] == 1
 
     # check patternProperties
     assert "type" in recipe["patternProperties"]["^[A-Za-z_.][A-Za-z0-9_]*$"]

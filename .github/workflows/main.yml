@@ -22,7 +22,7 @@ jobs:
           source activate schemas
           black --check .
 
-      - name: Test schamas
+      - name: Test schemas
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
           source activate schemas

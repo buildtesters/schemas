@@ -41,6 +41,7 @@ def check_invalid_recipes(recipes, invalids, loaded, version):
         for name in content.keys():
             with pytest.raises(ValidationError) as excinfo:
                 validate(instance=content[name], schema=loaded)
+            print(excinfo.type, excinfo.value)
             print("Testing %s from recipe %s should be invalid" % (name, recipe))
 
 

@@ -65,13 +65,6 @@ declare_shebang:
   shebang: "#!/usr/bin/env bash"
   run: hostname
 
-declare_maintainer:
-  type: script
-  description: assign maintainer to test
-  maintainer:
-    - shahzebsiddiqui
-  run: echo hello world
-
 status_returncode:
   type: script
   description: This test pass because using a valid return code
