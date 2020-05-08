@@ -9,6 +9,11 @@ from jsonschema.exceptions import ValidationError
 here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(here)
 
+schema = "compiler-v0.0.1.schema.json"
+schema_name = "compiler"
+schema_dir = os.path.join(root, schema_name)
+schema_file = os.path.join(schema_dir, schema)
+
 
 def load_schema(path):
     """load a schema from file. We assume a json file
@@ -62,13 +67,104 @@ def check_valid_recipes(recipes, valids, loaded, version):
             print("Testing %s from recipe %s should be valid" % (name, recipe))
 
 
-def test_compiler_schema_examples():
-    schema = "compiler-v0.0.1.schema.json"
-    schema_name = "compiler"
-    print(root)
-    schema_dir = os.path.join(root, schema_name)
-    schema_file = os.path.join(schema_dir, schema)
+def test_compiler_schema():
+
     assert schema_file
+    recipe = load_recipe(schema_file)
+    assert isinstance(recipe, dict)
+
+    fields = [
+        "$id",
+        "$schema",
+        "title",
+        "type",
+        "propertyNames",
+        "properties",
+        "additionalProperties",
+        "required",
+        "definitions",
+    ]
+    for field in fields:
+        assert field in recipe
+
+    assert (
+        recipe["$id"]
+        == "https://buildtesters.github.io/schemas/compiler/compiler-v0.0.1.schema.json"
+    )
+    assert recipe["$schema"] == "http://json-schema.org/draft-07/schema#"
+    assert recipe["type"] == "object"
+    assert recipe["required"] == ["type", "compiler"]
+    assert "pattern" in recipe["propertyNames"]
+    assert recipe["propertyNames"]["pattern"] == "^[A-Za-z_][A-Za-z0-9_]*$"
+    assert recipe["additionalProperties"] == False
+
+    properties = recipe["properties"]
+    properties_keys = ["type", "description", "module", "compiler"]
+    # check all keys in properties
+    for key in properties_keys:
+        assert key in properties
+
+    # check type and description key and type
+    for key in ["type", "description"]:
+        assert "type" in properties
+        assert properties[key]["type"] == "string"
+
+    # check 'pattern' attribute in type key
+    assert "pattern" in properties["type"]
+    assert properties["type"]["pattern"] == "^compiler$"
+
+    # check module key
+    assert "type" in properties["module"]
+    assert properties["module"]["type"] == "array"
+    assert "items" in properties["module"]
+    assert "type" in properties["module"]["items"]
+    assert properties["module"]["items"]["type"] == "string"
+
+    # check compiler key
+    for key in ["type", "properties", "oneOf", "additionalProperties"]:
+        assert key in properties["compiler"]
+
+    assert properties["compiler"]["type"] == "object"
+    assert properties["compiler"]["additionalProperties"] == False
+
+    # check compiler properties
+    compiler_properties = properties["compiler"]["properties"]
+    assert "source" in compiler_properties
+    assert "type" in compiler_properties["source"]
+    assert compiler_properties["source"]["type"] == "string"
+
+    # check gnu and intel attribute in compiler properties
+    for key in ["gnu", "intel"]:
+        assert key in compiler_properties
+        assert "$ref" in compiler_properties[key]
+        assert compiler_properties[key]["$ref"] == "#/definitions/compiler"
+
+    # check oneOf attribute in compiler
+    assert properties["compiler"]["oneOf"]
+    assert "required" in properties["compiler"]["oneOf"][0]
+    assert "required" in properties["compiler"]["oneOf"][1]
+    assert properties["compiler"]["oneOf"][0]["required"] == ["source", "gnu"]
+    assert properties["compiler"]["oneOf"][1]["required"] == ["source", "intel"]
+
+    # check definition
+    assert "compiler" in recipe["definitions"]
+
+    # compiler definition check
+    compiler_definition = recipe["definitions"]["compiler"]
+    assert "type" in compiler_definition
+    assert compiler_definition["type"] == "object"
+    assert "properties" in compiler_definition
+    assert "cflags" in compiler_definition["properties"]
+    assert "type" in compiler_definition["properties"]["cflags"]
+    assert compiler_definition["properties"]["cflags"]["type"] == "string"
+    assert "ldflags" in compiler_definition["properties"]
+    assert "type" in compiler_definition["properties"]["ldflags"]
+    assert compiler_definition["properties"]["ldflags"]["type"] == "string"
+
+
+def test_compiler_schema_examples():
+
+    print(root)
 
     loaded = load_recipe(schema_file)
     assert isinstance(loaded, dict)

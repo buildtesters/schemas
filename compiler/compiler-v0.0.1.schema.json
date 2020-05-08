@@ -17,7 +17,8 @@
       "type": "string"
     },
     "module": {
-      "type": "array"
+      "type": "array",
+      "items": { "type": "string" }
     },
     "compiler": {
       "type": "object",

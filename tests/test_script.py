@@ -75,7 +75,6 @@ def test_script_schema():
     # ensure load_recipe returns a dict object and not None
     assert isinstance(loaded, dict)
 
-    # Checking schema fields
     fields = [
         "$id",
         "$schema",
@@ -87,6 +86,7 @@ def test_script_schema():
     ]
     for field in fields:
         assert field in loaded
+    # Checking schema fields
 
     # Check individual schema properties
     assert loaded["$id"] == "%s/%s/%s" % (repo_prefix, schema_name, schema)

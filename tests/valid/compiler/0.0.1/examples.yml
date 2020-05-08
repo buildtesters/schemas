@@ -12,8 +12,8 @@ hello_world_gnu:
 hello_world_intel:
   type: compiler
   module:
-   -  "module purge &&  module load intel/17"
-   -  "module purge &&  module load intel/18"
+    -  "module purge &&  module load intel/17"
+    -  "module purge &&  module load intel/18"
   compiler:
     source: src/hello.c
     intel:

@@ -48,6 +48,17 @@ invalid_type_module:
     gnu:
       cflags: -O1
 
+module_mismatch_array_items:
+  type: compiler
+  description: "The module is an array of string items, this test as a mix of numbers and string"
+  module:
+    - 1
+    - "module purge && module load gcc/4.0"
+  compiler:
+    source: src/hello.c
+    gnu:
+      cflags: -O1
+
 missing_source_in_compiler:
   type: compiler
   description: "missing source key in compiler object"
