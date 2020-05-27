@@ -7,8 +7,8 @@ missing_type:
    -  "module purge &&  module load intel/18"
   compiler:
     source: src/hello.c
-    intel:
-     cflags: -O1
+    name: intel
+    cflags: "-O1"
 
 missing_compiler:
   type: compiler
@@ -25,8 +25,8 @@ invalid_type_value:
      - "module purge && module load gcc/6.0"
   compiler:
     source: src/hello.c
-    gnu:
-      cflags: -O1
+    name: gnu
+    cflags: "-O1"
 
 invalid_description_value:
   type: compiler
@@ -36,8 +36,8 @@ invalid_description_value:
      - "module purge && module load gcc/6.0"
   compiler:
     source: src/hello.c
-    gnu:
-      cflags: -O1
+    name: gnu
+    cflags: "-O1"
 
 invalid_type_module:
   type: compiler
@@ -45,19 +45,19 @@ invalid_type_module:
   module: "module purge && module load gcc/4.0"
   compiler:
     source: src/hello.c
-    gnu:
-      cflags: -O1
+    name: gnu
+    cflags: "-O1"
 
 module_mismatch_array_items:
   type: compiler
   description: "The module is an array of string items, this test as a mix of numbers and string"
   module:
     - 1
-    - "module purge && module load gcc/4.0"
+    - "module purge && module load intel"
   compiler:
     source: src/hello.c
-    gnu:
-      cflags: -O1
+    name: intel
+    cflags: "-O1"
 
 missing_source_in_compiler:
   type: compiler
@@ -65,32 +65,29 @@ missing_source_in_compiler:
   module:
   - "module purge && module load gcc/4.0"
   compiler:
-    gnu:
-      cflags: -O1
+    name: gnu
+    cflags: "-O1"
 
 missing_a_compilername_in_compiler:
   type: compiler
-  description: "missing key 'gnu' or 'intel' in compiler object"
+  description: "missing name key in compiler object"
   module:
   - "module purge && module load gcc/4.0"
   compiler:
     source: src/hello.c
 
-
-compiler_required_mismatch:
+compiler_name_type_mismatch:
   type: compiler
-  description: "this test checks required in compiler object we can't specify multiple compiler in same compiler instance"
+  description: "compiler 'name' expects a string but received a list"
   foo: bar
   module:
   - "module purge && module load gcc/4.0"
   compiler:
     source: src/hello.c
-    gnu:
-      cflags: -O1
-      ldflags: -lm
-    intel:
-      cflags: -O1
-      ldflags: -lm
+    name: ["gnu", "intel"]
+    cflags: "-O1"
+    ldflags: "-lm"
+
 
 test_additionalProperties_compiler:
   type: compiler
@@ -100,9 +97,9 @@ test_additionalProperties_compiler:
   compiler:
     source: src/hello.c
     foo: bar
-    gnu:
-      cflags: -O1
-      ldflags: -lm
+    name: gnu
+    cflags: "-O1"
+    ldflags: "-lm"
 
 test_additionalProperties_main_schema:
   type: compiler
@@ -112,6 +109,18 @@ test_additionalProperties_main_schema:
   - "module purge && module load gcc/4.0"
   compiler:
     source: src/hello.c
-    gnu:
-      cflags: -O1
-      ldflags: -lm
+    name: gnu
+    cflags: "-O1"
+    ldflags: "-lm"
+
+type_mismatch_exec_args:
+  type: compiler
+  description: "type mismatch on exec_args key"
+  module:
+  - "module purge && module load gcc/4.0"
+  compiler:
+    source: src/hello.c
+    name: gnu
+    cflags: "-O1"
+    ldflags: "-lm"
+    exec_args: 1

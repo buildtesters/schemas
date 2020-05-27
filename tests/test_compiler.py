@@ -82,7 +82,6 @@ def test_compiler_schema():
         "properties",
         "additionalProperties",
         "required",
-        "definitions",
     ]
     for field in fields:
         assert field in recipe
@@ -120,46 +119,34 @@ def test_compiler_schema():
     assert "type" in properties["module"]["items"]
     assert properties["module"]["items"]["type"] == "string"
 
+    compiler_keys = ["type", "properties", "required", "additionalProperties"]
+
     # check compiler key
-    for key in ["type", "properties", "oneOf", "additionalProperties"]:
+    for key in compiler_keys:
         assert key in properties["compiler"]
 
     assert properties["compiler"]["type"] == "object"
     assert properties["compiler"]["additionalProperties"] == False
-
     # check compiler properties
+    assert properties["compiler"]["required"] == ["source", "name"]
+
+    string_compiler_keys = [
+        "name",
+        "source",
+        "exec_args",
+        "cflags",
+        "cxxflags",
+        "fflags",
+        "cppflags",
+        "ldflags",
+    ]
     compiler_properties = properties["compiler"]["properties"]
-    assert "source" in compiler_properties
-    assert "type" in compiler_properties["source"]
-    assert compiler_properties["source"]["type"] == "string"
+    for key in string_compiler_keys:
+        assert "type" in compiler_properties[key]
+        assert compiler_properties[key]["type"] == "string"
 
-    # check gnu and intel attribute in compiler properties
-    for key in ["gnu", "intel"]:
-        assert key in compiler_properties
-        assert "$ref" in compiler_properties[key]
-        assert compiler_properties[key]["$ref"] == "#/definitions/compiler"
-
-    # check oneOf attribute in compiler
-    assert properties["compiler"]["oneOf"]
-    assert "required" in properties["compiler"]["oneOf"][0]
-    assert "required" in properties["compiler"]["oneOf"][1]
-    assert properties["compiler"]["oneOf"][0]["required"] == ["source", "gnu"]
-    assert properties["compiler"]["oneOf"][1]["required"] == ["source", "intel"]
-
-    # check definition
-    assert "compiler" in recipe["definitions"]
-
-    # compiler definition check
-    compiler_definition = recipe["definitions"]["compiler"]
-    assert "type" in compiler_definition
-    assert compiler_definition["type"] == "object"
-    assert "properties" in compiler_definition
-    assert "cflags" in compiler_definition["properties"]
-    assert "type" in compiler_definition["properties"]["cflags"]
-    assert compiler_definition["properties"]["cflags"]["type"] == "string"
-    assert "ldflags" in compiler_definition["properties"]
-    assert "type" in compiler_definition["properties"]["ldflags"]
-    assert compiler_definition["properties"]["ldflags"]["type"] == "string"
+    "enum" in compiler_properties["name"]
+    compiler_properties["name"]["enum"] == ["gnu", "intel", "pgi", "cray"]
 
 
 def test_compiler_schema_examples():

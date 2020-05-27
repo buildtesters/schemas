@@ -23,24 +23,20 @@
     "compiler": {
       "type": "object",
       "properties": {
+        "name": {
+          "type": "string",
+          "enum": ["gnu", "intel", "pgi", "cray"]
+        },
         "source": { "type": "string" },
-        "gnu": { "$ref": "#/definitions/compiler" },
-        "intel": { "$ref": "#/definitions/compiler" }
-      },
-      "oneOf": [
-        { "required": ["source","gnu"] },
-        { "required": ["source","intel"] }
-      ],
-      "additionalProperties": false
-    }
-  },
-  "definitions": {
-    "compiler": {
-      "type": "object",
-      "properties": {
+        "exec_args": {"type": "string"},
         "cflags": {"type":  "string"},
+        "cxxflags": {"type":  "string"},
+        "fflags": {"type":  "string"},
+        "cppflags": {"type":  "string"},
         "ldflags": {"type": "string"}
-      }
+      },
+      "required": ["source", "name"],
+      "additionalProperties": false
     }
   }
 }
