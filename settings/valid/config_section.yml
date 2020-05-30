@@ -1,0 +1,10 @@
+editor: vi
+executors:
+  default:
+    type: local
+    description: submit jobs on local machine
+config:
+  paths:
+    clonepath: /tmp/buildtest/repos
+    searchpath: "/tmp/buildtest/repos:/home"
+    testdir: /tmp/buildtest/test

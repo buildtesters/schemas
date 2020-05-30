@@ -1,0 +1,10 @@
+editor: vi
+executors:
+  default:
+    type: local
+    description: submit jobs on local machine
+config:
+  path:
+    clonepath: /tmp
+    searchpath: /tmp
+  FOO: 1

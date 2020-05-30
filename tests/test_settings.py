@@ -51,6 +51,11 @@ def check_fields(recipe):
 
 
 def check_properties(properties):
+
+    # check additionalProperties in properties
+    assert "additionalProperties" in properties
+    assert properties["additionalProperties"] == False
+
     # -------------------- check 'editor' key ------------------------------
     assert "editor" in properties
     assert "type" in properties["editor"]
@@ -64,9 +69,28 @@ def check_properties(properties):
     assert "patternProperties" in properties["executors"]
     assert "anyOf" in properties["executors"]["patternProperties"]["^.*$"]
 
-    # check additionalProperties in properties
-    assert "additionalProperties" in properties
-    assert properties["additionalProperties"] == False
+    # check config property
+    assert "config" in properties
+    config_section = properties["config"]
+    assert "type" in config_section
+    assert config_section["type"] == "object"
+    assert "additionalProperties" in config_section
+    assert config_section["additionalProperties"] == False
+
+    assert "properties" in config_section
+    config_properties = config_section["properties"]
+
+    assert "paths" in config_properties
+    config_path_properties = config_properties["paths"]
+    assert "type" in config_path_properties
+    assert config_path_properties["type"] == "object"
+
+    "properties" in config_path_properties
+
+    for key in ["searchpath", "clonepath", "testdir"]:
+        assert key in config_path_properties["properties"]
+        assert "type" in config_path_properties["properties"][key]
+        assert config_path_properties["properties"][key]["type"] == "string"
 
 
 def check_definitions(definitions):
@@ -172,7 +196,7 @@ def test_settings_examples():
         print(f"Expecting Recipe File: {filepath} to be valid")
         validate(instance=example_recipe, schema=recipe)
 
-    # check all valid recipes
+    # check all invalid recipes
     for example in os.listdir(invalid_recipes):
         filepath = os.path.join(invalid_recipes, example)
         print(f"Loading Recipe File: {filepath}")
@@ -182,3 +206,4 @@ def test_settings_examples():
         print(f"Expecting Recipe File: {filepath} to be invalid")
         with pytest.raises(ValidationError) as excinfo:
             validate(instance=example_recipe, schema=recipe)
+        print(excinfo.type, excinfo.value)
