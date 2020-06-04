@@ -10,6 +10,8 @@ Currently we support the following schemas which are in development:
 - [compiler](compiler): this schema is used for compiling programs with compilers such as GNU, Intel, PGI, etc...
 - [settings](settings): This schema defines the content of buildtest settings file to configure buildtest.
 
+The buildtest schema can be found at https://buildtesters.github.io/schemas/
+
 ## What is a schema?
 
 A schema defines the structure of how to write and validate a JSON file. Since,
@@ -27,7 +29,7 @@ of a schema.
  - [json-schema.org](https://json-schema.org/)
  - [json schema readthedocs](https://python-jsonschema.readthedocs.io/en/stable/)
  
-If you have issues with writing json schema please join the slack channel at http://json-schema.slack.com
+If you have issues with writing json schema please join the [JSON-SCHEMA Slack Channel](http://json-schema.slack.com)
  
 ## How are schemas defined in buildtest?
 
@@ -41,7 +43,7 @@ script-v1.0.schema.json
 
 The format is `<name>-vX.Y.schema.json`
 
-These schemas are also stored in buildtest at https://github.com/buildtesters/buildtest/tree/devel/buildtest/buildsystem/schemas 
+These schemas are also stored in buildtest [here](https://github.com/buildtesters/buildtest/tree/devel/buildtest/buildsystem/schemas)
 
 
 ## How is this repository organized?
@@ -65,7 +67,7 @@ If you want to make a new schema to add to buildtest:
  2. the folder can optionally have a README.md where you keep notes about the specification design.
  3. the folder should have a subfolder called "examples" and a subfolder for each version of the recipe
  4. ensure that the name of the schema is in the format (e.g., `script-v1.0.schema.json`)
- 5. you should add one or more valid examples to each version folder, for instance script 1.0 valid examples are under examples (e.g., `tests/valid/script/1.0/example.yml`). 
+ 5. you should add one or more valid examples to each version folder, for instance script 1.0 valid examples are under examples (e.g., `tests/valid/script/1.0/`). 
  6. you should add one or more invalid examples for example script 1.0 invalid examples are at `tests/invalid/script/1.0`
  7. Finally add regression test to validate schema definition and run a set of valid, invalid tests until all checks are passed and you are comfortable with schema design then issue a PR. 
  
