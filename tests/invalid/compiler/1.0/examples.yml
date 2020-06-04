@@ -1,4 +1,4 @@
-version: 0.0.1
+version: "1.0"
 
 missing_type:
   description: "type key is missing, this is a required field"

@@ -9,6 +9,10 @@ from jsonschema.exceptions import ValidationError
 here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(here)
 
+schema_name = "global"
+schema_file = f"{schema_name}.schema.json"
+schema_path = os.path.join(root, schema_name, schema_file)
+
 
 def load_schema(path):
     """load a schema from file. We assume a json file
@@ -91,49 +95,44 @@ def test_global_schema():
     assert recipe["required"] == ["version"]
 
     # check propertyNames
-    assert "pattern" in recipe["propertyNames"]
     assert recipe["propertyNames"]["pattern"] == "^[A-Za-z_][A-Za-z0-9_]*$"
 
     # check properties
     properties = recipe["properties"]
-    global_properties = ["version", "maintainers"]
-    for key in global_properties:
-        assert key in properties
 
     # check version field
-    assert "type" in properties["version"]
     assert properties["version"]["type"] == "string"
 
     # check maintainers field
-    assert "type" in properties["maintainers"]
     assert properties["maintainers"]["type"] == "array"
-    assert "minItems" in properties["maintainers"]
     assert properties["maintainers"]["minItems"] == 1
+    assert properties["maintainers"]["items"]["type"] == "string"
 
     # check patternProperties
-    assert "type" in recipe["patternProperties"]["^[A-Za-z_.][A-Za-z0-9_]*$"]
+
     assert recipe["patternProperties"]["^[A-Za-z_.][A-Za-z0-9_]*$"]["type"] == [
         "object",
         "string",
     ]
 
 
-def test_global_schema_examples():
+def test_global_examples():
     """This validates all valid/invalid examples for global schema"""
-    global_schema_file = os.path.join(root, "global", "global.schema.json")
-    loaded = load_schema(global_schema_file)
 
-    invalid_dir = os.path.abspath(os.path.join(here, "invalid", "global"))
-    valid_dir = os.path.abspath(os.path.join(here, "valid", "global"))
+    loaded = load_schema(schema_path)
+    assert isinstance(loaded, dict)
+
+    invalid_dir = os.path.abspath(os.path.join(here, "invalid", schema_name))
+    valid_dir = os.path.abspath(os.path.join(here, "valid", schema_name))
+
+    assert invalid_dir
+    assert valid_dir
 
     invalid_recipes = os.listdir(invalid_dir)
     valid_recipes = os.listdir(valid_dir)
 
     assert invalid_recipes
     assert valid_recipes
-    assert invalid_dir
-    assert valid_dir
-    assert loaded
 
     print(f"Detected Invalid Global Directory: {invalid_dir}")
     print(f"Detected Valid Global Directory: {valid_dir}")

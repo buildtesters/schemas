@@ -11,6 +11,11 @@ here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(here)
 
 
+schema_name = "script"
+schema_file = f"{schema_name}-v1.0.schema.json"
+schema_path = os.path.join(root, schema_name, schema_file)
+
+
 def load_schema(path):
     """load a schema from file. We assume a json file
     """
@@ -64,14 +69,11 @@ def check_valid_recipes(recipes, valids, loaded, version):
 
 
 def test_script_schema():
-    """This test validates schema: script-v0.0.1.schema.json"""
-    repo_prefix = "https://buildtesters.github.io/schemas"
-    schema_name = "script"
-    schema = "script-v0.0.1.schema.json"
-    schema_file = os.path.join(root, schema_name, schema)
+    """This test validates schema: script-v1.0.schema.json"""
+
     # ensure schema file exists
     assert schema_file
-    loaded = load_recipe(schema_file)
+    loaded = load_schema(schema_path)
     # ensure load_recipe returns a dict object and not None
     assert isinstance(loaded, dict)
 
@@ -86,66 +88,49 @@ def test_script_schema():
     ]
     for field in fields:
         assert field in loaded
-    # Checking schema fields
 
     # Check individual schema properties
-    assert loaded["$id"] == "%s/%s/%s" % (repo_prefix, schema_name, schema)
+    assert (
+        loaded["$id"]
+        == "https://buildtesters.github.io/schemas/script/script-v1.0.schema.json"
+    )
     assert loaded["$schema"] == "http://json-schema.org/draft-07/schema#"
     assert loaded["type"] == "object"
     assert loaded["propertyNames"] == {"pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}
     assert loaded["type"] == "object"
     assert loaded["required"] == ["type", "run"]
 
-    # check all properties keys
-    found = [
-        "type",
-        "description",
-        "env",
-        "executor",
-        "shell",
-        "run",
-        "status",
-    ]
-    print(f"Checking all keys: {found} in schema 'properties'")
     properties = loaded["properties"]
-
-    for prop in found:
-        print("Checking for property %s in %s" % (prop, schema_file))
-        assert prop in properties
 
     # check all properties that are string types
     for section in ["type", "description", "shell", "shebang", "executor", "run"]:
         assert properties[section]["type"] == "string"
 
-    # 'type' key takes a pattern string that must start and end with the word 'script'
     assert properties["type"]["pattern"] == "^script$"
 
-    # check all properties that are object types
+    # check env object
     assert properties["env"]["type"] == "object"
-    assert properties["status"]["type"] == "object"
-
-    assert "pattern" in properties["shell"]
+    assert properties["env"]["minItems"] == 1
+    assert properties["env"]["items"]["type"] == "object"
     assert (
-        loaded["properties"]["shell"]["pattern"]
-        == "^(/bin/bash|/bin/sh|sh|bash|python).*"
+        properties["env"]["items"]["propertyNames"]["pattern"]
+        == "^[A-Za-z_][A-Za-z0-9_]*$"
     )
 
+    assert properties["shell"]["pattern"] == "^(/bin/bash|/bin/sh|sh|bash|python).*"
+
     # check status object
+    assert properties["status"]["type"] == "object"
     status_properties = properties["status"]["properties"]
-    assert "returncode" in status_properties
-    assert "regex" in status_properties
-    # regex has required fields for stream and exp, both must be defined
-    assert "required" in status_properties["regex"]
-    # check type for returncode and regex key
     assert status_properties["returncode"]["type"] == "integer"
     assert status_properties["regex"]["type"] == "object"
 
-    status_regex_properties = status_properties["regex"]["properties"]
     # check for key 'stream' and 'exp' in regex object
-    # check type for 'stream' and 'exp' key in regex object
     for item in ["stream", "exp"]:
-        assert item in status_regex_properties
-        assert status_regex_properties[item]["type"] == "string"
+        assert item in status_properties["regex"]["properties"]
+        assert status_properties["regex"]["properties"][item]["type"] == "string"
+
+    status_properties["regex"]["properties"]["stream"]["enum"] == ["stdout", "stderr"]
 
 
 def test_script_examples(tmp_path):
@@ -156,43 +141,36 @@ def test_script_examples(tmp_path):
        folder. Invalid examples should be under ./invalid/script.
     """
     print("Root of testing is %s" % root)
+    print("Testing schema %s" % schema_file)
+    print("schema_path:", schema_path)
+    loaded = load_schema(schema_path)
+    assert isinstance(loaded, dict)
 
-    schema_name = "script"
-    schema_dir = os.path.abspath(os.path.join(root, schema_name))
-    print("Testing schema %s" % schema_name)
+    # Assert is named correctly
+    print("Getting version of %s" % schema_file)
+    match = re.search(
+        "%s-v(?P<version>[0-9]{1}[.][0-9]{1})[.]schema[.]json" % schema_name,
+        schema_file,
+    )
+    assert match
 
-    schemas = os.listdir(schema_dir)
-    for schema in schemas:
-        if schema.endswith("json"):
+    # Ensure we found a version
+    assert match.groups()
+    version = match["version"]
 
-            # Assert it loads with jsonschema
-            schema_file = os.path.join(schema_dir, schema)
-            loaded = load_schema(schema_file)
+    # Ensure a version folder exists with invalids
+    print("Checking that invalids exist for %s" % schema_file)
+    invalids = os.path.join(here, "invalid", schema_name, version)
+    valids = os.path.join(here, "valid", schema_name, version)
 
-            # Assert is named correctly
-            print("Getting version of %s" % schema)
-            match = re.search(
-                "%s-v(?P<version>[0-9]{1}[.][0-9]{1}[.][0-9]{1})[.]schema[.]json"
-                % schema_name,
-                schema,
-            )
-            assert match
+    assert invalids
+    assert valids
 
-            # Ensure we found a version
-            assert match.groups()
-            version = match["version"]
+    invalid_recipes = os.listdir(invalids)
+    valid_recipes = os.listdir(valids)
 
-            # Ensure a version folder exists with invalids
-            print("Checking that invalids exist for %s" % schema)
-            invalids = os.path.join(here, "invalid", schema_name, version)
-            valids = os.path.join(here, "valid", schema_name, version)
+    assert invalid_recipes
+    assert valid_recipes
 
-            assert os.path.exists(invalids)
-            invalid_recipes = os.listdir(invalids)
-            valid_recipes = os.listdir(valids)
-
-            assert invalid_recipes
-            assert valid_recipes
-
-            check_valid_recipes(valid_recipes, valids, loaded, version)
-            check_invalid_recipes(invalid_recipes, invalids, loaded, version)
+    check_valid_recipes(valid_recipes, valids, loaded, version)
+    check_invalid_recipes(invalid_recipes, invalids, loaded, version)

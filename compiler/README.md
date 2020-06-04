@@ -2,34 +2,38 @@
 
 The compiler schema is used by buildtest to compile source files into an 
 executable. The schema supports multiple compilers, while only one can be 
-selected at a time using the `name` key. This schema is under development 
+selected at a time using the `name` key. This schema is in development 
 and subject to change.
 
-# Version: 0.0.1
+The compiler schema is available at https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json
 
-The compiler schema is available at https://buildtesters.github.io/schemas/compiler/compiler-v0.0.1.schema.json
+## State: In Development
 
-## Global Properties
+## Main Keys
 
-| Name | Type | Description | Required for User | Default |
-| ---- | ----- | ----------- | -------------------|  -------- |
-| type | string | The schema type must be `compiler` | True |  |
-| description | string | A brief description of the test | False | |
-| module | array | A list of modules to inject into test | False | |
-| compiler | object | Define compiler setting |  True | |
+| Name | Type | Supported in Buildtest | Description | 
+| ---- | ---- | ---------------------- | ----------- |
+| type | string | YES | The schema type must be `compiler` | 
+| description | string | YES | A brief description of the test | 
+| module | array | YES | A list of modules to inject into test | 
+| compiler | object | YES | Define compiler setting to compile a script |  
 
-## Compiler Properties
+Required Keys: [`type`,`compiler`]
 
-| Name | Type |  Description |   Required for User | Default | Choices |
-| ---- | ----- | ----------- | -------------------|  -------- | ------ |
-| name | string | Select a compiler name, based on selection buildtest will detect the appropriate compiler wrapper | True | |  gnu, intel, pgi, cray |
-| source | string | Select a source file to compile, the file could be an absolute path or relative path from Buildspec | True | | |
-| exec_args | string | Pass arguments to compiled executable |  False | | |
-| cflags | string | Pass argument to C compiler |  False | | |
-| cxxflags | string | Pass arguments to C++ compiler |  False | | |
-| fflags | string | Pass arguments to Fortran compiler |  False | | |
-| cppflags | string | Set pre-processor directives | False | | |
-| ldflags | string | Pass linker options for dynamic linking | False | | |
+## Compiler Key
+
+| Name | Type | Supported in Buildtest | Description  |   
+| ---- | ---- | --------------------- | ------------ |  
+| name | string | YES | Select a compiler name, based on selection buildtest will detect the appropriate compiler wrapper. Valid options are `gnu`, `intel`, `pgi`, `cray` | 
+| source | string | YES | Select a source file to compile, the file could be an absolute path or relative path from Buildspec | 
+| exec_args | string | YES | Pass arguments to compiled executable | 
+| cflags | string | YES | Specify C compiler options |  
+| cxxflags | string | YES | Specify C++ compiler options |  
+| fflags | string | YES | Specify Fortran compiler options | 
+| cppflags | string | YES | Specify pre-processor options | 
+| ldflags | string | YES| Specify linker options for dynamic linking | 
+
+Required Keys: [`name`,`source`]
 
 
  

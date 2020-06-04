@@ -9,10 +9,9 @@ from jsonschema.exceptions import ValidationError
 here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(here)
 
-schema = "compiler-v0.0.1.schema.json"
 schema_name = "compiler"
-schema_dir = os.path.join(root, schema_name)
-schema_file = os.path.join(schema_dir, schema)
+schema_file = f"{schema_name}-v1.0.schema.json"
+schema_path = os.path.join(root, schema_name, schema_file)
 
 
 def load_schema(path):
@@ -69,8 +68,8 @@ def check_valid_recipes(recipes, valids, loaded, version):
 
 def test_compiler_schema():
 
-    assert schema_file
-    recipe = load_recipe(schema_file)
+    assert schema_path
+    recipe = load_recipe(schema_path)
     assert isinstance(recipe, dict)
 
     fields = [
@@ -88,49 +87,33 @@ def test_compiler_schema():
 
     assert (
         recipe["$id"]
-        == "https://buildtesters.github.io/schemas/compiler/compiler-v0.0.1.schema.json"
+        == "https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json"
     )
     assert recipe["$schema"] == "http://json-schema.org/draft-07/schema#"
     assert recipe["type"] == "object"
     assert recipe["required"] == ["type", "compiler"]
-    assert "pattern" in recipe["propertyNames"]
     assert recipe["propertyNames"]["pattern"] == "^[A-Za-z_][A-Za-z0-9_]*$"
     assert recipe["additionalProperties"] == False
 
     properties = recipe["properties"]
-    properties_keys = ["type", "description", "module", "compiler"]
-    # check all keys in properties
-    for key in properties_keys:
-        assert key in properties
 
     # check type and description key and type
     for key in ["type", "description"]:
-        assert "type" in properties
         assert properties[key]["type"] == "string"
 
-    # check 'pattern' attribute in type key
-    assert "pattern" in properties["type"]
     assert properties["type"]["pattern"] == "^compiler$"
 
     # check module key
-    assert "type" in properties["module"]
     assert properties["module"]["type"] == "array"
-    assert "items" in properties["module"]
-    assert "type" in properties["module"]["items"]
     assert properties["module"]["items"]["type"] == "string"
-
-    compiler_keys = ["type", "properties", "required", "additionalProperties"]
-
-    # check compiler key
-    for key in compiler_keys:
-        assert key in properties["compiler"]
 
     assert properties["compiler"]["type"] == "object"
     assert properties["compiler"]["additionalProperties"] == False
     # check compiler properties
     assert properties["compiler"]["required"] == ["source", "name"]
 
-    string_compiler_keys = [
+    compiler_properties = properties["compiler"]["properties"]
+    for key in [
         "name",
         "source",
         "exec_args",
@@ -139,13 +122,9 @@ def test_compiler_schema():
         "fflags",
         "cppflags",
         "ldflags",
-    ]
-    compiler_properties = properties["compiler"]["properties"]
-    for key in string_compiler_keys:
-        assert "type" in compiler_properties[key]
+    ]:
         assert compiler_properties[key]["type"] == "string"
 
-    "enum" in compiler_properties["name"]
     compiler_properties["name"]["enum"] == ["gnu", "intel", "pgi", "cray"]
 
 
@@ -153,15 +132,16 @@ def test_compiler_schema_examples():
 
     print(root)
 
-    loaded = load_recipe(schema_file)
+    loaded = load_schema(schema_path)
     assert isinstance(loaded, dict)
 
     # Assert is named correctly
-    print("Getting version of %s" % schema)
+    print("Getting version of %s" % schema_file)
     match = re.search(
-        "%s-v(?P<version>[0-9]{1}[.][0-9]{1}[.][0-9]{1})[.]schema[.]json" % schema_name,
-        schema,
+        "%s-v(?P<version>[0-9]{1}[.][0-9]{1})[.]schema[.]json" % schema_name,
+        schema_file,
     )
+    print(match)
     assert match
 
     # Ensure we found a version
@@ -176,6 +156,9 @@ def test_compiler_schema_examples():
 
     invalid_recipes = os.listdir(invalids)
     valid_recipes = os.listdir(valids)
+
+    assert invalid_recipes
+    assert valid_recipes
 
     check_invalid_recipes(invalid_recipes, invalids, loaded, version)
     check_valid_recipes(valid_recipes, valids, loaded, version)

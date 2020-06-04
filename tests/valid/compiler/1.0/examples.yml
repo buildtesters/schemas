@@ -1,4 +1,5 @@
-version: 0.0.1
+version: "1.0"
+
 gnu_example:
   type: compiler
   description: "gnu example using cflags, exec_args"

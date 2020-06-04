@@ -1,15 +1,16 @@
-# Buildtest Wrapper Schema
+# Buildtest Global Schema
 
-This schema is designed to run across Buildspec recipes, regardless of
-the underlying configuration test types that are represented. The general
-idea is that a testing file consists of a version plus one or more tests
-to run, each of which can correspond to a different type.
+The `global` schema specifies key/values that are shared across all Buildspec 
+schemas. The global schema is validated with all Buildspec recipes, these keys are
+defined at top most level.
 
-Currently, a Buildspec file must include a version, and we do this
-so that buildtest is very explicit about how the Buildspec files
-are passed.  If tests in one file
-require different versions, this will currently require creating
-a new file. It could be an option to add a version variable to a section
-to override the global version, however this is not yet implemented.
+## State: In Development
 
+# Keys
 
+| Name | Type | Supported in buildtest | Description | 
+| ---- | ---- | -----------------------| ----------- | 
+| version | string | YES | Select the version of schema to use with the key `type`. Currently `version: 1.0` is supported so if `type : script` then `script-v1.0.schema.json` will be used for validating buildspec | 
+| maintainers | array | YES | A list of maintainers to specify for a Buildspec. This is an array of `string` items where one can specify their name, email, or github handle. | 
+
+Required Keys: [`version`]

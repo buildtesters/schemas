@@ -1,29 +1,34 @@
 # Script
 
-This is the script specification folder for buildtest test configurations.
-Notes about sections of the schema are included here. The guide [here](https://cswr.github.io/JsonSchema/)
-is a good reference for learning about the schemas.
+This is the `script` schema used for `type: script` in Buildspec. This schema
+is used for writing shell script like content in a Buildspec.
 
-## Version 0.0.1
+The schema can be found at https://buildtesters.github.io/schemas/script/script-v1.0.schema.json
 
-This is currently under development.
-This line will work share the configuration, as the file will be deployed on GitHub pages.
+# Keys
 
-```
-"$id": "https://buildtesters.github.io/schemas/script/script-v0.0.1.schema.json",
-```
+| Name | Type | Supported in buildtest | Description | 
+| ---- | ---- | -----------------------| ----------- | 
+| type | string | YES | The type must be  `script`. This is used to validate Buildspec with script schema | 
+| description | string | YES | a description field to summarize the test | 
+| env | object | YES | an object (dict) of custom environment variables | 
+| shell | string | YES | shell interpreter to use for run section | 
+| run | string | YES | main script to run |
+| shebang | string | YES | specify shebang line for test script. This could be any value you like such as `#!/bin/bash`, `#!/bin/sh`, etc... |
+| executor | string | NO | name of executor to dispatch job defined in buildtest configuration |
+| status | object | YES | specify behavior of how test state will be determined, this could be checked via returncode or regular expression |  
 
-The fields `$id`, `$schema`, `$title`,  `$type` `required`, `propertyNames`,
-and `properties` are required (and tested for) higher level schema attributes.
-In the table below, we show properties defined under "properties". The
-table below is represented in the schema file.
+Required Keys: [ `type`, `run` ]
 
+# status key
+| Name | Type | Supported in buildtest | Description |
+| ---- | ---- | ---------------------- | ----------- |
+| returncode  | integer | YES | specify desired returncode for test to succeed. The returncode will be matched with returncode from test |
+| regex | object | YES | specify regular expression to check with output or error stream |
 
-| Name | Description | Type | Required for Schema | Required for User | Default |
-| ---- | ----------- | ---- | ------------------- | ----------------- | -------- |
-| type | the type (must be script) | string | true | true | |
-| description | a description of the build | string | true | false | |
-| env | an object (dict) of custom environment variables | object with objects | true | false |  |
-| shell | shell interpreter to use for run section | string | true | false | bash |
-| run | main script to run | string | true | true | |
-| executor | name of executor to dispatch job defined in buildtest configuration | string | true | false | |
+# status[regex] key
+| Name | Type | Supported in buildtest | Description |
+| ---- | ---- | ---------------------- | ----------- |
+| stream  | string | YES | Select stream to run regular expression check. Stream can be one of the two: [`stdout`, `stderr`] for test to succeed. |
+| exp | string | YES | Specify regular expression to run with the specified stream. The expression is run internally via `re.search` and if there is a match test will pass. |
+ 

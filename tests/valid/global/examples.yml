@@ -1,4 +1,4 @@
-version: 0.0.1
+version: "1.0"
 # regex pattern: "^[A-Za-z_.][A-Za-z0-9_]*$"
 
 # testing all caps
