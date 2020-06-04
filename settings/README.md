@@ -17,6 +17,7 @@ This schema can be found at https://buildtesters.github.io/schemas/settings/sett
 Required Keys: [`executors`,`config`]
 
 # executors Key
+
 | Name | Type | Supported in buildtest | Description | 
 | ---- | ---- | -----------------------| ----------- | 
 | local | object | YES | Define a list of local executors. These executors can be used in Buildspec to run jobs locally. |
@@ -24,6 +25,7 @@ Required Keys: [`executors`,`config`]
 | slurm | object | NO | Define a list of slurm executors. These executors can be used in Buildspec to run jobs via Slurm scheduler | 
 
 # executors[local] Key
+
 | Name | Type | Supported in buildtest | Description | 
 | ---- | ---- | -----------------------| ----------- | 
 | description | string | YES | Specify description field for executor |
@@ -34,6 +36,7 @@ Required Keys: [`executors`,`config`]
 | modules | array | NO | Specify a list of modules to load for all Buildspec associated to local executor |
 
 # executors[slurm] Key
+
 | Name | Type | Supported in buildtest | Description | 
 | ---- | ---- | -----------------------| ----------- | 
 | description | string | YES | Specify description field for executor |
@@ -46,6 +49,7 @@ Required Keys: [`executors`,`config`]
 Required Keys: [`launcher`]
 
 # executors[ssh] Key
+
 | Name | Type | Supported in buildtest | Description | 
 | ---- | ---- | -----------------------| ----------- | 
 | description | string | YES | Specify description field for executor |
@@ -60,12 +64,14 @@ Required Keys: [`launcher`]
 required: [`host`,`user`,`identity_file`]
 
 # config Key
+
 | Name | Type | Supported in buildtest | Description | 
 | ---- | ---- | -----------------------| ----------- | 
 | editor | string | YES | Specify editor to use when opening files. Valid values are `vi`,`vim`,`nano`,`emacs`. Defaults to `vim` if none specified|
 | paths | string | YES | Specify path configuration for buildtest settings  |
 
 # config[paths] Key
+
 | Name | Type | Supported in buildtest | Description | 
 | ---- | ---- | -----------------------| ----------- | 
 | prefix | string | NO | Specify prefix path where buildtest will write all path settings. If keys `clonepath`, `logdir`, `testdir` are not specified, then `prefix` will be used to build the path. |
