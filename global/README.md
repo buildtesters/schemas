@@ -14,3 +14,22 @@ defined at top most level.
 | maintainers | array | YES | A list of maintainers to specify for a Buildspec. This is an array of `string` items where one can specify their name, email, or github handle. | 
 
 Required Keys: [`version`]
+
+
+## Example
+
+```yaml
+version: 1.0
+hello_ex1:
+  type: script
+  description: "hello world example"
+  shell: "echo hello"
+maintainers: 
+   - "@vsoch"
+```
+
+Note that the outer structure contains the `version` and `maintainers` field, these
+are validated by the [global](global) schema. The contents of the section `hello_ex1`
+are of type `script`, and thus are tested by the [script](script) schema.
+The above would say to use version 1.0 of the script schema to run the test.
+

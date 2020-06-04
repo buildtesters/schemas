@@ -1,132 +1,58 @@
 # Buildtest Schema
 
-The currently (under development) types of schemas include:
+This repository contains the schemas used by buildtest. The development of schema
+is done independent of the framework. 
 
- - [script](script): a single executable or multiple lines to be run as a test
- - [global](global): includes a simple global schema that is not expected to change frequently. This mandates that every recipe is a yaml file with a version and one or more named subsections.
+Currently we support the following schemas which are in development:
+
+- [global](global): global schema defines values that are global to all schema files and it is validated with all Buildspecs.
+- [script](script): a single executable or multiple lines to be run as a test
+- [compiler](compiler): this schema is used for compiling programs with compilers such as GNU, Intel, PGI, etc...
+- [settings](settings): This schema defines the content of buildtest settings file to configure buildtest.
 
 ## What is a schema?
 
-A schema is the structure of a testing configuration (yaml) file that can
-be used to drive one or more tests. The schemas themselves are represented in
-json, and this is because we use [jsonschema](https://json-schema.org/learn/miscellaneous-examples.html)
-and yaml is read in to Python as json as well. Each schema corresponds to a specific
-kind of test, and the names should be somewhat intuitive. For example, if we want to run
-a simple bash command, this would use a different schema than a test configuration
-that uses a compiler.
+A schema defines the structure of how to write and validate a JSON file. Since,
+python can load YAML and JSON files we write our Buildspecs in YAML and validate
+them with a schema file that is in json. 
 
+We make use of [python-jsonschema](https://python-jsonschema.readthedocs.io/en/stable/)
+run `validate` with a Buildspec with one of the schema file. 
+ 
+## Resources
+
+The following sites (along with the files here) can be useful to help with your development
+of a schema.
+
+ - [json-schema.org](https://json-schema.org/)
+ - [json schema readthedocs](https://python-jsonschema.readthedocs.io/en/stable/)
+ 
+If you have issues with writing json schema please join the slack channel at http://json-schema.slack.com
+ 
 ## How are schemas defined in buildtest?
 
-Buildtest (will) have a folder of (this type of ) file that define
-the structure for each schema. Since each schema type has different versions,
-we store those as well:
+Buildtest will contain a folder per schema (`script`, `global`, `compiler`, etc...) that 
+contains one or more versions of the schema. Since each schema type has 
+different versions we store them in format such as :
 
-```bash
-buildtest/buildsystem/schemas
-   script
+```
+script-v1.0.schema.json
 ```
 
-The above would include a folder of schemas for the "script" type, each named by a version.
-For example:
+The format is `<name>-vX.Y.schema.json`
 
-
-```bash
-script/
-    script-v0.0.1.schema.json
-    script-v0.0.2.schema.json
-    ...
-```
+These schemas are also stored in buildtest at https://github.com/buildtesters/buildtest/tree/devel/buildtest/buildsystem/schemas 
 
 
 ## How is this repository organized?
 
 The entire root of this folder could be added to the folder shown above,
 and the subfolder structure would be added to the module. Importantly,
-the lowercase class names should match to a class defined in [buildtest/buildsystem/bases.py]().
+the lowercase class names should match to a class defined in [buildtest/buildsystem/bases.py](https://github.com/buildtesters/buildtest/tree/devel/buildtest/buildsystem/schemas).
 For example, the contents of the [script](script) directory here are expected 
 to be added present at `buildtest/buildsystem/schemas/script` to go
 along with a class "Script" in the bases file. 
 
-## What are optional shared attributes?
-
-### Metadata 
-
-Every build configuration across types can share some high level metadata,
-including a type, description, and maintainers. Additionally, each attribute
-should have a key with a unique name so that more than one configuration
-can be represented in one file. The fields are summarized below:
-
-| Name | Description | Type | Required for Schema | Required for User |
-| ---- | ----------- | ---- | ------------------- | ----------------- |
-| type | the name of the schema type (e.g., "script") | string | true | true |
-| description | a description of the build | string | true | false |
-| maintainers | a list of one or more maintainers | array | true | false |
-
-Here is a quick example for a [script](script) example:
-
-
-```yaml
-version: 0.0.1
-hello_ex1:
-  type: script
-  description: "hello world example"
-  maintainers: 
-   - "@vsoch"
-  shell: "echo hello"
-```
-
-Note that the outer structure (the version and general yaml file with named sections)
-is tested by the [global](global) schema. The contents of the section `hello_ex1`
-are of type script, and thus are tested by the [script](script) schema.
-The above would say to use version 0.0.1 of the script schema to run the test.
-The parameters for the description, and maintainers are optional but shown here.
-Each recipe is tested that these required fields are included (but optional).
-
-
-### Build Steps
-
-By default, each test configuration schema should have the following optional fields:
-
-| Name | Description | Type | Required for Schema | Required for User | Default |
-| ---- | ----------- | ---- | ------------------- | ----------------- | -------- |
-| pre_run | script to run before build | string | true | false | |
-| run | a script to run (e.g., apppropriate for shell) | string | true | false | |
-| post_run | script to run after build | string | true | false | |
-| shell | shell interpreter to use for pre and post run | string | true | false | bash |
-| env | an object (dict) of custom environment variables | object with objects | true | false |  |
-
-The following fields are optional for the schema, but can be added as required by
-any specific schema and recognized by buildtest:
-
-| Name | Description | Type | Required for Schema | Required for User | Default |
-| ---- | ----------- | ---- | ------------------- | ----------------- | -------- |
-| pre_build | script to run before build | string | true | false | |
-| build | a build step (e.g., apppropriate for compiling) | string | true | false | |
-| post_build | script to run after build | string | true | false | |
-
-Technically, there is no difference between
-how the sections above are handled, but they allow the user to have more fine tuned
-control of order. The "run" section is done after the build, and is provided to support workflows
-that require compilation or similar. For the above sections, they are run in the following order (for
-those defined):
-
- - pre_build
- - build
- - post_build
- - pre_run
- - run
- - post_run
-
-For example, the script type might only require a "run" section, but also allow
-the user to optionally specify a pre_run or post_run. It's up to the test 
-configuration schema to decide if any or all are required
-or optional. shell must also be defined (defaulting to usually bash, but this may vary) to
-know the shell to use for any of these statements. Of course more complex 
-classes that might require additional sections (e.g., pre and
-post compile) can still define these as valid sections for their config recipes,
-and they are handled by a custom class. The only important point
-for now is that `pre_run` and `post_run` are required (and tested for) for
-a general schema (optional for the user).
 
 ## How to contribute
 
@@ -138,64 +64,27 @@ If you want to make a new schema to add to buildtest:
  1. add a new folder that corresponds to the name of the schema. It should be all letters (uppercase and lowercase) with no special characters.
  2. the folder can optionally have a README.md where you keep notes about the specification design.
  3. the folder should have a subfolder called "examples" and a subfolder for each version of the recipe
- 4. ensure that the name of the schema is in the format (e.g., `script-v0.0.1.schema.json`)
- 5. for content, you can start with another schema (from a different folder) as an example. 
- 6. you should add one or more valid examples to each version folder under examples (e.g., `script/examples/0.0.1/example.yml`). These examples will be tested against your schema for validity.
- 6. you should add one or more invalid examples under `.github/tests/invalid/<name>/<version>/` (e.g., `.github/tests/invalid/script/0.0.1/invalid-reason.yml`).
-
+ 4. ensure that the name of the schema is in the format (e.g., `script-v1.0.schema.json`)
+ 5. you should add one or more valid examples to each version folder, for instance script 1.0 valid examples are under examples (e.g., `tests/valid/script/1.0/example.yml`). 
+ 6. you should add one or more invalid examples for example script 1.0 invalid examples are at `tests/invalid/script/1.0`
+ 7. Finally add regression test to validate schema definition and run a set of valid, invalid tests until all checks are passed and you are comfortable with schema design then issue a PR. 
+ 
 Be sure to update properties and take account for:
   - a property being required or not
+  - Make use of `additionalProperties: false` when defining properties so that additional keys in properties are not passed in.
   - requirements for the values provided (types, lengths, etc.) 
-  - If you need help, see [resources](#resources) or [ask a question](https://github.com/buildtesters/schemas/issues)
+  - If you need help, see [resources](#resources) or [ask a question](https://github.com/buildtesters/schemas/issues) 
+    or reach out to someone in Slack.
 
 ### Adding a new version
 
 Adding a new version means that you only need to:
 
- - create a new file with the version (e.g. `script-v0.0.2.schema.json`)
+ - create a new file with the version (e.g. `script-v2.0.schema.json`)
  - add a folder for the version under examples for the parent folder
  - add one or more invalid examples to be tested under `.github/tests/invalid/<name>/<version>`
 
 In both cases, when the version is finished, a release means adding the file to
-buildtest under `buildtest/buildsystem/schemas`
+buildtest under `buildtest/buildsystem/schemas` and implement the changes
+required in buildtest to support the schema. 
 
-## Development Tips
-
-**Note that these are examples, and not necessarily implemented sections for test config types**
-
-### Multiple Types
-
-See how [multiple types](https://cswr.github.io/JsonSchema/spec/multiple_types/) are handled.
-Basically, this snippet says that for shell the user can provide a string or an array (a list
-of strings or commands to execute). The variables `items`, and `minItems` apply only
-in the case that an array is used, and `minLength` applies to commands.
-
-```json
-    "shell": {
-      "type": ["string", "array"],
-      "minLength": 2,
-      "minItems": 1,
-      "description": "One or more commands to execute to the shell.",
-      "items": {
-        "type": "string"
-      },
-    },
-```
-
-I believe this says that we require one of "run" or "shell."
-
-```
-   "oneOf": [
-      { "$ref": "#/definitions/shell" }, 
-      { "$ref": "#/definitions/run" } 
-    ]
-```
-
-
-## Resources
-
-The following sites (along with the files here) can be useful to help with your development
-of a schema.
-
- - [json-schema.org](https://json-schema.org/understanding-json-schema/)
- - [json schema readthedocs](https://python-jsonschema.readthedocs.io/en/stable/)

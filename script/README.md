@@ -21,12 +21,14 @@ The schema can be found at https://buildtesters.github.io/schemas/script/script-
 Required Keys: [ `type`, `run` ]
 
 # status key
+
 | Name | Type | Supported in buildtest | Description |
 | ---- | ---- | ---------------------- | ----------- |
 | returncode  | integer | YES | specify desired returncode for test to succeed. The returncode will be matched with returncode from test |
 | regex | object | YES | specify regular expression to check with output or error stream |
 
 # status[regex] key
+
 | Name | Type | Supported in buildtest | Description |
 | ---- | ---- | ---------------------- | ----------- |
 | stream  | string | YES | Select stream to run regular expression check. Stream can be one of the two: [`stdout`, `stderr`] for test to succeed. |
