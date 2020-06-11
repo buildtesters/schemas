@@ -41,7 +41,6 @@ config:
   editor: vi
   paths:
     prefix: /tmp
-    clonepath: /tmp
-    searchpath: /tmp
-    logdir: /tmp
-    testdir: /tmp
+    clonepath: /tmp/repo
+    logdir: /tmp/logs
+    testdir: /tmp/buildtest/tests

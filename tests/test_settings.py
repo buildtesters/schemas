@@ -96,7 +96,7 @@ def check_properties(properties):
     config_path_properties = config_properties["paths"]
     assert config_path_properties["type"] == "object"
 
-    for key in ["prefix", "logdir", "searchpath", "clonepath", "testdir"]:
+    for key in ["prefix", "logdir", "clonepath", "testdir"]:
         assert config_path_properties["properties"][key]["type"] == "string"
 
 

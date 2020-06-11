@@ -75,9 +75,8 @@ required: [`host`,`user`,`identity_file`]
 | Name | Type | Supported in buildtest | Description | 
 | ---- | ---- | -----------------------| ----------- | 
 | prefix | string | NO | Specify prefix path where buildtest will write all path settings. If keys `clonepath`, `logdir`, `testdir` are not specified, then `prefix` will be used to build the path. |
-| clonepath | string | YES | Specify path where `buildtest get` will clone repositories. |
+| clonepath | string | YES | Specify path where `buildtest repo` will clone repositories. |
 | logdir | string | NO | Specify path where buildtest logs will be written. |
-| searchpath | string | YES | Specify colon separated list of path where Buildspecs will be searched, this acts like $PATH for Buildspec when using `buildtest build -b <Buildspec>`. buildtest will seek path to Buildspec by searching all directories in searchpath and find the first instance. For example if you have a Buildspec at `/tmp/buildspecs/hello.yml`, with no search path you would have to specify `buildtest build -b /tmp/buildspecs/hello.yml`. If your searchpath is  `searchpath: /tmp/buildspecs` then you can specify your build as `buildtest build -b hello.yml` |
 | testdir | string | YES | Specify location of test directory where tests will be written. This value can be overriden by command line option `buildtest build --testdir`. |
 
 
