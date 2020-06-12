@@ -107,6 +107,15 @@ def test_compiler_schema():
     assert properties["module"]["type"] == "array"
     assert properties["module"]["items"]["type"] == "string"
 
+    assert (
+        properties["executor"]["$ref"]
+        == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/executor"
+    )
+    assert (
+        properties["env"]["$ref"]
+        == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
+    )
+
     assert properties["compiler"]["type"] == "object"
     assert properties["compiler"]["additionalProperties"] == False
     # check compiler properties
@@ -160,5 +169,5 @@ def test_compiler_schema_examples():
     assert invalid_recipes
     assert valid_recipes
 
-    check_invalid_recipes(invalid_recipes, invalids, loaded, version)
+    # check_invalid_recipes(invalid_recipes, invalids, loaded, version)
     check_valid_recipes(valid_recipes, valids, loaded, version)

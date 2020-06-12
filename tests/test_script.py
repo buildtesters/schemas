@@ -103,34 +103,25 @@ def test_script_schema():
     properties = loaded["properties"]
 
     # check all properties that are string types
-    for section in ["type", "description", "shell", "shebang", "executor", "run"]:
+    for section in ["type", "description", "shell", "shebang", "run"]:
         assert properties[section]["type"] == "string"
 
     assert properties["type"]["pattern"] == "^script$"
-
-    # check env object
-    assert properties["env"]["type"] == "object"
-    assert properties["env"]["minItems"] == 1
-    assert properties["env"]["items"]["type"] == "object"
     assert (
-        properties["env"]["items"]["propertyNames"]["pattern"]
-        == "^[A-Za-z_][A-Za-z0-9_]*$"
+        properties["executor"]["$ref"]
+        == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/executor"
+    )
+    assert (
+        properties["env"]["$ref"]
+        == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
     )
 
     assert properties["shell"]["pattern"] == "^(/bin/bash|/bin/sh|sh|bash|python).*"
-
-    # check status object
-    assert properties["status"]["type"] == "object"
-    status_properties = properties["status"]["properties"]
-    assert status_properties["returncode"]["type"] == "integer"
-    assert status_properties["regex"]["type"] == "object"
-
-    # check for key 'stream' and 'exp' in regex object
-    for item in ["stream", "exp"]:
-        assert item in status_properties["regex"]["properties"]
-        assert status_properties["regex"]["properties"][item]["type"] == "string"
-
-    status_properties["regex"]["properties"]["stream"]["enum"] == ["stdout", "stderr"]
+    print(properties["status"]["$ref"])
+    assert (
+        properties["status"]["$ref"]
+        == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/status"
+    )
 
 
 def test_script_examples(tmp_path):

@@ -21,10 +21,10 @@
       "items": { "type": "string" }
     },
     "executor": {
-      "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/executor"
+      "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/executor"
     },
     "env": {
-      "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/env"
+      "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
     },
     "compiler": {
       "type": "object",

@@ -1,6 +1,7 @@
 version: "1.0"
 
 missing_type:
+  executor: local.bash
   description: "type key is missing, this is a required field"
   module:
    -  "module purge &&  module load intel/17"
@@ -11,6 +12,7 @@ missing_type:
     cflags: "-O1"
 
 missing_compiler:
+  executor: local.bash
   type: compiler
   description: "compiler key is missing, this is a required field"
   module:
@@ -18,6 +20,7 @@ missing_compiler:
    -  "module purge &&  module load intel/18"
 
 invalid_type_value:
+  executor: local.bash
   type: script
   description: "invalid value for type field must be 'compiler' "
   module:
@@ -29,6 +32,7 @@ invalid_type_value:
     cflags: "-O1"
 
 invalid_description_value:
+  executor: local.bash
   type: compiler
   description: 1
   module:
@@ -40,6 +44,7 @@ invalid_description_value:
     cflags: "-O1"
 
 invalid_type_module:
+  executor: local.bash
   type: compiler
   description: "type for 'module' key, expecting type 'array' but received 'string' "
   module: "module purge && module load gcc/4.0"
@@ -49,6 +54,7 @@ invalid_type_module:
     cflags: "-O1"
 
 module_mismatch_array_items:
+  executor: local.bash
   type: compiler
   description: "The module is an array of string items, this test as a mix of numbers and string"
   module:
@@ -60,6 +66,7 @@ module_mismatch_array_items:
     cflags: "-O1"
 
 missing_source_in_compiler:
+  executor: local.bash
   type: compiler
   description: "missing source key in compiler object"
   module:
@@ -69,6 +76,7 @@ missing_source_in_compiler:
     cflags: "-O1"
 
 missing_a_compilername_in_compiler:
+  executor: local.bash
   type: compiler
   description: "missing name key in compiler object"
   module:
@@ -77,9 +85,9 @@ missing_a_compilername_in_compiler:
     source: src/hello.c
 
 compiler_name_type_mismatch:
+  executor: local.bash
   type: compiler
   description: "compiler 'name' expects a string but received a list"
-  foo: bar
   module:
   - "module purge && module load gcc/4.0"
   compiler:
@@ -90,6 +98,7 @@ compiler_name_type_mismatch:
 
 
 test_additionalProperties_compiler:
+  executor: local.bash
   type: compiler
   description: "test additionalProperties in compiler object. Schema does not allow for additional keys"
   module:
@@ -102,6 +111,7 @@ test_additionalProperties_compiler:
     ldflags: "-lm"
 
 test_additionalProperties_main_schema:
+  executor: local.bash
   type: compiler
   description: "test additionalProperties in main schema"
   foo: bar
@@ -114,6 +124,7 @@ test_additionalProperties_main_schema:
     ldflags: "-lm"
 
 type_mismatch_exec_args:
+  executor: local.bash
   type: compiler
   description: "type mismatch on exec_args key"
   module:

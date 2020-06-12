@@ -119,8 +119,14 @@ def check_definitions(definitions):
 
     assert local_properties["description"]["type"] == "string"
     assert local_properties["shell"]["type"] == "string"
-    assert local_properties["environment"]["$ref"] == "#/definitions/env"
-    assert local_properties["variables"]["$ref"] == "#/definitions/env"
+    assert (
+        local_properties["environment"]["$ref"]
+        == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
+    )
+    assert (
+        local_properties["variables"]["$ref"]
+        == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
+    )
     assert local_properties["retry"]["type"] == "integer"
     assert local_properties["retry"]["minimum"] == 1
     assert local_properties["retry"]["maximum"] == 5
@@ -141,8 +147,14 @@ def check_definitions(definitions):
 
     assert slurm_properties["options"]["type"] == "array"
     assert slurm_properties["options"]["items"]["type"] == "string"
-    assert slurm_properties["environment"]["$ref"] == "#/definitions/env"
-    assert slurm_properties["variables"]["$ref"] == "#/definitions/env"
+    assert (
+        slurm_properties["environment"]["$ref"]
+        == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
+    )
+    assert (
+        slurm_properties["variables"]["$ref"]
+        == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
+    )
     assert slurm_properties["modules"]["$ref"] == "#/definitions/modules"
 
     # ------------------ check 'ssh' object ----------------------
@@ -156,9 +168,13 @@ def check_definitions(definitions):
         assert definitions["ssh"]["properties"][key]["type"] == "string"
 
     assert (
-        definitions["ssh"]["properties"]["environment"]["$ref"] == "#/definitions/env"
+        definitions["ssh"]["properties"]["environment"]["$ref"]
+        == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
     )
-    assert definitions["ssh"]["properties"]["variables"]["$ref"] == "#/definitions/env"
+    assert (
+        definitions["ssh"]["properties"]["variables"]["$ref"]
+        == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
+    )
     assert (
         definitions["ssh"]["properties"]["modules"]["$ref"] == "#/definitions/modules"
     )

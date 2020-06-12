@@ -17,19 +17,10 @@
       "description": "A description for the build recipe."
     },
     "env": {
-      "type": "object",
-      "description": "One or more key value pairs for an environment (key=value)",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "minItems": 1,
-        "propertyNames": {
-          "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
-        }
-      }
+      "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
     },
     "executor": {
-      "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/executor"
+      "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/executor"
     },
     "shell": {
       "type": "string",
@@ -43,7 +34,7 @@
       "description": "A script to run using the default shell."
     },
     "status": {
-      "ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/status"
+      "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/status"
     }
   }
 }
