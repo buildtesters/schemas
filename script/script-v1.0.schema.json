@@ -24,39 +24,26 @@
         "type": "object",
         "minItems": 1,
         "propertyNames": {
-           "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+          "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
         }
       }
     },
     "executor": {
-      "type": "string"
+      "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/executor"
     },
     "shell": {
       "type": "string",
       "pattern": "^(/bin/bash|/bin/sh|sh|bash|python).*"
     },
-    "shebang": { "type": "string" },
+    "shebang": {
+      "type": "string"
+    },
     "run": {
       "type": "string",
       "description": "A script to run using the default shell."
     },
     "status": {
-      "type": "object",
-      "properties":
-        {
-          "returncode": {"type":  "integer"},
-          "regex": {
-            "type": "object",
-            "properties": {
-              "stream": {
-                "type": "string",
-                "enum": ["stdout","stderr"]
-              },
-              "exp": {"type": "string" }
-            },
-            "required": ["stream","exp"]
-          }
-        }
+      "ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/status"
     }
   }
 }

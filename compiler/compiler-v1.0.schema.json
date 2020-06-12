@@ -21,7 +21,7 @@
       "items": { "type": "string" }
     },
     "executor": {
-      "type": "string"
+      "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/executor"
     },
     "env": {
       "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/env"
