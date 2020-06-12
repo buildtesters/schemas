@@ -91,7 +91,7 @@ def test_compiler_schema():
     )
     assert recipe["$schema"] == "http://json-schema.org/draft-07/schema#"
     assert recipe["type"] == "object"
-    assert recipe["required"] == ["type", "compiler"]
+    assert recipe["required"] == ["type", "compiler", "executor"]
     assert recipe["propertyNames"]["pattern"] == "^[A-Za-z_][A-Za-z0-9_]*$"
     assert recipe["additionalProperties"] == False
 

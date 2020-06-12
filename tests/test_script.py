@@ -98,7 +98,7 @@ def test_script_schema():
     assert loaded["type"] == "object"
     assert loaded["propertyNames"] == {"pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}
     assert loaded["type"] == "object"
-    assert loaded["required"] == ["type", "run"]
+    assert loaded["required"] == ["type", "run", "executor"]
 
     properties = loaded["properties"]
 

@@ -1,6 +1,7 @@
 version: "1.0"
 
 gnu_example:
+  executor: local.bash
   type: compiler
   description: "gnu example using cflags, exec_args"
   module:
@@ -13,6 +14,7 @@ gnu_example:
     exec_args: "1 2 3"
 
 intel_example:
+  executor: local.bash
   type: compiler
   description: "intel example using cflags"
   module:
@@ -24,6 +26,7 @@ intel_example:
     cflags: "-O1"
 
 pgi_example:
+  executor: local.bash
   type: compiler
   description: "pgi example using cxxflags, ldflags, and exec_args key"
   module:
@@ -36,6 +39,7 @@ pgi_example:
     exec_args: hello world
 
 cray_example:
+  executor: local.bash
   type: compiler
   description: "cray example using fflags and cppflags"
   compiler:
