@@ -18,7 +18,14 @@ The compiler schema is available at https://buildtesters.github.io/schemas/compi
 | module | array | YES | A list of modules to inject into test | 
 | compiler | object | YES | Define compiler setting to compile a script |  
 
-Required Keys: [`type`,`compiler`]
+Required Keys: [`type`,`compiler`, `executor`]
+
+
+# Keys inherited from global.schema.json
+
+- env
+- status
+- executor
 
 ## Compiler Key
 
@@ -34,6 +41,7 @@ Required Keys: [`type`,`compiler`]
 | ldflags | string | YES| Specify linker options for dynamic linking | 
 
 Required Keys: [`name`,`source`]
+
 
 
  

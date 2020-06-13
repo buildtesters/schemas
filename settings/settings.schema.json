@@ -47,18 +47,6 @@
       "additionalProperties": false
   },
   "definitions": {
-      "env": {
-          "type": "object",
-          "description": "One or more key value pairs for an environment (key=value)",
-          "minItems": 1,
-          "items": {
-            "type": "object",
-            "minItems": 1,
-            "propertyNames": {
-               "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
-            }
-          }
-      },
       "modules": {
         "type": "object",
         "properties": {

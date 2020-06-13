@@ -5,9 +5,8 @@ structure of how to write your `settings.yml`
 
 This schema can be found at https://buildtesters.github.io/schemas/settings/settings.schema.json
 
-## State: In Development
 
-# Main Keys
+## Main Keys
 
 | Name | Type | Supported in buildtest | Description | 
 | ---- | ---- | -----------------------| ----------- | 
@@ -16,7 +15,8 @@ This schema can be found at https://buildtesters.github.io/schemas/settings/sett
 
 Required Keys: [`executors`,`config`]
 
-# executors Key
+
+## executors Key
 
 | Name | Type | Supported in buildtest | Description | 
 | ---- | ---- | -----------------------| ----------- | 
@@ -24,7 +24,7 @@ Required Keys: [`executors`,`config`]
 | ssh | object | NO | Define a list of ssh executors. These executors can be used in Buildspec to run jobs via ssh on remote nodes. |
 | slurm | object | NO | Define a list of slurm executors. These executors can be used in Buildspec to run jobs via Slurm scheduler | 
 
-# executors[local] Key
+## executors[local] Key
 
 | Name | Type | Supported in buildtest | Description | 
 | ---- | ---- | -----------------------| ----------- | 

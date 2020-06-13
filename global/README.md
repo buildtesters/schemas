@@ -16,11 +16,38 @@ defined at top most level.
 Required Keys: [`version`]
 
 
+# Global definitions
+
+Below are keys that are defined in global.schema.json but are inherited
+by other schemas.
+
+| Name | Type | Supported in buildtest | Description | 
+| ---- | ---- | -----------------------| ----------- | 
+| env | object | YES | an object (dict) of custom environment variables | 
+| executor | string | YES | name of executor to dispatch job defined in buildtest configuration |
+| status | object | YES | specify behavior of how test state will be determined, this could be checked via returncode or regular expression |  
+
+
+## status key
+
+| Name | Type | Supported in buildtest | Description |
+| ---- | ---- | ---------------------- | ----------- |
+| returncode  | integer | YES | specify desired returncode for test to succeed. The returncode will be matched with returncode from test |
+| regex | object | YES | specify regular expression to check with output or error stream |
+
+## status[regex] key
+
+| Name | Type | Supported in buildtest | Description |
+| ---- | ---- | ---------------------- | ----------- |
+| stream  | string | YES | Select stream to run regular expression check. Stream can be one of the two: [`stdout`, `stderr`] for test to succeed. |
+| exp | string | YES | Specify regular expression to run with the specified stream. The expression is run internally via `re.search` and if there is a match test will pass. |
+ 
 ## Example
 
 ```yaml
-version: 1.0
+version: "1.0"
 hello_ex1:
+  executor: local.bash
   type: script
   description: "hello world example"
   shell: "echo hello"

@@ -102,14 +102,6 @@ def check_properties(properties):
 
 def check_definitions(definitions):
 
-    assert "env" in definitions
-    assert definitions["env"]["type"] == "object"
-    assert definitions["env"]["minItems"] == 1
-    assert definitions["env"]["items"]["type"] == "object"
-    assert (
-        definitions["env"]["items"]["propertyNames"]["pattern"]
-        == "^[A-Za-z_][A-Za-z0-9_]*$"
-    )
     # ------------------ check 'local' object ----------------------
     assert "local" in definitions
     assert definitions["local"]["type"] == "object"
