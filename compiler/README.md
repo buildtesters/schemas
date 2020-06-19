@@ -26,6 +26,7 @@ Required Keys: [`type`,`compiler`, `executor`]
 - env
 - status
 - executor
+- sbatch
 
 ## Compiler Key
 

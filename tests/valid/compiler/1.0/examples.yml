@@ -42,6 +42,7 @@ cray_example:
   executor: local.bash
   type: compiler
   description: "cray example using fflags and cppflags"
+  sbatch: ["-C knl", "-q normal", "-t 01:00"]
   compiler:
     name: cray
     source: src/hello.f90

@@ -26,7 +26,7 @@ by other schemas.
 | env | object | YES | an object (dict) of custom environment variables | 
 | executor | string | YES | name of executor to dispatch job defined in buildtest configuration |
 | status | object | YES | specify behavior of how test state will be determined, this could be checked via returncode or regular expression |  
-
+| sbatch | object | NO | specify sbatch options (#SBATCH) in test script.  For example if you specify ``sbatch: ["-t 10:00"]`` this will generate ``#SBATCH -t 10:00`` in test script. Do not pass the directive #SBATCH when using ``sbatch`` key because buildtest will automatically insert this for every key.
 
 ## status key
 

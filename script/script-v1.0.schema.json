@@ -7,6 +7,7 @@
   "propertyNames": {
     "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
   },
+  "additionalProperties": false,
   "properties": {
     "type": {
       "type": "string",
@@ -15,6 +16,9 @@
     "description": {
       "type": "string",
       "description": "A description for the build recipe."
+    },
+    "sbatch": {
+      "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/sbatch"
     },
     "env": {
       "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"

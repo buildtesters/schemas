@@ -104,3 +104,12 @@ status_regex_returncode:
       stream: stdout
       exp: "^hello"
 
+sbatch_example:
+  executor: local.bash
+  description: This test pass sbatch options in test.
+  sbatch:
+    - "-t 10:00:00"
+    - "-p normal"
+    - "-N 1"
+    - "-n 8"
+  run: hostname

@@ -22,4 +22,5 @@ Required Keys: [ `type`, `run`, `executor`]
 - status
 - env
 - executor
+- sbatch
 

@@ -99,7 +99,7 @@ def test_script_schema():
     assert loaded["propertyNames"] == {"pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}
     assert loaded["type"] == "object"
     assert loaded["required"] == ["type", "run", "executor"]
-
+    assert loaded["additionalProperties"] == False
     properties = loaded["properties"]
 
     # check all properties that are string types
@@ -112,12 +112,16 @@ def test_script_schema():
         == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/executor"
     )
     assert (
+        properties["sbatch"]["$ref"]
+        == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/sbatch"
+    )
+    assert (
         properties["env"]["$ref"]
         == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
     )
 
     assert properties["shell"]["pattern"] == "^(/bin/bash|/bin/sh|sh|bash|python).*"
-    print(properties["status"]["$ref"])
+
     assert (
         properties["status"]["$ref"]
         == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/status"

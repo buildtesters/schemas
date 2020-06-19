@@ -112,6 +112,10 @@ def test_compiler_schema():
         == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/executor"
     )
     assert (
+        properties["sbatch"]["$ref"]
+        == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/sbatch"
+    )
+    assert (
         properties["env"]["$ref"]
         == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
     )
