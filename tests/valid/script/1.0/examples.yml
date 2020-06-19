@@ -105,6 +105,7 @@ status_regex_returncode:
       exp: "^hello"
 
 sbatch_example:
+  type: script
   executor: local.bash
   description: This test pass sbatch options in test.
   sbatch:
