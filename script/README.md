@@ -12,6 +12,7 @@ The schema can be found at https://buildtesters.github.io/schemas/script/script-
 | type | string | YES | The type must be  `script`. This is used to validate Buildspec with script schema | 
 | description | string | YES | a description field to summarize the test | 
 | shell | string | YES | shell interpreter to use for run section | 
+| vars | object | YES | define a list of variables in test  
 | run | string | YES | main script to run |
 | shebang | string | YES | specify shebang line for test script. This could be any value you like such as `#!/bin/bash`, `#!/bin/sh`, etc... |
 
