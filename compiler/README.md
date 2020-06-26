@@ -15,7 +15,7 @@ The compiler schema is available at https://buildtesters.github.io/schemas/compi
 | ---- | ---- | ---------------------- | ----------- |
 | type | string | YES | The schema type must be `compiler` | 
 | description | string | YES | A brief description of the test | 
-| vars | object | YES | define a list of variables in test
+| vars | object | YES | define a list of variables in test |
 | module | array | YES | A list of modules to inject into test | 
 | compiler | object | YES | Define compiler setting to compile a script |  
 
