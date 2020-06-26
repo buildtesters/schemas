@@ -148,6 +148,9 @@ def check_definitions(definitions):
         == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
     )
     assert slurm_properties["modules"]["$ref"] == "#/definitions/modules"
+    assert slurm_properties["pollinterval"]["type"] == "integer"
+    assert slurm_properties["pollinterval"]["minimum"] == 10
+    assert slurm_properties["pollinterval"]["maximum"] == 300
 
     # ------------------ check 'ssh' object ----------------------
 

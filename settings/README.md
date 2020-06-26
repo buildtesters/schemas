@@ -32,6 +32,7 @@ Required Keys: [`executors`,`config`]
 | shell | string | NO | Specify shell command to use when running all jobs with the local executor. |
 | environment | array | NO | Specify a list of environment variables for all Buildspec using the local executor |
 | variables | array | NO | Specify a list of variables for all Buildspec using the local executor. |
+| pollinterval | number | YES | Specify poll interval between range (10-300) seconds when buildtest will initiate query for slurm job |
 | retry | integer | NO | Number of times to retry test in the event of a failure. The values can be in range of `1-5` |
 | modules | array | NO | Specify a list of modules to load for all Buildspec associated to local executor |
 

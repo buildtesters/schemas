@@ -17,6 +17,7 @@ executors:
       modules:
         purge: true
         load: [PrgEnv-intel]
+      pollinterval: 30
       options:
         - "-p haswell"
         - "-t 00:10"
