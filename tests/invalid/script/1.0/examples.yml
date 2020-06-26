@@ -26,6 +26,15 @@ invalid_env_type:
     - FOO=BAR
   run: echo $FOO
 
+invalid_vars_type:
+  type: script
+  executor: local.bash
+  description: var key should be a dictionary
+  vars:
+    - FOO=BAR
+  run: echo $FOO
+
+
 invalid_description:
   type: script
   executor: local.bash

@@ -119,7 +119,10 @@ def test_compiler_schema():
         properties["env"]["$ref"]
         == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
     )
-
+    assert (
+        properties["vars"]["$ref"]
+        == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
+    )
     assert properties["compiler"]["type"] == "object"
     assert properties["compiler"]["additionalProperties"] == False
     # check compiler properties

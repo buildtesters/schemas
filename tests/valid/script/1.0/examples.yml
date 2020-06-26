@@ -24,6 +24,18 @@ declare_env:
     echo $FOO
     echo $X
 
+declare_vars:
+  executor: local.bash
+  type: script
+  description: declaring variables
+  vars:
+    First: Bob
+    Last:  Bill
+  run: |
+    echo "First:" $First
+    echo "Last:" $Last
+
+
 declare_shell_sh:
   executor: local.sh
   type: script

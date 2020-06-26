@@ -119,6 +119,10 @@ def test_script_schema():
         properties["env"]["$ref"]
         == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
     )
+    assert (
+        properties["vars"]["$ref"]
+        == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
+    )
 
     assert properties["shell"]["pattern"] == "^(/bin/bash|/bin/sh|sh|bash|python).*"
 
