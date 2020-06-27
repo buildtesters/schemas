@@ -73,16 +73,7 @@ def test_global_schema():
 
     print("Testing global schema")
     # -------- check all fields ---------------------
-    fields = [
-        "$id",
-        "$schema",
-        "title",
-        "type",
-        "required",
-        "propertyNames",
-        "properties",
-        "patternProperties",
-    ]
+    fields = ["$id", "$schema", "title", "type", "required", "properties"]
     for field in fields:
         assert field in recipe
 
@@ -92,13 +83,17 @@ def test_global_schema():
     )
     assert recipe["$schema"] == "http://json-schema.org/draft-07/schema#"
     assert recipe["type"] == "object"
-    assert recipe["required"] == ["version"]
-
-    # check propertyNames
-    assert recipe["propertyNames"]["pattern"] == "^[A-Za-z_][A-Za-z0-9_]*$"
+    assert recipe["required"] == ["version", "buildspecs"]
 
     # check properties
     properties = recipe["properties"]
+
+    # check buildspecs field
+    assert properties["buildspecs"]["type"] == "object"
+    assert (
+        properties["buildspecs"]["propertyNames"]["pattern"]
+        == "^[A-Za-z_][A-Za-z0-9_]*$"
+    )
 
     # check version field
     assert properties["version"]["type"] == "string"
@@ -107,13 +102,6 @@ def test_global_schema():
     assert properties["maintainers"]["type"] == "array"
     assert properties["maintainers"]["minItems"] == 1
     assert properties["maintainers"]["items"]["type"] == "string"
-
-    # check patternProperties
-
-    assert recipe["patternProperties"]["^[A-Za-z_.][A-Za-z0-9_]*$"]["type"] == [
-        "object",
-        "string",
-    ]
 
 
 def test_global_examples():

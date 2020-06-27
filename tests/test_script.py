@@ -44,9 +44,9 @@ def check_invalid_recipes(recipes, invalids, loaded, version):
         del content["version"]
 
         # For each section, assume folder type and validate
-        for name in content.keys():
+        for name in content["buildspecs"].keys():
             with pytest.raises(ValidationError) as excinfo:
-                validate(instance=content[name], schema=loaded)
+                validate(instance=content["buildspecs"][name], schema=loaded)
             print(excinfo.type, excinfo.value)
             print("Testing %s from recipe %s should be invalid" % (name, recipe))
 
@@ -63,8 +63,9 @@ def check_valid_recipes(recipes, valids, loaded, version):
         del content["version"]
 
         # For each section, assume folder type and validate
-        for name in content.keys():
-            validate(instance=content[name], schema=loaded)
+        for name in content["buildspecs"].keys():
+            print(content["buildspecs"][name])
+            validate(instance=content["buildspecs"][name], schema=loaded)
             print("Testing %s from recipe %s should be valid" % (name, recipe))
 
 
@@ -82,7 +83,6 @@ def test_script_schema():
         "$schema",
         "title",
         "type",
-        "propertyNames",
         "properties",
         "required",
     ]
@@ -96,7 +96,6 @@ def test_script_schema():
     )
     assert loaded["$schema"] == "http://json-schema.org/draft-07/schema#"
     assert loaded["type"] == "object"
-    assert loaded["propertyNames"] == {"pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}
     assert loaded["type"] == "object"
     assert loaded["required"] == ["type", "run", "executor"]
     assert loaded["additionalProperties"] == False

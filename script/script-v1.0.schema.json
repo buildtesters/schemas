@@ -4,9 +4,6 @@
   "title": "BuildTest Test Configuration for Script",
   "type": "object",
   "required": ["type", "run", "executor"],
-  "propertyNames": {
-    "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
-  },
   "additionalProperties": false,
   "properties": {
     "type": {

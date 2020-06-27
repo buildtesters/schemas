@@ -42,9 +42,9 @@ def check_invalid_recipes(recipes, invalids, loaded, version):
         del content["version"]
 
         # For each section, assume folder type and validate
-        for name in content.keys():
+        for name in content["buildspecs"].keys():
             with pytest.raises(ValidationError) as excinfo:
-                validate(instance=content[name], schema=loaded)
+                validate(instance=content["buildspecs"][name], schema=loaded)
             print(excinfo.type, excinfo.value)
             print("Testing %s from recipe %s should be invalid" % (name, recipe))
 
@@ -61,8 +61,8 @@ def check_valid_recipes(recipes, valids, loaded, version):
         del content["version"]
 
         # For each section, assume folder type and validate
-        for name in content.keys():
-            validate(instance=content[name], schema=loaded)
+        for name in content["buildspecs"].keys():
+            validate(instance=content["buildspecs"][name], schema=loaded)
             print("Testing %s from recipe %s should be valid" % (name, recipe))
 
 
@@ -77,7 +77,6 @@ def test_compiler_schema():
         "$schema",
         "title",
         "type",
-        "propertyNames",
         "properties",
         "additionalProperties",
         "required",
@@ -92,7 +91,6 @@ def test_compiler_schema():
     assert recipe["$schema"] == "http://json-schema.org/draft-07/schema#"
     assert recipe["type"] == "object"
     assert recipe["required"] == ["type", "compiler", "executor"]
-    assert recipe["propertyNames"]["pattern"] == "^[A-Za-z_][A-Za-z0-9_]*$"
     assert recipe["additionalProperties"] == False
 
     properties = recipe["properties"]
@@ -144,7 +142,7 @@ def test_compiler_schema():
     compiler_properties["name"]["enum"] == ["gnu", "intel", "pgi", "cray"]
 
 
-def test_compiler_schema_examples():
+def test_compiler_examples():
 
     print(root)
 
@@ -176,5 +174,5 @@ def test_compiler_schema_examples():
     assert invalid_recipes
     assert valid_recipes
 
-    # check_invalid_recipes(invalid_recipes, invalids, loaded, version)
+    check_invalid_recipes(invalid_recipes, invalids, loaded, version)
     check_valid_recipes(valid_recipes, valids, loaded, version)
