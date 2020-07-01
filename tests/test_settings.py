@@ -147,6 +147,9 @@ def check_definitions(definitions):
         slurm_properties["variables"]["$ref"]
         == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"
     )
+    assert slurm_properties["cluster"]["type"] == "string"
+    assert slurm_properties["partition"]["type"] == "string"
+    assert slurm_properties["qos"]["type"] == "string"
     assert slurm_properties["modules"]["$ref"] == "#/definitions/modules"
     assert slurm_properties["pollinterval"]["type"] == "integer"
     assert slurm_properties["pollinterval"]["minimum"] == 10

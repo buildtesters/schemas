@@ -32,7 +32,6 @@ Required Keys: [`executors`,`config`]
 | shell | string | NO | Specify shell command to use when running all jobs with the local executor. |
 | environment | array | NO | Specify a list of environment variables for all Buildspec using the local executor |
 | variables | array | NO | Specify a list of variables for all Buildspec using the local executor. |
-| pollinterval | number | YES | Specify poll interval between range (10-300) seconds when buildtest will initiate query for slurm job. Default interval is 30 seconds. |
 | retry | integer | NO | Number of times to retry test in the event of a failure. The values can be in range of `1-5` |
 | modules | array | NO | Specify a list of modules to load for all Buildspec associated to local executor |
 
@@ -44,6 +43,10 @@ Required Keys: [`executors`,`config`]
 | launcher | string | NO | Specify slurm launcher to use when submitting job. Currently we support `sbatch`. |
 | environment | array | NO | specify a list of environment variables for all Buildspec using the slurm executor |
 | variables | array | NO | Specify a list of variables for all Buildspec using the slurm executor. |
+| pollinterval | number | YES | Specify poll interval between range (10-300) seconds when buildtest will initiate query for slurm job. Default interval is 30 seconds. |
+| cluster | string | YES | specify slurm cluster to use when submitting jobs. This is ``sbatch -M`` option. Use this option if you have a mutli slurm cluster.
+| partition | string | YES | specify slurm partition (``sbatch -p <partition>``) when submitting job. 
+| qos | string | YES | specify slurm Quality of Service (QOS) to use when submitting job. This is the ``sbatch -q <qos>`` option.
 | modules | array | NO | Specify a list of modules to load for all Buildspec associated to slurm executor |
 | options | array | NO | Specify a list of options to pass to the `launcher` key |
 
