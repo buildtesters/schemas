@@ -106,6 +106,7 @@ def check_definitions(definitions):
     assert "local" in definitions
     assert definitions["local"]["type"] == "object"
     assert definitions["local"]["additionalProperties"] == False
+    assert definitions["local"]["required"] == ["shell"]
 
     local_properties = definitions["local"]["properties"]
 

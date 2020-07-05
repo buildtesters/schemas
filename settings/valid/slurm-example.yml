@@ -1,0 +1,11 @@
+executors:
+  slurm:
+    normal:
+      options: ["-C haswell"]
+      qos: normal
+      launcher: sbatch
+      pollinterval: 20
+config:
+  editor: vi
+  paths:
+    prefix: /tmp
