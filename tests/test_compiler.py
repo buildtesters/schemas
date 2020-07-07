@@ -130,6 +130,9 @@ def test_compiler_schema():
     for key in [
         "name",
         "source",
+        "cc",
+        "cxx",
+        "fc",
         "exec_args",
         "cflags",
         "cxxflags",

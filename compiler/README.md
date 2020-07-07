@@ -26,6 +26,9 @@ is based on  [compiler-v1.0.schema.json](https://buildtesters.github.io/schemas/
 | ---- | ---- | --------------------- | ------------ | ------------ | ---------- |  
 | name | string | YES | YES | Select a compiler name, based on selection buildtest will detect the appropriate compiler wrapper. | `gnu`, `intel`, `pgi`, `cray` | 
 | source | string | YES | YES | Select a source file to compile, the file could be an absolute path or relative path from Buildspec | 
+| cc | string | YES | NO | Set C compiler wrapper. Use this option to manually set compiler wrapper |
+| cxx | string | YES | NO | Set C++ compiler wrapper. Use this option to manually set compiler wrapper |
+| fc | string | YES | NO | Set Fortran compiler wrapper. Use this option to manually set compiler wrapper |
 | exec_args | string | YES | NO | Pass arguments to compiled executable | 
 | cflags | string | YES | NO | Specify C compiler options |  
 | cxxflags | string | YES | NO | Specify C++ compiler options |  
