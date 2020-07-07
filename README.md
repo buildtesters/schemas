@@ -10,8 +10,6 @@ Currently we support the following schemas which are in development:
 - [compiler](compiler): this schema is used for compiling programs with compilers such as GNU, Intel, PGI, etc...
 - [settings](settings): This schema defines the content of buildtest settings file to configure buildtest.
 
-The buildtest schema can be found at https://buildtesters.github.io/schemas/
-
 ## What is a schema?
 
 A schema defines the structure of how to write and validate a JSON file. Since,

@@ -40,8 +40,8 @@ Required Fields for local executor: [`shell`]
 | ---- | ---- | -----------------------| -------- | ----------- | -------------- |
 | description | string | YES | NO |  Specify description field for executor |
 | launcher | string | YES | YES | Specify slurm launcher to use when submitting job. Currently we support `sbatch`. | `sbatch` | 
-| environment | array | NO | Specify a list of environment variables for all Buildspec using the slurm executor | | 
-| variables | array | NO | Specify a list of variables for all Buildspec using the slurm executor. | | 
+| environment | array | NO | NO |  Specify a list of environment variables for all Buildspec using the slurm executor | | 
+| variables | array | NO | NO | Specify a list of variables for all Buildspec using the slurm executor. | | 
 | pollinterval | number | YES | NO | Specify poll interval between range ``[10-300]`` seconds when buildtest will initiate query for slurm job. Default interval is 30 seconds. | `[10-300]` seconds, defaults to 30 secs | 
 | cluster | string | YES | NO | Specify slurm cluster to use when submitting jobs. This is ``sbatch -M`` option. Use this option if you have a multi slurm cluster. | |
 | partition | string | YES | NO | Specify slurm partition (``sbatch -p <partition>``) when submitting job. | |

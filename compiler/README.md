@@ -2,7 +2,7 @@
 
 The compiler schema is used by buildtest to compile source files into an 
 executable. The schema supports open-source compilers like ``gnu``, ``pgi`` and 
-proprietary compilers like ``intel`` and ``cray.  The schema documentation
+proprietary compilers like ``intel`` and ``cray``.  The schema documentation
 is based on  [compiler-v1.0.schema.json](https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json).
 
 
@@ -12,7 +12,7 @@ is based on  [compiler-v1.0.schema.json](https://buildtesters.github.io/schemas/
 | ---- | ---- | ---------------------- | ----------- | -------- | -------------- |
 | type | string | YES | YES | The schema type to validate test | `compiler` | 
 | description | string | YES | NO |  A brief description of the test | 
-| vars | object | YES | NO |  inherited from global definition |
+| vars | object | YES | NO |  inherited |
 | env | object | YES | NO | inherited | 
 | module | array | YES | NO | A list of modules to inject into test | 
 | compiler | object | YES | YES | Define compiler setting to compile a script |  
