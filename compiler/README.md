@@ -18,7 +18,7 @@ is based on  [compiler-v1.0.schema.json](https://buildtesters.github.io/schemas/
 | compiler | object | YES | YES | Define compiler setting to compile a script |  
 | sbatch | object | YES | NO | inherited | 
 | status | object | YES | NO | inherited | 
-
+| skip | object | YES | NO | inherited | |
 
 ## compiler object
 

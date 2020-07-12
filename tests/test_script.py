@@ -129,7 +129,10 @@ def test_script_schema():
         properties["status"]["$ref"]
         == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/status"
     )
-
+    assert (
+            properties["skip"]["$ref"]
+            == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/skip"
+    )
 
 def test_script_examples(tmp_path):
     """the script test_organization is responsible for all the schemas
