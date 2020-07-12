@@ -128,9 +128,9 @@ buildspecs:
       - "-n 8"
     run: hostname
 
-    skip_example:
-      type: script
-      executor: local.bash
-      description: this test is skip
-      skip: true
-      run: hostname
+  skip_example:
+    type: script
+    executor: local.bash
+    description: this test is skip
+    skip: true
+    run: hostname
