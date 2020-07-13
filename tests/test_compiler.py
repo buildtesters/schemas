@@ -125,6 +125,10 @@ def test_compiler_schema():
         properties["skip"]["$ref"]
         == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/skip"
     )
+    assert (
+        properties["tags"]["$ref"]
+        == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/tags"
+    )
     assert properties["compiler"]["type"] == "object"
     assert properties["compiler"]["additionalProperties"] == False
     # check compiler properties

@@ -134,3 +134,15 @@ buildspecs:
     description: this test is skip
     skip: true
     run: hostname
+
+  tag_example:
+    type: script
+    executor: local.bash
+    description: This is a tag example
+    sbatch:
+      - "-t 10:00:00"
+      - "-p normal"
+      - "-N 1"
+      - "-n 8"
+    tags: [slurm]
+    run: hostname

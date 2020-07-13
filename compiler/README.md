@@ -19,6 +19,7 @@ is based on  [compiler-v1.0.schema.json](https://buildtesters.github.io/schemas/
 | sbatch | object | YES | NO | inherited | 
 | status | object | YES | NO | inherited | 
 | skip | object | YES | NO | inherited | |
+| tags | object | YES | NO | inherited | |
 
 ## compiler object
 

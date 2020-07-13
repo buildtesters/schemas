@@ -97,6 +97,13 @@ buildspecs:
     skip: 1
     run: hostname
 
+  invalid_tags_value:
+    type: script
+    executor: local.bash
+    description: invalid tag value must be all string items
+    tags: ["compiler", 400 ]
+    run: hostname
+
   additionalProperties_test:
     type: script
     executor: local.bash

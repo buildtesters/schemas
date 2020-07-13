@@ -19,3 +19,4 @@ is based on [script-v1.0.schema.json](https://buildtesters.github.io/schemas/scr
 | env | object | YES | NO | inherited  | |
 | sbatch | object | YES | NO | inherited | |
 | skip | object | YES | NO | inherited | |
+| tags | object | YES | NO | inherited | |
