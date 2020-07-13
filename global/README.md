@@ -26,6 +26,8 @@ by other schemas.
 | status | object | YES | specify behavior of how test state will be determined, this could be checked via returncode or regular expression |  
 | sbatch | object | YES | specify sbatch options (#SBATCH) in test script.  For example if you specify ``sbatch: ["-t 10:00"]`` this will generate ``#SBATCH -t 10:00`` in test script. Do not pass the directive #SBATCH when using ``sbatch`` key because buildtest will automatically insert this for every key.
 | skip | boolean | YES | To skip a test set `skip: True` otherwise buildtest will build all tests. |
+| tags | array | NO | Add tags to classify test, each tag must be of `string` type. |
+
 ## status key
 
 | Name | Type | Supported in buildtest | Description |
