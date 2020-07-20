@@ -130,7 +130,6 @@ def check_definitions(definitions):
     assert "slurm" in definitions
     assert definitions["slurm"]["type"] == "object"
     assert definitions["slurm"]["additionalProperties"] == False
-    assert definitions["slurm"]["required"] == ["launcher"]
 
     slurm_properties = definitions["slurm"]["properties"]
 
@@ -152,9 +151,6 @@ def check_definitions(definitions):
     assert slurm_properties["partition"]["type"] == "string"
     assert slurm_properties["qos"]["type"] == "string"
     assert slurm_properties["modules"]["$ref"] == "#/definitions/modules"
-    assert slurm_properties["pollinterval"]["type"] == "integer"
-    assert slurm_properties["pollinterval"]["minimum"] == 10
-    assert slurm_properties["pollinterval"]["maximum"] == 300
 
     # ------------------ check 'ssh' object ----------------------
 

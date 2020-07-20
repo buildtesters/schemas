@@ -13,13 +13,22 @@ The schema documentation is based on [settings.schema.json](https://buildtesters
 | executors | object | YES | YES | Specify an executor type used for running tests. One can specify multiple executors, currently schema supports `local`, `ssh`, and `slurm` executor. Multiple executors can be defined in each executor type |
 | config | object | YES | YES | Specify configuration to tweak buildtest behavior |
 
+
 ## executors object
 
 | Name | Type | Supported in buildtest | Required |  Description | 
 | ---- | ---- | -----------------------| --------- | ----------- | 
+| defaults | object | NO | NO | Specify Default configuration for executor.
 | local | object | YES | YES | Define a list of local executors. These executors can be used in Buildspec to run jobs locally. |
 | ssh | object | NO | NO | Define a list of ssh executors. These executors can be used in Buildspec to run jobs via ssh on remote nodes. |
 | slurm | object | YES | NO | Define a list of slurm executors. These executors can be used in Buildspec to run jobs via Slurm scheduler | 
+
+## default object
+
+| Name | Type | Supported in buildtest | Required |  Description | 
+| ---- | ---- | -----------------------| --------- | ----------- | 
+| pollinterval | number | YES | NO | Specify poll interval between range ``[10-300]`` seconds when buildtest will initiate query for slurm job. Default interval is 30 seconds. | `[10-300]` seconds, defaults to 30 secs |
+| launcher | string | YES | NO | Specify slurm launcher to use when submitting job. Currently we support `sbatch`. | `sbatch` |
 
 ## local executor object
 
