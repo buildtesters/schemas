@@ -59,51 +59,6 @@ def check_valid_recipes(recipes, valids, loaded):
         print("Recipe File: %s should be valid" % recipe_path)
 
 
-def test_global_schema():
-    """This test checks all field attributes in global.schema.json. The test ensures file exists and is
-       able to load the schema. Once schema is loaded locally, each field is checked.
-    """
-
-    print("Root of testing is %s" % root)
-
-    # Read in the outer validator (looks for list with keys and version)
-    global_schema_file = os.path.join(root, "global", "global.schema.json")
-    assert os.path.exists(global_schema_file)
-    recipe = load_schema(global_schema_file)
-
-    print("Testing global schema")
-    # -------- check all fields ---------------------
-    fields = ["$id", "$schema", "title", "type", "required", "properties"]
-    for field in fields:
-        assert field in recipe
-
-    assert (
-        recipe["$id"]
-        == "https://buildtesters.github.io/schemas/global/global.schema.json"
-    )
-    assert recipe["$schema"] == "http://json-schema.org/draft-07/schema#"
-    assert recipe["type"] == "object"
-    assert recipe["required"] == ["version", "buildspecs"]
-
-    # check properties
-    properties = recipe["properties"]
-
-    # check buildspecs field
-    assert properties["buildspecs"]["type"] == "object"
-    assert (
-        properties["buildspecs"]["propertyNames"]["pattern"]
-        == "^[A-Za-z_][A-Za-z0-9_]*$"
-    )
-
-    # check version field
-    assert properties["version"]["type"] == "string"
-
-    # check maintainers field
-    assert properties["maintainers"]["type"] == "array"
-    assert properties["maintainers"]["minItems"] == 1
-    assert properties["maintainers"]["items"]["type"] == "string"
-
-
 def test_global_examples():
     """This validates all valid/invalid examples for global schema"""
 
