@@ -90,7 +90,7 @@ def test_compiler_schema():
     )
     assert recipe["$schema"] == "http://json-schema.org/draft-07/schema#"
     assert recipe["type"] == "object"
-    assert recipe["required"] == ["type", "compiler", "executor"]
+    assert recipe["required"] == ["type", "build", "executor"]
     assert recipe["additionalProperties"] == False
 
     properties = recipe["properties"]
@@ -129,33 +129,36 @@ def test_compiler_schema():
         properties["tags"]["$ref"]
         == "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/tags"
     )
-    assert properties["compiler"]["type"] == "object"
-    assert properties["compiler"]["additionalProperties"] == False
+    assert properties["build"]["type"] == "object"
+    assert properties["build"]["additionalProperties"] == False
     # check compiler properties
-    assert properties["compiler"]["required"] == ["source", "name"]
+    assert properties["build"]["required"] == ["source", "name"]
 
-    compiler_properties = properties["compiler"]["properties"]
+    build_properties = properties["build"]["properties"]
     for key in [
         "name",
         "source",
         "cc",
         "cxx",
         "fc",
-        "exec_args",
         "cflags",
         "cxxflags",
         "fflags",
         "cppflags",
         "ldflags",
     ]:
-        assert compiler_properties[key]["type"] == "string"
+        assert build_properties[key]["type"] == "string"
 
-    compiler_properties["name"]["enum"] == ["gnu", "intel", "pgi", "cray"]
+    build_properties["name"]["enum"] == ["gnu", "intel", "pgi", "cray"]
 
+    # run object
+    run_properties = properties["run"]["properties"]
+    assert properties["run"]["type"] == "object"
+    assert properties["run"]["additionalProperties"] == False
+    for key in ["args", "launcher"]:
+        assert run_properties[key]["type"] == "string"
 
 def test_compiler_examples():
-
-    print(root)
 
     loaded = load_schema(schema_path)
     assert isinstance(loaded, dict)
