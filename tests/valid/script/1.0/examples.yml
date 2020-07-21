@@ -119,7 +119,7 @@ buildspecs:
 
   sbatch_example:
     type: script
-    executor: local.bash
+    executor: slurm.debug
     description: This test pass sbatch options in test.
     sbatch:
       - "-t 10:00:00"
@@ -137,12 +137,13 @@ buildspecs:
 
   tag_example:
     type: script
-    executor: local.bash
+    executor: slurm.debug
     description: This is a tag example
     sbatch:
       - "-t 10:00:00"
       - "-p normal"
       - "-N 1"
       - "-n 8"
-    tags: [slurm]
+    tags:
+      - "slurm"
     run: hostname

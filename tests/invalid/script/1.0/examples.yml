@@ -110,3 +110,24 @@ buildspecs:
     description: additional properties are not allowed so any invalid key/value pair will result in error
     FOO: BAR
     run: hostname
+
+  additionalProperties_status:
+    type: script
+    executor: slurm.debug
+    description: test additional properties in status object. This is not allowed
+    sbatch: [ "-n 2", "-q normal", "-t 10"]
+    status:
+      slurm_job_state_codes: "COMPLETED"
+      FOO: BAR
+
+  invalid_slurm_job_state:
+    type: script
+    executor: slurm.debug
+    description: invalid value for slurm_job_state, should raise error with enum values.
+    sbatch:
+      - "-n 2"
+      - "-q normal"
+      - "-t 10"
+    status:
+      slurm_job_state_codes: "FINISH"
+
