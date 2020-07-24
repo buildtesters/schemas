@@ -57,6 +57,7 @@
   "definitions": {
       "modules": {
         "type": "object",
+        "additionalProperties": false,
         "properties": {
           "purge": { "type": "boolean" },
           "load": {
@@ -65,8 +66,7 @@
               "type": "string"
             }
           }
-        },
-        "additionalProperties": false
+        }
       },
       "local": {
           "type": "object",
