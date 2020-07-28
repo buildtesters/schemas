@@ -25,10 +25,12 @@ The schema documentation is based on [settings.schema.json](https://buildtesters
 
 ## default object
 
-| Name | Type | Supported in buildtest | Required |  Description | 
-| ---- | ---- | -----------------------| --------- | ----------- | 
+| Name | Type | Supported in buildtest | Required |  Description | Default |
+| ---- | ---- | -----------------------| --------- | ----------- | ------- |
 | pollinterval | number | YES | NO | Specify poll interval between range ``[10-300]`` seconds when buildtest will initiate query for slurm job. Default interval is 30 seconds. | `[10-300]` seconds, defaults to 30 secs |
-| launcher | string | YES | NO | Specify slurm launcher to use when submitting job. Currently we support `sbatch`. | `sbatch` |
+| launcher | string | YES | NO | Specify default slurm launcher that is inherited by all Slurm Executors.  | `sbatch` |
+| lsflauncher | string | NO | NO | Specify default LSF launcher that is inherited by all LSF Executors.  | `bsub` |
+
 
 ## local executor object
 
@@ -48,17 +50,28 @@ Required Fields for local executor: [`shell`]
 | Name | Type | Supported in buildtest | Required | Description | Valid Options | 
 | ---- | ---- | -----------------------| -------- | ----------- | -------------- |
 | description | string | YES | NO |  Specify description field for executor |
-| launcher | string | YES | YES | Specify slurm launcher to use when submitting job. Currently we support `sbatch`. | `sbatch` | 
+| launcher | string | YES | NO | Specify slurm launcher to use when submitting job. | `sbatch` | 
 | environment | array | NO | NO |  Specify a list of environment variables for all Buildspec using the slurm executor | | 
 | variables | array | NO | NO | Specify a list of variables for all Buildspec using the slurm executor. | | 
-| pollinterval | number | YES | NO | Specify poll interval between range ``[10-300]`` seconds when buildtest will initiate query for slurm job. Default interval is 30 seconds. | `[10-300]` seconds, defaults to 30 secs | 
 | cluster | string | YES | NO | Specify slurm cluster to use when submitting jobs. This is ``sbatch -M`` option. Use this option if you have a multi slurm cluster. | |
 | partition | string | YES | NO | Specify slurm partition (``sbatch -p <partition>``) when submitting job. | |
 | qos | string | YES | NO | specify slurm Quality of Service (QOS) to use when submitting job. This is the ``sbatch -q <qos>`` option. | |
 | modules | array | NO | NO | Specify a list of modules to load for all Buildspec associated to executor | | 
 | options | array | YES | NO | Specify a list of options to pass to the `launcher` key | |
 
-Required Fields for slurm executor: [`launcher`]
+
+# lsf executor object
+
+| Name | Type | Supported in buildtest | Required | Description | Valid Options | 
+| ---- | ---- | -----------------------| -------- | ----------- | -------------- |
+| description | string | NO | NO |  Specify description field for executor |
+| launcher | string | NO | NO | Specify LSF launcher to use when submitting job.  | `bsub` | 
+| environment | array | NO | NO |  Specify a list of environment variables for all Buildspec using the slurm executor | | 
+| variables | array | NO | NO | Specify a list of variables for all Buildspec using the slurm executor. | | 
+| queue | string | NO | NO | specify LSF Queue to submit job. This will result in ``bsub -q <queue>`` option. | |
+| modules | array | NO | NO | Specify a list of modules to load for all Buildspec associated to executor | | 
+| options | array | NO | NO | Specify a list of options to pass to the `launcher` key | |
+
 
 # ssh executor object
 

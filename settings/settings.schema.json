@@ -14,12 +14,17 @@
               "additionalProperties": false,
                "properties": {
                  "pollinterval": { "type":  "integer", "minimum": 10, "maximum": 300, "default": 30 },
-                 "launcher": { "type": "string", "enum": ["sbatch"] }
+                 "launcher": { "type": "string", "enum": ["sbatch"] },
+                 "lsflauncher": { "type": "string", "enum": ["bsub"] }
               }
             },
             "local": {
               "type": "object",
               "patternProperties": { "^.*$": { "$ref": "#/definitions/local" } }
+            },
+            "lsf": {
+              "type": "object",
+              "patternProperties": { "^.*$": { "$ref": "#/definitions/lsf" } }
             },
             "slurm": {
               "type": "object",
@@ -96,6 +101,19 @@
               "qos": {"type":  "string"},
               "modules": {"$ref":  "#/definitions/modules"}
            }
+       },
+      "lsf": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+              "description": {"type": "string"},
+              "launcher": { "type": "string", "enum": ["bsub"] },
+              "options": { "type": "array", "items": {"type": "string"} },
+              "environment": {"$ref":  "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"},
+              "variables": {"$ref":  "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/env"},
+              "queue": {"type":  "string"},
+              "modules": {"$ref":  "#/definitions/modules"}
+          }
        },
       "ssh": {
         "type": "object",

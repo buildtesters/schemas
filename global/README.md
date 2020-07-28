@@ -24,7 +24,7 @@ by other schemas.
 | status | object | YES | specify behavior of how test state will be determined, this could be checked via returncode or regular expression |  
 | sbatch | object | YES | specify sbatch options (#SBATCH) in test script.  For example if you specify ``sbatch: ["-t 10:00"]`` this will generate ``#SBATCH -t 10:00`` in test script. Do not pass the directive #SBATCH when using ``sbatch`` key because buildtest will automatically insert this for every key.
 | skip | boolean | YES | To skip a test set `skip: True` otherwise buildtest will build all tests. |
-| tags | array | NO | Add tags to classify test, each tag must be of `string` type. |
+| tags | array | YES | Add tags to classify test, each tag must be of `string` type. |
 
 ## status key
 
@@ -32,6 +32,7 @@ by other schemas.
 | ---- | ---- | ---------------------- | ----------- |
 | returncode  | integer | YES | specify desired returncode for test to succeed. The returncode will be matched with returncode from test |
 | regex | object | YES | specify regular expression to check with output or error stream |
+| slurm_job_state_codes | string | YES | Match Slurm job state code with expected result once slurm job is finished. If there is a match, test will `PASS` otherwise `FAIL`. |  [`COMPLETED`, `FAILED`, `OUT_OF_MEMORY`, `TIMEOUT` ] |  
 
 ## regex object
 
@@ -39,7 +40,7 @@ by other schemas.
 | ---- | ---- | ---------------------- | ---------| ----------- | -------------- |
 | stream  | string | YES | NO | Select stream to run regular expression check. Stream can be one of the two: [`stdout`, `stderr`] for test to succeed. | [ `stdout`, `stderr` ] |
 | exp | string | YES | NO | Specify regular expression to run with the specified stream. The expression is run internally via `re.search` and if there is a match test will pass. | |
-| slurm_job_state_codes | string | YES | NO |  Match Slurm job state code with expected result once slurm job is finished. If there is a match, test will `PASS` otherwise `FAIL`. |  [`COMPLETED`, `FAILED`, `OUT_OF_MEMORY`, `TIMEOUT` ] |  
+
 
 ## Example
 
