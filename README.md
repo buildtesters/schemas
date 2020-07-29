@@ -3,11 +3,14 @@
 This repository contains the schemas used by buildtest. The development of schema
 is done independent of the framework. 
 
-Currently we support the following schemas which are in development:
+buildtest buildspec schemas are the following:
 
-- [global](global): global schema defines values that are global to all schema files and it is validated with all Buildspecs.
-- [script](script): a single executable or multiple lines to be run as a test
-- [compiler](compiler): this schema is used for compiling programs with compilers such as GNU, Intel, PGI, etc...
+- [global](global): global schema defines values that are global to all schema files and it is validated with all buildspecs.
+- [script](script): This schema is for `type: script` in buildspec for writing shell scripts scripts 
+- [compiler](compiler): This schema is for `type: compiler` in buildspec for compiling programs with compilers such as GNU, Intel, PGI, etc...
+- [python](python): This schema is for `type: python`  in buildspec for writing python scripts.
+
+To configure buildtest use the `settings.schema.json`:
 - [settings](settings): This schema defines the content of buildtest settings file to configure buildtest.
 
 ## What is a schema?

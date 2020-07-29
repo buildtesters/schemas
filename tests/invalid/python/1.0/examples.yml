@@ -1,0 +1,33 @@
+version: "1.0"
+buildspecs:
+  pyver_enum_issue:
+    type: python
+    description: invalid pyver '1.0'
+    executor: local.bash
+    pyver:
+      - 1.0
+      - 3.1
+    python: print("Hello World")
+
+  package_additionalProperties:
+    type: python
+    description: additional properties in package section not allowed
+    executor: local.bash
+    pyver:
+      - 3.1
+    package:
+      pypy:
+        - numpy
+      FOO: BAR
+    python: print("Hello World")
+
+  package_array_mismatch:
+    type: python
+    description: pypi section takes arrays of string
+    executor: local.bash
+    pyver:
+      - 3.1
+    package:
+      pypy:
+        - ["scipy", "tensorflow"]
+    python: print("Hello World")
