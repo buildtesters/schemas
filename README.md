@@ -44,16 +44,16 @@ script-v1.0.schema.json
 
 The format is `<name>-vX.Y.schema.json`
 
-These schemas are also stored in buildtest [here](https://github.com/buildtesters/buildtest/tree/devel/buildtest/buildsystem/schemas)
+These schemas are also stored in buildtest [here](https://github.com/buildtesters/buildtest/tree/devel/buildtest/schemas)
 
 
 ## How is this repository organized?
 
 The entire root of this folder could be added to the folder shown above,
 and the subfolder structure would be added to the module. Importantly,
-the lowercase class names should match to a class defined in [buildtest/buildsystem/bases.py](https://github.com/buildtesters/buildtest/tree/devel/buildtest/buildsystem/schemas).
+the lowercase class names should match to a class defined in [buildtest/buildsystem/bases.py](https://github.com/buildtesters/buildtest/tree/devel/buildtest/buildsystem/base.py).
 For example, the contents of the [script](script) directory here are expected 
-to be added present at `buildtest/buildsystem/schemas/script` to go
+to be added present at `buildtest/schemas/script` to go
 along with a class "Script" in the bases file. 
 
 
@@ -76,7 +76,7 @@ Be sure to update properties and take account for:
   - a property being required or not
   - Make use of `additionalProperties: false` when defining properties so that additional keys in properties are not passed in.
   - requirements for the values provided (types, lengths, etc.) 
-  - If you need help, see [resources](#resources) or [ask a question](https://github.com/buildtesters/schemas/issues) 
+  - If you need help, see [resources](#resources) 
     or reach out to someone in Slack.
 
 ### Adding a new version
