@@ -1,3 +1,4 @@
 jsonschema
 pytest
 pyaml
+pre-commit
