@@ -1,6 +1,9 @@
 name: jsonschema2md
 
-on: [push, pull_request]
+on: 
+  push:
+    branches: 
+      - master
 
 jobs:
   jsonschemadocs:
@@ -12,7 +15,19 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - run: npm install -g @adobe/jsonschema2md
-    - run: pwd    
-    - run: jsonschema2md -d global/ -o docs/
+    
+    - name: jsonschema2md install
+      run: |
+        npm install -g @adobe/jsonschema2md
+        jsonschema2md -d global/ -o docs/global 
+        jsonschema2md -d compiler/ -o docs/compiler 
+        jsonschema2md -d script/ -o docs/script
+        jsonschema2md -d settings/ -o docs/settings
+    
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@3.5.9
+      with:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         BRANCH: gh-pages # The branch the action should deploy to.
+         FOLDER: build # The folder the action should deploy.
   

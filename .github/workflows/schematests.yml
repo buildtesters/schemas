@@ -1,14 +1,15 @@
-name: Test Schemas
+name: SchemaTests
 
 on:
   push:
     branches:
       - master
   pull_request:
-    branches_ignore: []
+    branches: 
+      - master
 
 jobs:
-  black:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,9 +23,9 @@ jobs:
           source activate schemas
           black --check .
 
-      - name: Test schemas
+      - name: Running Schema Tests
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
           source activate schemas
-          pip install -r .github/requirements.txt
+          pip install -r requirements.txt
           pytest -vra tests
