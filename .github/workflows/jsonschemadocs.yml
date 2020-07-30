@@ -23,11 +23,35 @@ jobs:
         jsonschema2md -d compiler/ -o docs/compiler 
         jsonschema2md -d script/ -o docs/script
         jsonschema2md -d settings/ -o docs/settings
-    
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@3.5.9
+        
+    - name: Upload jsonschema docs
+      uses: actions/upload-artifact@v2
       with:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-         BRANCH: gh-pages # The branch the action should deploy to.
-         FOLDER: build # The folder the action should deploy.
+        name: schemadocs
+        path: docs/
+          
   
+  DeployPages:   
+    runs-on: ubuntu-latest   
+    steps:
+      
+     - name: Download jsonschema docs
+       uses: actions/download-artifact@v2
+       with:
+          name: schemadocs
+     - shell: bash  
+       run: ls docs/
+          
+     - name: Install SSH Client 🔑
+       uses: webfactory/ssh-agent@v0.2.0
+       with:
+         ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+
+    
+     - name: Deploy 🚀      
+       uses: JamesIves/github-pages-deploy-action@3.5.9
+       with:
+         SSH: true
+         BRANCH: gh-pages # The branch the action should deploy to.
+         FOLDER: docs # The folder the action should deploy.
+         CLEAN: true  
