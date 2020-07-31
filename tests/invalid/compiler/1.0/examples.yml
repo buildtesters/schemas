@@ -137,3 +137,29 @@ buildspecs:
 
     run:
       args: 1
+
+    sbatch_type_mismatch:
+      executor: slurm.debug
+      type: compiler
+      description: "type mismatch on sbatch key"
+      sbatch: "-t 10 -N 1"
+      module:
+        - "module purge && module load gcc/4.0"
+      build:
+        source: src/hello.c
+        name: gnu
+        cflags: "-O1"
+        ldflags: "-lm"
+
+    bsub_type_mismatch:
+      executor: lsf.batch
+      type: compiler
+      description: "type mismatch on bsub key"
+      bsub: "-W 00:10 -N 1"
+      module:
+        - "module purge && module load gcc/4.0"
+      build:
+        source: src/hello.c
+        name: gnu
+        cflags: "-O1"
+        ldflags: "-lm"

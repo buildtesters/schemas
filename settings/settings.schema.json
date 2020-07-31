@@ -14,8 +14,7 @@
               "additionalProperties": false,
                "properties": {
                  "pollinterval": { "type":  "integer", "minimum": 10, "maximum": 300, "default": 30 },
-                 "launcher": { "type": "string", "enum": ["sbatch"] },
-                 "lsflauncher": { "type": "string", "enum": ["bsub"] }
+                 "launcher": { "type": "string", "enum": ["sbatch", "bsub"] }
               }
             },
             "local": {

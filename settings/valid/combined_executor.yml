@@ -1,6 +1,6 @@
 executors:
   local:
-    default:
+    bash:
       description: submit jobs on local machine
       shell: bash -v
       environment:
@@ -24,6 +24,16 @@ executors:
         X: 1
       variables:
         Y: Z
+
+  lsf:
+    batch:
+      launcher: bsub
+      modules:
+        purge: true
+        load: [PrgEnv-intel]
+      options:
+        - "-q batch"
+        - "-t 00:10"
   ssh:
      login:
        host: cori

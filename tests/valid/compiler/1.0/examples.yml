@@ -75,6 +75,30 @@ buildspecs:
       name: gnu
       cxx: g++
 
+  sbatch_example:
+    type: compiler
+    description: Slurm example using sbatch to submit job using executor slurm.debug
+    executor: slurm.debug
+    sbatch:
+      - "-t 10"
+      - "-n 2"
+    build:
+      source: "src/hello.cpp"
+      name: gnu
+      cxx: g++
+
+  bsub_example:
+    type: compiler
+    description: LSF example using bsub to submit job using executor lsf.batch
+    executor: lsf.batch
+    bsub:
+      - "-W 00:30"
+      - "-N 2"
+    build:
+      source: "src/hello.cpp"
+      name: gnu
+      cxx: g++
+
   args_example:
     type: compiler
     description: Launcher example
@@ -96,4 +120,5 @@ buildspecs:
       cxxflags: "-O3"
     run:
       launcher: mpirun -np 2
+
 

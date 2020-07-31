@@ -1,7 +1,7 @@
 executors:
   defaults:
     pollinterval: 10
-    lsflauncher: bsub
+    launcher: bsub
   lsf:
     batch:
       description: "LSF Executor name 'batch' that submits jobs to 'batch' queue"
