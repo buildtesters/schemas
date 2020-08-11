@@ -30,10 +30,10 @@ jobs:
         path: docs/
 
     - name: Upload schema files
-        uses: actions/upload-artifact@v2
-        with:
-          name: schemafiles
-          path: schemas/
+      uses: actions/upload-artifact@v2
+      with:
+        name: schemafiles
+        path: schemas/
   
   DeployPages:   
     needs: jsonschemadocs
