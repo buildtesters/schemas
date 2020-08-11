@@ -30,7 +30,11 @@ https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json
 | [status](#status)           | Not specified | Optional | cannot be null | [BuildTest Schema for compiler](compiler-v1-properties-status.md "https&#x3A;//buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/status")           |
 | [skip](#skip)               | Not specified | Optional | cannot be null | [BuildTest Schema for compiler](compiler-v1-properties-skip.md "https&#x3A;//buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/skip")               |
 | [tags](#tags)               | Not specified | Optional | cannot be null | [BuildTest Schema for compiler](compiler-v1-properties-tags.md "https&#x3A;//buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/tags")               |
+| [pre_build](#pre_build)     | `string`      | Optional | cannot be null | [BuildTest Schema for compiler](compiler-v1-properties-pre_build.md "https&#x3A;//buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/pre_build")     |
+| [post_build](#post_build)   | `string`      | Optional | cannot be null | [BuildTest Schema for compiler](compiler-v1-properties-post_build.md "https&#x3A;//buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/post_build")   |
 | [build](#build)             | `object`      | Required | cannot be null | [BuildTest Schema for compiler](compiler-v1-properties-build.md "https&#x3A;//buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/build")             |
+| [pre_run](#pre_run)         | `string`      | Optional | cannot be null | [BuildTest Schema for compiler](compiler-v1-properties-pre_run.md "https&#x3A;//buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/pre_run")         |
+| [post_run](#post_run)       | `string`      | Optional | cannot be null | [BuildTest Schema for compiler](compiler-v1-properties-post_run.md "https&#x3A;//buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/post_run")       |
 | [run](#run)                 | `object`      | Optional | cannot be null | [BuildTest Schema for compiler](compiler-v1-properties-run.md "https&#x3A;//buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/run")                 |
 
 ## type
@@ -219,6 +223,38 @@ unknown
 
 unknown
 
+## pre_build
+
+Run commands before building program
+
+
+`pre_build`
+
+-   is optional
+-   Type: `string`
+-   cannot be null
+-   defined in: [BuildTest Schema for compiler](compiler-v1-properties-pre_build.md "https&#x3A;//buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/pre_build")
+
+### pre_build Type
+
+`string`
+
+## post_build
+
+Run commands after building program
+
+
+`post_build`
+
+-   is optional
+-   Type: `string`
+-   cannot be null
+-   defined in: [BuildTest Schema for compiler](compiler-v1-properties-post_build.md "https&#x3A;//buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/post_build")
+
+### post_build Type
+
+`string`
+
 ## build
 
 
@@ -234,6 +270,38 @@ unknown
 ### build Type
 
 `object` ([Details](compiler-v1-properties-build.md))
+
+## pre_run
+
+Run commands before running program
+
+
+`pre_run`
+
+-   is optional
+-   Type: `string`
+-   cannot be null
+-   defined in: [BuildTest Schema for compiler](compiler-v1-properties-pre_run.md "https&#x3A;//buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/pre_run")
+
+### pre_run Type
+
+`string`
+
+## post_run
+
+Run commands after running program
+
+
+`post_run`
+
+-   is optional
+-   Type: `string`
+-   cannot be null
+-   defined in: [BuildTest Schema for compiler](compiler-v1-properties-post_run.md "https&#x3A;//buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/post_run")
+
+### post_run Type
+
+`string`
 
 ## run
 
