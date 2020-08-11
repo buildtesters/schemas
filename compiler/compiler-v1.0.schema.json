@@ -41,6 +41,14 @@
     "tags": {
       "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/tags"
     },
+    "pre_build":{
+      "type": "string",
+      "description": "Run commands before building program"
+    },
+    "post_build":{
+      "type": "string",
+      "description": "Run commands after building program"
+    },
     "build": {
       "type": "object",
       "properties": {
@@ -60,6 +68,14 @@
       },
       "required": ["source", "name"],
       "additionalProperties": false
+    },
+    "pre_run":{
+      "type": "string",
+      "description": "Run commands before running program"
+    },
+    "post_run":{
+      "type": "string",
+      "description": "Run commands after running program"
     },
     "run":{
       "type": "object",

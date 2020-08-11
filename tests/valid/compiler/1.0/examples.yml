@@ -121,4 +121,20 @@ buildspecs:
     run:
       launcher: mpirun -np 2
 
+  pre_post_build_run_sections:
+    type: compiler
+    description: Run commands pre and post build and run section
+    executor: local.bash
+    pre_build: echo "pre-build section"
 
+    build:
+      source: "src/hello.cpp"
+      name: gnu
+      cxx: mpicxx
+      cxxflags: "-O3"
+
+    post_build: echo "post-build section"
+    pre_run: echo "pre-run section"
+    run:
+      launcher: mpirun -np 2
+    post_run: echo "post-run section"
