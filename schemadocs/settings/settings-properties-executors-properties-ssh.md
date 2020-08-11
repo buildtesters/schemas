@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/settings/settings.schema.json#/properties/executors/properties/ssh
 ```
 
-
+The `ssh` section is used for declaring SSH executors for running jobs on remote node using ssh
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                      |

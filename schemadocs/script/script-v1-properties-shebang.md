@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/script/script-v1.0.schema.json#/properties/shebang
 ```
 
-
+Specify a custom shebang line. If not specified buildtest will automatically add it in the test script.
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                            |

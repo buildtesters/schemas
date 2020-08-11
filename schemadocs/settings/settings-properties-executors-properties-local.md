@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/settings/settings.schema.json#/properties/executors/properties/local
 ```
 
-
+The `local` section is used for declaring local executors for running jobs on local machine
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                      |

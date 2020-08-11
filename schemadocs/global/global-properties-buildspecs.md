@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/global/global.schema.json#/properties/buildspecs
 ```
 
-
+This section is used to define one or more tests (buildspecs). Each test must be unique name
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                  |

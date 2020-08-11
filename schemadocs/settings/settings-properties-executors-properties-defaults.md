@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/settings/settings.schema.json#/properties/executors/properties/defaults
 ```
 
-
+Specify default executor settings for all executors
 
 
 | Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                      |
@@ -24,7 +24,7 @@ https://buildtesters.github.io/schemas/settings/settings.schema.json#/properties
 
 ## pollinterval
 
-
+Specify poll interval in seconds after job submission, where buildtest will sleep and poll all jobs for job states. This field can be configured based on your preference. Excessive polling every few seconds can result in system degradation. 
 
 
 `pollinterval`
@@ -54,7 +54,7 @@ The default value is:
 
 ## launcher
 
-
+Specify batch launcher to use when submitting jobs, this is applicable for LSF and Slurm Executors.
 
 
 `launcher`

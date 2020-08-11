@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/settings/settings.schema.json#/properties/executors/properties/lsf
 ```
 
-
+The `lsf` section is used for declaring LSF executors for running jobs using LSF scheduler
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                      |

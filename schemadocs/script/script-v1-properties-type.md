@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/script/script-v1.0.schema.json#/properties/type
 ```
 
-
+Select schema type to use when validating buildspec. This must be of set to 'script'
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                            |

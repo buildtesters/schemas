@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/status/properties/regex/properties/exp
 ```
 
-
+Specify a regular expression to run with input stream specified by `stream` field. buildtest uses re.search when performing regex
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                  |

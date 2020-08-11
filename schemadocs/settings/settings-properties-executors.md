@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/settings/settings.schema.json#/properties/executors
 ```
 
-
+The executor section is used for declaring your executors that are responsible for running jobs. The executor section can be `local`, `lsf`, `slurm`, `ssh`. The executors are referenced in buildspec using `executor` field.
 
 
 | Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                      |
@@ -27,7 +27,7 @@ https://buildtesters.github.io/schemas/settings/settings.schema.json#/properties
 
 ## defaults
 
-
+Specify default executor settings for all executors
 
 
 `defaults`
@@ -43,7 +43,7 @@ https://buildtesters.github.io/schemas/settings/settings.schema.json#/properties
 
 ## local
 
-
+The `local` section is used for declaring local executors for running jobs on local machine
 
 
 `local`
@@ -59,7 +59,7 @@ https://buildtesters.github.io/schemas/settings/settings.schema.json#/properties
 
 ## lsf
 
-
+The `lsf` section is used for declaring LSF executors for running jobs using LSF scheduler
 
 
 `lsf`
@@ -75,7 +75,7 @@ https://buildtesters.github.io/schemas/settings/settings.schema.json#/properties
 
 ## slurm
 
-
+The `slurm` section is used for declaring Slurm executors for running jobs using Slurm scheduler
 
 
 `slurm`
@@ -91,7 +91,7 @@ https://buildtesters.github.io/schemas/settings/settings.schema.json#/properties
 
 ## ssh
 
-
+The `ssh` section is used for declaring SSH executors for running jobs on remote node using ssh
 
 
 `ssh`

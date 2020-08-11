@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/status/properties/regex/properties/stream
 ```
 
-
+The stream field can be stdout or stderr. buildtest will read the output or error stream after completion of test and check if regex matches in stream
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                  |

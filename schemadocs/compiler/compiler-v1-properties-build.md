@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/build
 ```
 
-
+The 'build' section is used for compiling a single program, this section specifies fields for setting C, C++, Fortran compiler and flags including CPP flags and linker flags
 
 
 | Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                |
@@ -32,7 +32,7 @@ https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/prope
 
 ## name
 
-
+Select the compiler class to use, buildtest will set cc, cxx, and fc compiler wrapper based on compiler name
 
 
 `name`
@@ -59,7 +59,7 @@ https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/prope
 
 ## cc
 
-
+Set C compiler. Use this field to override buildtest selection for cc
 
 
 `cc`
@@ -75,7 +75,7 @@ https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/prope
 
 ## fc
 
-
+Set Fortran compiler. Use this field to override buildtest selection for fc
 
 
 `fc`
@@ -91,7 +91,7 @@ https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/prope
 
 ## cxx
 
-
+Set C++ compiler. Use this field to override buildtest selection for cxx
 
 
 `cxx`
@@ -107,7 +107,7 @@ https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/prope
 
 ## source
 
-
+Specify a source file for compilation, the file can be relative path to buildspec or an absolute path
 
 
 `source`
@@ -123,7 +123,7 @@ https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/prope
 
 ## cflags
 
-
+Set C compiler flags (cflags)
 
 
 `cflags`
@@ -139,7 +139,7 @@ https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/prope
 
 ## cxxflags
 
-
+Set C++ compiler flags (cxxflags)
 
 
 `cxxflags`
@@ -155,7 +155,7 @@ https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/prope
 
 ## fflags
 
-
+Set Fortran compiler flags (fflags)
 
 
 `fflags`
@@ -171,7 +171,7 @@ https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/prope
 
 ## cppflags
 
-
+Set Pre Processor Flags (cppflags)
 
 
 `cppflags`
@@ -187,7 +187,7 @@ https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/prope
 
 ## ldflags
 
-
+Set linker flags (ldflags)
 
 
 `ldflags`

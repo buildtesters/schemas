@@ -61,7 +61,7 @@ One or more maintainers or aliases
 
 ## buildspecs
 
-
+This section is used to define one or more tests (buildspecs). Each test must be unique name
 
 
 `buildspecs`
@@ -159,7 +159,7 @@ Reference this group by using
 
 ### slurm_job_state_codes
 
-
+This field can be used for checking Slurm Job State, if there is a match buildtest will report as `PASS` 
 
 
 `slurm_job_state_codes`
@@ -186,7 +186,7 @@ Reference this group by using
 
 ### returncode
 
-
+By default, returncode 0 is PASS, if you want to emulate a non-zero returncode to pass then specify an expected return code. buildtest will match actual returncode with one defined in this field, if there is a match buildtest will report as `PASS`
 
 
 `returncode`
@@ -202,7 +202,7 @@ Reference this group by using
 
 ### regex
 
-
+Perform regular expression search using `re.search` python module on stdout/stderr stream for reporting if test `PASS`. 
 
 
 `regex`

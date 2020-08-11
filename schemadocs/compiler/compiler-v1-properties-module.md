@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/module
 ```
 
-
+A list of modules to load into test script
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                |

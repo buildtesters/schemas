@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/build/properties/name
 ```
 
-
+Select the compiler class to use, buildtest will set cc, cxx, and fc compiler wrapper based on compiler name
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                |

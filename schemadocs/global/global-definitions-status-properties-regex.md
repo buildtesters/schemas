@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/status/properties/regex
 ```
 
-
+Perform regular expression search using `re.search` python module on stdout/stderr stream for reporting if test `PASS`. 
 
 
 | Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                  |
@@ -24,7 +24,7 @@ https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/st
 
 ## stream
 
-
+The stream field can be stdout or stderr. buildtest will read the output or error stream after completion of test and check if regex matches in stream
 
 
 `stream`
@@ -49,7 +49,7 @@ https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/st
 
 ## exp
 
-
+Specify a regular expression to run with input stream specified by `stream` field. buildtest uses re.search when performing regex
 
 
 `exp`

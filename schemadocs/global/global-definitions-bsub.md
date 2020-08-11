@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/bsub
 ```
 
-
+This field is used for specifying #BSUB options in test script. buildtest will insert #BSUB in front of each value
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                  |

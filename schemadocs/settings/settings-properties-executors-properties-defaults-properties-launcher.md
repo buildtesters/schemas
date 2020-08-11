@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/settings/settings.schema.json#/properties/executors/properties/defaults/properties/launcher
 ```
 
-
+Specify batch launcher to use when submitting jobs, this is applicable for LSF and Slurm Executors.
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                      |

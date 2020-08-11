@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/status
 ```
 
-
+The status section describes how buildtest detects PASS/FAIL on test. By default returncode 0 is a PASS and anything else is a FAIL, however buildtest can support other types of PASS/FAIL conditions.
 
 
 | Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                  |
@@ -25,7 +25,7 @@ https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/st
 
 ## slurm_job_state_codes
 
-
+This field can be used for checking Slurm Job State, if there is a match buildtest will report as `PASS` 
 
 
 `slurm_job_state_codes`
@@ -52,7 +52,7 @@ https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/st
 
 ## returncode
 
-
+By default, returncode 0 is PASS, if you want to emulate a non-zero returncode to pass then specify an expected return code. buildtest will match actual returncode with one defined in this field, if there is a match buildtest will report as `PASS`
 
 
 `returncode`
@@ -68,7 +68,7 @@ https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/st
 
 ## regex
 
-
+Perform regular expression search using `re.search` python module on stdout/stderr stream for reporting if test `PASS`. 
 
 
 `regex`

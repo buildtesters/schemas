@@ -27,7 +27,7 @@ https://buildtesters.github.io/schemas/settings/settings.schema.json#/properties
 
 ## buildspec_roots
 
-
+Specify a list of directory paths to search buildspecs. This field can be used with `buildtest buildspec find` to rebuild buildspec cache or build tests using `buildtest build` command
 
 
 `buildspec_roots`

@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/build/properties/source
 ```
 
-
+Specify a source file for compilation, the file can be relative path to buildspec or an absolute path
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                |

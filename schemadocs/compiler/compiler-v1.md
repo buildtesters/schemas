@@ -39,7 +39,7 @@ https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json
 
 ## type
 
-
+Select schema type to use when validating buildspec. This must be of set to `compiler`
 
 
 `type`
@@ -65,7 +65,7 @@ https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json
 
 ## description
 
-
+The description field is used to document what the test is doing
 
 
 `description`
@@ -81,7 +81,7 @@ https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json
 
 ## module
 
-
+A list of modules to load into test script
 
 
 `module`
@@ -257,7 +257,7 @@ Run commands after building program
 
 ## build
 
-
+The 'build' section is used for compiling a single program, this section specifies fields for setting C, C++, Fortran compiler and flags including CPP flags and linker flags
 
 
 `build`
@@ -305,7 +305,7 @@ Run commands after running program
 
 ## run
 
-
+The run section is used for specifying launch configuration of executable
 
 
 `run`

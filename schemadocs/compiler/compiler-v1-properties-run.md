@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/run
 ```
 
-
+The run section is used for specifying launch configuration of executable
 
 
 | Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                |
@@ -24,7 +24,7 @@ https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/prope
 
 ## launcher
 
-
+The launcher field is inserted before the executable. This can be used when running programs with 'mpirun', 'mpiexec', 'srun', etc... You may specify launcher options with this field
 
 
 `launcher`
@@ -40,7 +40,7 @@ https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/prope
 
 ## args
 
-
+Use this field to specify arguments to executable.
 
 
 `args`

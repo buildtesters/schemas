@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/status/properties/slurm_job_state_codes
 ```
 
-
+This field can be used for checking Slurm Job State, if there is a match buildtest will report as `PASS` 
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                  |

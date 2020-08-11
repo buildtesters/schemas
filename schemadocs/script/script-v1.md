@@ -35,7 +35,7 @@ https://buildtesters.github.io/schemas/script/script-v1.0.schema.json
 
 ## type
 
-
+Select schema type to use when validating buildspec. This must be of set to 'script'
 
 
 `type`
@@ -61,7 +61,7 @@ https://buildtesters.github.io/schemas/script/script-v1.0.schema.json
 
 ## description
 
-A description for the build recipe.
+The description field is used to document what the test is doing
 
 
 `description`
@@ -157,7 +157,7 @@ unknown
 
 ## shell
 
-
+Specify a shell launcher to use when running jobs. This sets the shebang line in your test script. The `shell` key can be used with `run` section to describe content of script and how its executed
 
 
 `shell`
@@ -183,7 +183,7 @@ unknown
 
 ## shebang
 
-
+Specify a custom shebang line. If not specified buildtest will automatically add it in the test script.
 
 
 `shebang`
