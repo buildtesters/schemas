@@ -20,7 +20,7 @@ jobs:
     - name: jsonschema2md install
       run: |
         npm install -g @adobe/jsonschema2md
-        jsonschema2md -d schema/ -o docs/
+        jsonschema2md -d schemas/ -o docs/
 
 
     - name: Upload jsonschema docs
