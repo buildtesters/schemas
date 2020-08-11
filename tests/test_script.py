@@ -76,7 +76,7 @@ def test_script_examples(tmp_path):
        are specific to a schema. In this case, this is the "script"
        folder. Invalid examples should be under ./invalid/script.
     """
-    print("Root of testing is %s" % root)
+
     print("Testing schema %s" % schema_file)
     print("schema_path:", schema_path)
     loaded = load_schema(schema_path)
