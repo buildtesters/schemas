@@ -8,14 +8,17 @@
   "properties": {
     "type": {
       "type": "string",
-      "pattern": "^compiler$"
+      "pattern": "^compiler$",
+      "description": "Select schema type to use when validating buildspec. This must be of set to ``compiler``"
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "description": "The description field is used to document what the test is doing"
     },
     "module": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "type": "string" },
+      "description": "A list of modules to load into test script"
     },
     "executor": {
       "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/executor"
@@ -51,20 +54,49 @@
     },
     "build": {
       "type": "object",
+      "description": "The 'build' section is used for compiling a single program, this section specifies fields for setting C, C++, Fortran compiler and flags including CPP flags and linker flags" ,
       "properties": {
         "name": {
           "type": "string",
-          "enum": ["gnu", "intel", "pgi", "cray"]
+          "enum": ["gnu", "intel", "pgi", "cray"],
+          "description": "Select the compiler class to use, buildtest will set cc, cxx, and fc compiler wrapper based on compiler name"
         },
-        "cc": {"type":  "string"},
-        "fc": {"type":  "string"},
-        "cxx": {"type":  "string"},
-        "source": { "type": "string" },
-        "cflags": {"type":  "string"},
-        "cxxflags": {"type":  "string"},
-        "fflags": {"type":  "string"},
-        "cppflags": {"type":  "string"},
-        "ldflags": {"type": "string"}
+        "cc": {
+          "type":  "string",
+          "description": "Set C compiler. Use this field to override buildtest selection for cc"
+        },
+        "fc": {
+          "type":  "string",
+          "description": "Set Fortran compiler. Use this field to override buildtest selection for fc"
+        },
+        "cxx": {
+          "type":  "string",
+          "description": "Set C++ compiler. Use this field to override buildtest selection for cxx"
+        },
+        "source": {
+          "type": "string",
+          "description": "Specify a source file for compilation, the file can be relative path to buildspec or an absolute path"
+        },
+        "cflags": {
+          "type":  "string",
+          "description": "Set C compiler flags (cflags)"
+        },
+        "cxxflags": {
+          "type":  "string",
+          "description": "Set C++ compiler flags (cxxflags)"
+        },
+        "fflags": {
+          "type":  "string",
+          "description": "Set Fortran compiler flags (fflags)"
+        },
+        "cppflags": {
+          "type":  "string",
+          "description": "Set Pre Processor Flags (cppflags)"
+        },
+        "ldflags": {
+          "type": "string",
+          "description": "Set linker flags (ldflags)"
+        }
       },
       "required": ["source", "name"],
       "additionalProperties": false
@@ -79,9 +111,16 @@
     },
     "run":{
       "type": "object",
+      "description": "The run section is used for specifying launch configuration of executable",
       "properties": {
-        "launcher": { "type": "string" },
-        "args": { "type": "string" }
+        "launcher": {
+          "type": "string",
+          "description": "The launcher field is inserted before the executable. This can be used when running programs with 'mpirun', 'mpiexec', 'srun', etc... You may specify launcher options with this field"
+        },
+        "args": {
+          "type": "string",
+          "description": "Use this field to specify arguments to executable."
+        }
       },
       "additionalProperties": false
     }

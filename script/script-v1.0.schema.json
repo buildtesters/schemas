@@ -8,11 +8,12 @@
   "properties": {
     "type": {
       "type": "string",
-      "pattern": "^script$"
+      "pattern": "^script$",
+      "description": "Select schema type to use when validating buildspec. This must be of set to 'script'"
     },
     "description": {
       "type": "string",
-      "description": "A description for the build recipe."
+      "description": "The description field is used to document what the test is doing"
     },
     "sbatch": {
       "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/sbatch"
@@ -31,10 +32,12 @@
     },
     "shell": {
       "type": "string",
+      "description": "Specify a shell launcher to use when running jobs. This sets the shebang line in your test script. The ``shell`` key can be used with ``run`` section to describe content of script and how its executed",
       "pattern": "^(/bin/bash|/bin/sh|sh|bash|python).*"
     },
     "shebang": {
-      "type": "string"
+      "type": "string",
+      "description": "Specify a custom shebang line. If not specified buildtest will automatically add it in the test script."
     },
     "run": {
       "type": "string",
