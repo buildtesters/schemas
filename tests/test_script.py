@@ -8,12 +8,12 @@ from jsonschema import validate
 from jsonschema.exceptions import ValidationError
 
 here = os.path.dirname(os.path.abspath(__file__))
-root = os.path.dirname(here)
+schemaroot = os.path.join(os.path.dirname(here), "schemas")
 
 
 schema_name = "script"
 schema_file = f"{schema_name}-v1.0.schema.json"
-schema_path = os.path.join(root, schema_name, schema_file)
+schema_path = os.path.join(schemaroot, schema_file)
 
 
 def load_schema(path):

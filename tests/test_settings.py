@@ -5,6 +5,10 @@ from jsonschema import validate
 
 here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(here)
+schemaroot = os.path.join(os.path.dirname(here), "schemas")
+
+schema_file = "settings.schema.json"
+settings_schema = os.path.join(schemaroot, schema_file)
 
 
 def load_schema(path):
@@ -22,7 +26,7 @@ def load_recipe(path):
 
 
 def test_settings_examples():
-    settings_schema = os.path.join(root, "settings", "settings.schema.json")
+
     # load schema and ensure type is a dict
     recipe = load_schema(settings_schema)
 

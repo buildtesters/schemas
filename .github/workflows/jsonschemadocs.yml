@@ -20,18 +20,20 @@ jobs:
     - name: jsonschema2md install
       run: |
         npm install -g @adobe/jsonschema2md
-        jsonschema2md -d global/ -o docs/global 
-        jsonschema2md -d compiler/ -o docs/compiler 
-        jsonschema2md -d script/ -o docs/script
-        jsonschema2md -d settings/ -o docs/python
-        jsonschema2md -d settings/ -o docs/settings
+        jsonschema2md -d schema/ -o docs/
+
 
     - name: Upload jsonschema docs
       uses: actions/upload-artifact@v2
       with:
         name: schemadocs
         path: docs/
-          
+
+    - name: Upload schema files
+        uses: actions/upload-artifact@v2
+        with:
+          name: schemafiles
+          path: schemas/
   
   DeployPages:   
     needs: jsonschemadocs
@@ -48,17 +50,24 @@ jobs:
        uses: webfactory/ssh-agent@v0.2.0
        with:
          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-            
+
+     - name: Download schemafiles
+       uses: actions/download-artifact@v2
+       with:
+         name: schemafiles
+         path: downloads/schemas
+
      - name: Download jsonschema docs
        uses: actions/download-artifact@v2
        with:
           name: schemadocs
           path: downloads/docs
+          
      - name: Display content of downloaded directory
        run: |
          ls -R downloads
     
-     - name: Deploy 🚀      
+     - name: Deploy Schema Docs 🚀
        uses: JamesIves/github-pages-deploy-action@3.5.9
        with:
          SSH: true
@@ -66,4 +75,14 @@ jobs:
          BRANCH: gh-pages # The branch the action should deploy to.
          FOLDER: downloads/docs # The folder the action should deploy.
          TARGET_FOLDER: schemadocs  
-         CLEAN: true  
+         CLEAN: true
+
+     - name: Deploy Schemas 🚀
+       uses: JamesIves/github-pages-deploy-action@3.5.9
+       with:
+         SSH: true
+         BASE_BRANCH: master
+         BRANCH: gh-pages # The branch the action should deploy to.
+         FOLDER: downloads/schemas # The folder the action should deploy.
+         TARGET_FOLDER: schemas
+         CLEAN: true

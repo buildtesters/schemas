@@ -1,7 +1,8 @@
 {
-  "$id": "https://buildtesters.github.io/schemas/global/global.schema.json",
+  "$id": "https://buildtesters.github.io/schemas/schemas/global.schema.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "buildtest Global Schema",
+  "title": "buildtest global schema",
+  "description": "buildtest global schema is validated for all buildspecs. The global schema defines top-level structure of buildspec and defintions that are inherited for sub-schemas",
   "type": "object",
   "required": ["version","buildspecs"],
   "additionalProperties": false,

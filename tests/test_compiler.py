@@ -7,11 +7,11 @@ from jsonschema import validate
 from jsonschema.exceptions import ValidationError
 
 here = os.path.dirname(os.path.abspath(__file__))
-root = os.path.dirname(here)
+schemaroot = os.path.join(os.path.dirname(here), "schemas")
 
 schema_name = "compiler"
 schema_file = f"{schema_name}-v1.0.schema.json"
-schema_path = os.path.join(root, schema_name, schema_file)
+schema_path = os.path.join(schemaroot, schema_file)
 
 
 def load_schema(path):
@@ -86,7 +86,7 @@ def test_compiler_examples():
 
     invalids = os.path.join(here, "invalid", schema_name, version)
     valids = os.path.join(here, "valid", schema_name, version)
-
+    print(invalids, valids)
     assert invalids
     assert valids
 
