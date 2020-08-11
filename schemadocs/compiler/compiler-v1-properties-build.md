@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/build
 ```
 
-The 'build' section is used for compiling a single program, this section specifies fields for setting C, C++, Fortran compiler and flags including CPP flags and linker flags
+The `build` section is used for compiling a single program, this section specifies fields for setting C, C++, Fortran compiler and flags including CPP flags and linker flags
 
 
 | Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                |
@@ -59,7 +59,7 @@ Select the compiler class to use, buildtest will set cc, cxx, and fc compiler wr
 
 ## cc
 
-Set C compiler. Use this field to override buildtest selection for cc
+Set C compiler. Use this field to override buildtest selection for **cc**
 
 
 `cc`
@@ -75,7 +75,7 @@ Set C compiler. Use this field to override buildtest selection for cc
 
 ## fc
 
-Set Fortran compiler. Use this field to override buildtest selection for fc
+Set Fortran compiler. Use this field to override buildtest selection for **fc**
 
 
 `fc`
@@ -91,7 +91,7 @@ Set Fortran compiler. Use this field to override buildtest selection for fc
 
 ## cxx
 
-Set C++ compiler. Use this field to override buildtest selection for cxx
+Set C++ compiler. Use this field to override buildtest selection for **cxx**
 
 
 `cxx`
@@ -123,7 +123,7 @@ Specify a source file for compilation, the file can be relative path to buildspe
 
 ## cflags
 
-Set C compiler flags (cflags)
+Set C compiler flags (**cflags**)
 
 
 `cflags`
@@ -139,7 +139,7 @@ Set C compiler flags (cflags)
 
 ## cxxflags
 
-Set C++ compiler flags (cxxflags)
+Set C++ compiler flags (**cxxflags**)
 
 
 `cxxflags`
@@ -155,7 +155,7 @@ Set C++ compiler flags (cxxflags)
 
 ## fflags
 
-Set Fortran compiler flags (fflags)
+Set Fortran compiler flags (**fflags**)
 
 
 `fflags`
@@ -171,7 +171,7 @@ Set Fortran compiler flags (fflags)
 
 ## cppflags
 
-Set Pre Processor Flags (cppflags)
+Set Pre Processor Flags (**cppflags**)
 
 
 `cppflags`
@@ -187,7 +187,7 @@ Set Pre Processor Flags (cppflags)
 
 ## ldflags
 
-Set linker flags (ldflags)
+Set linker flags (**ldflags**)
 
 
 `ldflags`

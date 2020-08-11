@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/run
 ```
 
-The run section is used for specifying launch configuration of executable
+The `run` section is used for specifying launch configuration of executable
 
 
 | Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                |
@@ -24,7 +24,7 @@ The run section is used for specifying launch configuration of executable
 
 ## launcher
 
-The launcher field is inserted before the executable. This can be used when running programs with 'mpirun', 'mpiexec', 'srun', etc... You may specify launcher options with this field
+The `launcher` field is inserted before the executable. This can be used when running programs with `mpirun`, `mpiexec`, `srun`, etc... You may specify launcher options with this field
 
 
 `launcher`
@@ -40,7 +40,7 @@ The launcher field is inserted before the executable. This can be used when runn
 
 ## args
 
-Use this field to specify arguments to executable.
+The `args` field is used to specify arguments to executable.
 
 
 `args`

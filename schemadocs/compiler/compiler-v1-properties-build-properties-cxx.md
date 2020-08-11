@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/build/properties/cxx
 ```
 
-Set C++ compiler. Use this field to override buildtest selection for cxx
+Set C++ compiler. Use this field to override buildtest selection for **cxx**
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                |

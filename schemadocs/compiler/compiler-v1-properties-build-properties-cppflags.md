@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/build/properties/cppflags
 ```
 
-Set Pre Processor Flags (cppflags)
+Set Pre Processor Flags (**cppflags**)
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                |

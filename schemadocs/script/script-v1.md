@@ -61,7 +61,7 @@ Select schema type to use when validating buildspec. This must be of set to 'scr
 
 ## description
 
-The description field is used to document what the test is doing
+The `description` field is used to document what the test is doing
 
 
 `description`

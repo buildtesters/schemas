@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/compiler/compiler-v1.0.schema.json#/properties/build/properties/fc
 ```
 
-Set Fortran compiler. Use this field to override buildtest selection for fc
+Set Fortran compiler. Use this field to override buildtest selection for **fc**
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                |
