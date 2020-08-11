@@ -65,7 +65,9 @@ jobs:
           
      - name: Display content of downloaded directory
        run: |
-         ls -R downloads
+         ls -l downloads/schemas
+         ls -R downloads/docs
+         
     
      - name: Deploy Schema Docs 🚀
        uses: JamesIves/github-pages-deploy-action@3.5.9
