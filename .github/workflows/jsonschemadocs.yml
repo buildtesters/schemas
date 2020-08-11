@@ -23,8 +23,9 @@ jobs:
         jsonschema2md -d global/ -o docs/global 
         jsonschema2md -d compiler/ -o docs/compiler 
         jsonschema2md -d script/ -o docs/script
+        jsonschema2md -d settings/ -o docs/python
         jsonschema2md -d settings/ -o docs/settings
-        
+
     - name: Upload jsonschema docs
       uses: actions/upload-artifact@v2
       with:

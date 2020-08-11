@@ -13,7 +13,7 @@
     },
     "description": {
       "type": "string",
-      "description": "The description field is used to document what the test is doing"
+      "description": "The ``description`` field is used to document what the test is doing"
     },
     "sbatch": {
       "$ref": "https://buildtesters.github.io/schemas/global/global.schema.json#/definitions/sbatch"

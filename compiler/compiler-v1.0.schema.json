@@ -13,7 +13,7 @@
     },
     "description": {
       "type": "string",
-      "description": "The description field is used to document what the test is doing"
+      "description": "The ``description`` field is used to document what the test is doing"
     },
     "module": {
       "type": "array",
@@ -54,7 +54,7 @@
     },
     "build": {
       "type": "object",
-      "description": "The 'build' section is used for compiling a single program, this section specifies fields for setting C, C++, Fortran compiler and flags including CPP flags and linker flags" ,
+      "description": "The ``build`` section is used for compiling a single program, this section specifies fields for setting C, C++, Fortran compiler and flags including CPP flags and linker flags" ,
       "properties": {
         "name": {
           "type": "string",
@@ -63,15 +63,15 @@
         },
         "cc": {
           "type":  "string",
-          "description": "Set C compiler. Use this field to override buildtest selection for cc"
+          "description": "Set C compiler. Use this field to override buildtest selection for **cc**"
         },
         "fc": {
           "type":  "string",
-          "description": "Set Fortran compiler. Use this field to override buildtest selection for fc"
+          "description": "Set Fortran compiler. Use this field to override buildtest selection for **fc**"
         },
         "cxx": {
           "type":  "string",
-          "description": "Set C++ compiler. Use this field to override buildtest selection for cxx"
+          "description": "Set C++ compiler. Use this field to override buildtest selection for **cxx**"
         },
         "source": {
           "type": "string",
@@ -79,23 +79,23 @@
         },
         "cflags": {
           "type":  "string",
-          "description": "Set C compiler flags (cflags)"
+          "description": "Set C compiler flags (**cflags**)"
         },
         "cxxflags": {
           "type":  "string",
-          "description": "Set C++ compiler flags (cxxflags)"
+          "description": "Set C++ compiler flags (**cxxflags**)"
         },
         "fflags": {
           "type":  "string",
-          "description": "Set Fortran compiler flags (fflags)"
+          "description": "Set Fortran compiler flags (**fflags**)"
         },
         "cppflags": {
           "type":  "string",
-          "description": "Set Pre Processor Flags (cppflags)"
+          "description": "Set Pre Processor Flags (**cppflags**)"
         },
         "ldflags": {
           "type": "string",
-          "description": "Set linker flags (ldflags)"
+          "description": "Set linker flags (**ldflags**)"
         }
       },
       "required": ["source", "name"],
@@ -111,15 +111,15 @@
     },
     "run":{
       "type": "object",
-      "description": "The run section is used for specifying launch configuration of executable",
+      "description": "The ``run`` section is used for specifying launch configuration of executable",
       "properties": {
         "launcher": {
           "type": "string",
-          "description": "The launcher field is inserted before the executable. This can be used when running programs with 'mpirun', 'mpiexec', 'srun', etc... You may specify launcher options with this field"
+          "description": "The ``launcher`` field is inserted before the executable. This can be used when running programs with ``mpirun``, ``mpiexec``, ``srun``, etc... You may specify launcher options with this field"
         },
         "args": {
           "type": "string",
-          "description": "Use this field to specify arguments to executable."
+          "description": "The ``args`` field is used to specify arguments to executable."
         }
       },
       "additionalProperties": false
