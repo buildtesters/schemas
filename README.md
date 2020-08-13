@@ -6,9 +6,9 @@ is done independent of the framework.
 buildtest buildspec schemas are the following:
 
 - [global](schemadocs/global): global schema defines values that are global to all schema files and it is validated with all buildspecs.
-- [script](schemadocs/script): This schema is for `type: script` in buildspec for writing shell scripts scripts 
-- [compiler](schemadocs/compiler): This schema is for `type: compiler` in buildspec for compiling programs with compilers such as GNU, Intel, PGI, etc...
-- [python](schemadocs/python): This schema is for `type: python`  in buildspec for writing python scripts.
+- [script](schemadocs/script-v1): This schema is for `type: script` in buildspec for writing shell scripts scripts 
+- [compiler](schemadocs/compiler-v1): This schema is for `type: compiler` in buildspec for compiling programs with compilers such as GNU, Intel, PGI, etc...
+- [python](schemadocs/python-v1): This schema is for `type: python`  in buildspec for writing python scripts.
 
 To configure buildtest use the `settings.schema.json`:
 - [settings](schemadocs/settings): This schema defines the content of buildtest settings file to configure buildtest.
@@ -34,7 +34,7 @@ If you have issues with writing json schema please join the [JSON-SCHEMA Slack C
  
 ## How are schemas defined in buildtest?
 
-Buildtest will contain a folder per schema (`script`, `global`, `compiler`, etc...) that 
+Buildtest will contain a folder per schema (`script`, `global`, `compiler`, `python`, etc...) that 
 contains one or more versions of the schema. Since each schema type has 
 different versions we store them in format such as :
 
