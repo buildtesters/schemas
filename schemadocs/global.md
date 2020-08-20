@@ -1,4 +1,4 @@
-# buildtest global schema Schema
+# global schema Schema
 
 ```txt
 https://buildtesters.github.io/schemas/schemas/global.schema.json
@@ -11,17 +11,17 @@ buildtest global schema is validated for all buildspecs. The global schema defin
 | :------------------ | ---------- | -------------- | ------------ | :---------------- | --------------------- | ------------------- | ---------------------------------------------------------------------- |
 | Can be instantiated | Yes        | Unknown status | No           | Forbidden         | Forbidden             | none                | [global.schema.json](../out/global.schema.json "open original schema") |
 
-## buildtest global schema Type
+## global schema Type
 
-`object` ([buildtest global schema](global.md))
+`object` ([global schema](global.md))
 
-# buildtest global schema Properties
+# global schema Properties
 
-| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                   |
-| :-------------------------- | -------- | -------- | -------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [version](#version)         | `string` | Required | cannot be null | [buildtest global schema](global-properties-version.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/properties/version")         |
-| [maintainers](#maintainers) | `array`  | Optional | cannot be null | [buildtest global schema](global-properties-maintainers.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/properties/maintainers") |
-| [buildspecs](#buildspecs)   | `object` | Required | cannot be null | [buildtest global schema](global-properties-buildspecs.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/properties/buildspecs")   |
+| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                         |
+| :-------------------------- | -------- | -------- | -------------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [version](#version)         | `string` | Required | cannot be null | [global schema](global-properties-version.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/properties/version")         |
+| [maintainers](#maintainers) | `array`  | Optional | cannot be null | [global schema](global-properties-maintainers.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/properties/maintainers") |
+| [buildspecs](#buildspecs)   | `object` | Required | cannot be null | [global schema](global-properties-buildspecs.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/properties/buildspecs")   |
 
 ## version
 
@@ -33,7 +33,7 @@ The semver version of the schema to use (x.x).
 -   is required
 -   Type: `string`
 -   cannot be null
--   defined in: [buildtest global schema](global-properties-version.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/properties/version")
+-   defined in: [global schema](global-properties-version.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/properties/version")
 
 ### version Type
 
@@ -49,7 +49,7 @@ One or more maintainers or aliases
 -   is optional
 -   Type: `string[]`
 -   cannot be null
--   defined in: [buildtest global schema](global-properties-maintainers.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/properties/maintainers")
+-   defined in: [global schema](global-properties-maintainers.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/properties/maintainers")
 
 ### maintainers Type
 
@@ -69,13 +69,13 @@ This section is used to define one or more tests (buildspecs). Each test must be
 -   is required
 -   Type: `object` ([Details](global-properties-buildspecs.md))
 -   cannot be null
--   defined in: [buildtest global schema](global-properties-buildspecs.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/properties/buildspecs")
+-   defined in: [global schema](global-properties-buildspecs.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/properties/buildspecs")
 
 ### buildspecs Type
 
 `object` ([Details](global-properties-buildspecs.md))
 
-# buildtest global schema Definitions
+# global schema Definitions
 
 ## Definitions group env
 
@@ -151,11 +151,11 @@ Reference this group by using
 {"$ref":"https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status"}
 ```
 
-| Property                                        | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                             |
-| :---------------------------------------------- | --------- | -------- | -------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [slurm_job_state_codes](#slurm_job_state_codes) | `string`  | Optional | cannot be null | [buildtest global schema](global-definitions-status-properties-slurm_job_state_codes.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/slurm_job_state_codes") |
-| [returncode](#returncode)                       | `integer` | Optional | cannot be null | [buildtest global schema](global-definitions-status-properties-returncode.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/returncode")                       |
-| [regex](#regex)                                 | `object`  | Optional | cannot be null | [buildtest global schema](global-definitions-status-properties-regex.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex")                                 |
+| Property                                        | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                   |
+| :---------------------------------------------- | --------- | -------- | -------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [slurm_job_state_codes](#slurm_job_state_codes) | `string`  | Optional | cannot be null | [global schema](global-definitions-status-properties-slurm_job_state_codes.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/slurm_job_state_codes") |
+| [returncode](#returncode)                       | `integer` | Optional | cannot be null | [global schema](global-definitions-status-properties-returncode.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/returncode")                       |
+| [regex](#regex)                                 | `object`  | Optional | cannot be null | [global schema](global-definitions-status-properties-regex.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex")                                 |
 
 ### slurm_job_state_codes
 
@@ -167,7 +167,7 @@ This field can be used for checking Slurm Job State, if there is a match buildte
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [buildtest global schema](global-definitions-status-properties-slurm_job_state_codes.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/slurm_job_state_codes")
+-   defined in: [global schema](global-definitions-status-properties-slurm_job_state_codes.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/slurm_job_state_codes")
 
 #### slurm_job_state_codes Type
 
@@ -194,7 +194,7 @@ By default, returncode 0 is PASS, if you want to emulate a non-zero returncode t
 -   is optional
 -   Type: `integer`
 -   cannot be null
--   defined in: [buildtest global schema](global-definitions-status-properties-returncode.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/returncode")
+-   defined in: [global schema](global-definitions-status-properties-returncode.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/returncode")
 
 #### returncode Type
 
@@ -210,7 +210,7 @@ Perform regular expression search using `re.search` python module on stdout/stde
 -   is optional
 -   Type: `object` ([Details](global-definitions-status-properties-regex.md))
 -   cannot be null
--   defined in: [buildtest global schema](global-definitions-status-properties-regex.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex")
+-   defined in: [global schema](global-definitions-status-properties-regex.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex")
 
 #### regex Type
 

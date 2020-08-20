@@ -1,7 +1,7 @@
 # Untitled object in buildtest configuration schema Schema
 
 ```txt
-https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/ssh/properties/modules
+https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/modules
 ```
 
 

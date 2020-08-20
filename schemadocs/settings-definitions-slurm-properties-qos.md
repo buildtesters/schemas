@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/qos
 ```
 
-
+Specify the slurm qos you want to use `-q <qos>`
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                   |

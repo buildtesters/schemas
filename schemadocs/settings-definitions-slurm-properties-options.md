@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/options
 ```
 
-
+Specify any other options for `sbatch` used by this executor for running all jobs.
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                   |

@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/cluster
 ```
 
-
+Specify the slurm cluster you want to use `-M <cluster>`
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                   |

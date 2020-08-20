@@ -1,41 +1,41 @@
-# buildtest compiler schema version 1.0 Schema
+# compiler schema version 1.0 Schema
 
 ```txt
 https://buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json
 ```
 
-The compiler schema of type compiler in sub-schema which is used for compiling and running programs
+The compiler schema is of `type: compiler` in sub-schema which is used for compiling and running programs
 
 
 | Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                           |
 | :------------------ | ---------- | -------------- | ------------ | :---------------- | --------------------- | ------------------- | ------------------------------------------------------------------------------------ |
 | Can be instantiated | No         | Unknown status | No           | Forbidden         | Forbidden             | none                | [compiler-v1.0.schema.json](../out/compiler-v1.0.schema.json "open original schema") |
 
-## buildtest compiler schema version 1.0 Type
+## compiler schema version 1.0 Type
 
-`object` ([buildtest compiler schema version 1.0](compiler-v1.md))
+`object` ([compiler schema version 1.0](compiler-v1.md))
 
-# buildtest compiler schema version 1.0 Properties
+# compiler schema version 1.0 Properties
 
-| Property                    | Type      | Required | Nullable       | Defined by                                                                                                                                                                             |
-| :-------------------------- | --------- | -------- | -------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [type](#type)               | `string`  | Required | cannot be null | [buildtest compiler schema version 1.0](compiler-v1-properties-type.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/type")               |
-| [description](#description) | `string`  | Optional | cannot be null | [buildtest compiler schema version 1.0](compiler-v1-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/description") |
-| [module](#module)           | `array`   | Optional | cannot be null | [buildtest compiler schema version 1.0](compiler-v1-properties-module.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/module")           |
-| [executor](#executor)       | `string`  | Required | cannot be null | [buildtest compiler schema version 1.0](compiler-v1-properties-executor.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/executor")       |
-| [sbatch](#sbatch)           | `array`   | Optional | cannot be null | [buildtest compiler schema version 1.0](global-definitions-sbatch.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/sbatch")               |
-| [bsub](#bsub)               | `array`   | Optional | cannot be null | [buildtest compiler schema version 1.0](global-definitions-bsub.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/bsub")                   |
-| [env](#env)                 | `object`  | Optional | cannot be null | [buildtest compiler schema version 1.0](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/env")                     |
-| [vars](#vars)               | `object`  | Optional | cannot be null | [buildtest compiler schema version 1.0](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/vars")                    |
-| [status](#status)           | `object`  | Optional | cannot be null | [buildtest compiler schema version 1.0](global-definitions-status.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/status")               |
-| [skip](#skip)               | `boolean` | Optional | cannot be null | [buildtest compiler schema version 1.0](compiler-v1-properties-skip.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/skip")               |
-| [tags](#tags)               | `array`   | Optional | cannot be null | [buildtest compiler schema version 1.0](global-definitions-tags.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/tags")                   |
-| [pre_build](#pre_build)     | `string`  | Optional | cannot be null | [buildtest compiler schema version 1.0](compiler-v1-properties-pre_build.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/pre_build")     |
-| [post_build](#post_build)   | `string`  | Optional | cannot be null | [buildtest compiler schema version 1.0](compiler-v1-properties-post_build.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/post_build")   |
-| [build](#build)             | `object`  | Required | cannot be null | [buildtest compiler schema version 1.0](compiler-v1-properties-build.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/build")             |
-| [pre_run](#pre_run)         | `string`  | Optional | cannot be null | [buildtest compiler schema version 1.0](compiler-v1-properties-pre_run.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/pre_run")         |
-| [post_run](#post_run)       | `string`  | Optional | cannot be null | [buildtest compiler schema version 1.0](compiler-v1-properties-post_run.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/post_run")       |
-| [run](#run)                 | `object`  | Optional | cannot be null | [buildtest compiler schema version 1.0](compiler-v1-properties-run.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/run")                 |
+| Property                    | Type      | Required | Nullable       | Defined by                                                                                                                                                                   |
+| :-------------------------- | --------- | -------- | -------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [type](#type)               | `string`  | Required | cannot be null | [compiler schema version 1.0](compiler-v1-properties-type.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/type")               |
+| [description](#description) | `string`  | Optional | cannot be null | [compiler schema version 1.0](compiler-v1-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/description") |
+| [module](#module)           | `array`   | Optional | cannot be null | [compiler schema version 1.0](compiler-v1-properties-module.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/module")           |
+| [executor](#executor)       | `string`  | Required | cannot be null | [compiler schema version 1.0](compiler-v1-properties-executor.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/executor")       |
+| [sbatch](#sbatch)           | `array`   | Optional | cannot be null | [compiler schema version 1.0](global-definitions-sbatch.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/sbatch")               |
+| [bsub](#bsub)               | `array`   | Optional | cannot be null | [compiler schema version 1.0](global-definitions-bsub.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/bsub")                   |
+| [env](#env)                 | `object`  | Optional | cannot be null | [compiler schema version 1.0](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/env")                     |
+| [vars](#vars)               | `object`  | Optional | cannot be null | [compiler schema version 1.0](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/vars")                    |
+| [status](#status)           | `object`  | Optional | cannot be null | [compiler schema version 1.0](global-definitions-status.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/status")               |
+| [skip](#skip)               | `boolean` | Optional | cannot be null | [compiler schema version 1.0](compiler-v1-properties-skip.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/skip")               |
+| [tags](#tags)               | `array`   | Optional | cannot be null | [compiler schema version 1.0](global-definitions-tags.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/tags")                   |
+| [pre_build](#pre_build)     | `string`  | Optional | cannot be null | [compiler schema version 1.0](compiler-v1-properties-pre_build.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/pre_build")     |
+| [post_build](#post_build)   | `string`  | Optional | cannot be null | [compiler schema version 1.0](compiler-v1-properties-post_build.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/post_build")   |
+| [build](#build)             | `object`  | Required | cannot be null | [compiler schema version 1.0](compiler-v1-properties-build.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/build")             |
+| [pre_run](#pre_run)         | `string`  | Optional | cannot be null | [compiler schema version 1.0](compiler-v1-properties-pre_run.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/pre_run")         |
+| [post_run](#post_run)       | `string`  | Optional | cannot be null | [compiler schema version 1.0](compiler-v1-properties-post_run.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/post_run")       |
+| [run](#run)                 | `object`  | Optional | cannot be null | [compiler schema version 1.0](compiler-v1-properties-run.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/run")                 |
 
 ## type
 
@@ -47,7 +47,7 @@ Select schema type to use when validating buildspec. This must be of set to `com
 -   is required
 -   Type: `string`
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](compiler-v1-properties-type.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/type")
+-   defined in: [compiler schema version 1.0](compiler-v1-properties-type.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/type")
 
 ### type Type
 
@@ -73,7 +73,7 @@ The `description` field is used to document what the test is doing
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](compiler-v1-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/description")
+-   defined in: [compiler schema version 1.0](compiler-v1-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/description")
 
 ### description Type
 
@@ -89,7 +89,7 @@ A list of modules to load into test script
 -   is optional
 -   Type: `string[]`
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](compiler-v1-properties-module.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/module")
+-   defined in: [compiler schema version 1.0](compiler-v1-properties-module.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/module")
 
 ### module Type
 
@@ -105,7 +105,7 @@ Select one of the executor name defined in your configuration file (`config.yml`
 -   is required
 -   Type: `string`
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](compiler-v1-properties-executor.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/executor")
+-   defined in: [compiler schema version 1.0](compiler-v1-properties-executor.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/executor")
 
 ### executor Type
 
@@ -121,7 +121,7 @@ This field is used for specifying #SBATCH options in test script. buildtest will
 -   is optional
 -   Type: `string[]`
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](global-definitions-sbatch.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/sbatch")
+-   defined in: [compiler schema version 1.0](global-definitions-sbatch.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/sbatch")
 
 ### sbatch Type
 
@@ -137,7 +137,7 @@ This field is used for specifying #BSUB options in test script. buildtest will i
 -   is optional
 -   Type: `string[]`
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](global-definitions-bsub.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/bsub")
+-   defined in: [compiler schema version 1.0](global-definitions-bsub.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/bsub")
 
 ### bsub Type
 
@@ -153,7 +153,7 @@ One or more key value pairs for an environment (key=value)
 -   is optional
 -   Type: `object` ([Details](global-definitions-env.md))
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/env")
+-   defined in: [compiler schema version 1.0](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/env")
 
 ### env Type
 
@@ -173,7 +173,7 @@ One or more key value pairs for an environment (key=value)
 -   is optional
 -   Type: `object` ([Details](global-definitions-env.md))
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/vars")
+-   defined in: [compiler schema version 1.0](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/vars")
 
 ### vars Type
 
@@ -193,7 +193,7 @@ The status section describes how buildtest detects PASS/FAIL on test. By default
 -   is optional
 -   Type: `object` ([Details](global-definitions-status.md))
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](global-definitions-status.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/status")
+-   defined in: [compiler schema version 1.0](global-definitions-status.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/status")
 
 ### status Type
 
@@ -209,7 +209,7 @@ The `skip` is a boolean field that can be used to skip tests during builds. By d
 -   is optional
 -   Type: `boolean`
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](compiler-v1-properties-skip.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/skip")
+-   defined in: [compiler schema version 1.0](compiler-v1-properties-skip.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/skip")
 
 ### skip Type
 
@@ -225,7 +225,7 @@ Classify tests using a tag name, this can be used for categorizing test and buil
 -   is optional
 -   Type: `string[]`
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](global-definitions-tags.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/tags")
+-   defined in: [compiler schema version 1.0](global-definitions-tags.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/tags")
 
 ### tags Type
 
@@ -245,7 +245,7 @@ Run commands before building program
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](compiler-v1-properties-pre_build.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/pre_build")
+-   defined in: [compiler schema version 1.0](compiler-v1-properties-pre_build.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/pre_build")
 
 ### pre_build Type
 
@@ -261,7 +261,7 @@ Run commands after building program
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](compiler-v1-properties-post_build.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/post_build")
+-   defined in: [compiler schema version 1.0](compiler-v1-properties-post_build.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/post_build")
 
 ### post_build Type
 
@@ -277,7 +277,7 @@ The `build` section is used for compiling a single program, this section specifi
 -   is required
 -   Type: `object` ([Details](compiler-v1-properties-build.md))
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](compiler-v1-properties-build.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/build")
+-   defined in: [compiler schema version 1.0](compiler-v1-properties-build.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/build")
 
 ### build Type
 
@@ -293,7 +293,7 @@ Run commands before running program
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](compiler-v1-properties-pre_run.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/pre_run")
+-   defined in: [compiler schema version 1.0](compiler-v1-properties-pre_run.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/pre_run")
 
 ### pre_run Type
 
@@ -309,7 +309,7 @@ Run commands after running program
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](compiler-v1-properties-post_run.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/post_run")
+-   defined in: [compiler schema version 1.0](compiler-v1-properties-post_run.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/post_run")
 
 ### post_run Type
 
@@ -325,7 +325,7 @@ The `run` section is used for specifying launch configuration of executable
 -   is optional
 -   Type: `object` ([Details](compiler-v1-properties-run.md))
 -   cannot be null
--   defined in: [buildtest compiler schema version 1.0](compiler-v1-properties-run.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/run")
+-   defined in: [compiler schema version 1.0](compiler-v1-properties-run.md "https&#x3A;//buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/run")
 
 ### run Type
 

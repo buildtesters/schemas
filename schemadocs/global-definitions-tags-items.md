@@ -1,4 +1,4 @@
-# Untitled string in buildtest global schema Schema
+# Untitled string in global schema Schema
 
 ```txt
 https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/tags/items

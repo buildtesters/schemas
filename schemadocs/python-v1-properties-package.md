@@ -1,4 +1,4 @@
-# Untitled object in python schema Schema
+# Untitled object in python schema version 1.0 Schema
 
 ```txt
 https://buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/package
@@ -17,10 +17,10 @@ https://buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properti
 
 # undefined Properties
 
-| Property                      | Type     | Required | Nullable       | Defined by                                                                                                                                                                                         |
-| :---------------------------- | -------- | -------- | -------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [requirements](#requirements) | `string` | Optional | cannot be null | [python schema](python-v1-properties-package-properties-requirements.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/package/properties/requirements") |
-| [pypi](#pypi)                 | `array`  | Optional | cannot be null | [python schema](python-v1-properties-package-properties-pypi.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/package/properties/pypi")                 |
+| Property                      | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                     |
+| :---------------------------- | -------- | -------- | -------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [requirements](#requirements) | `string` | Optional | cannot be null | [python schema version 1.0](python-v1-properties-package-properties-requirements.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/package/properties/requirements") |
+| [pypi](#pypi)                 | `array`  | Optional | cannot be null | [python schema version 1.0](python-v1-properties-package-properties-pypi.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/package/properties/pypi")                 |
 
 ## requirements
 
@@ -32,7 +32,7 @@ https://buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properti
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [python schema](python-v1-properties-package-properties-requirements.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/package/properties/requirements")
+-   defined in: [python schema version 1.0](python-v1-properties-package-properties-requirements.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/package/properties/requirements")
 
 ### requirements Type
 
@@ -48,7 +48,7 @@ https://buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properti
 -   is optional
 -   Type: `string[]`
 -   cannot be null
--   defined in: [python schema](python-v1-properties-package-properties-pypi.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/package/properties/pypi")
+-   defined in: [python schema version 1.0](python-v1-properties-package-properties-pypi.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/package/properties/pypi")
 
 ### pypi Type
 

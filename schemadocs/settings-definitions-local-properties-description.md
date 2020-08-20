@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/description
 ```
 
-
+description field for documenting your executor
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                   |

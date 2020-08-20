@@ -1,4 +1,4 @@
-# Untitled undefined type in python schema Schema
+# Untitled undefined type in python schema version 1.0 Schema
 
 ```txt
 https://buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties

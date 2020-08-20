@@ -1,4 +1,4 @@
-# Untitled undefined type in buildtest global schema Schema
+# Untitled undefined type in global schema Schema
 
 ```txt
 https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/env/items/propertyNames

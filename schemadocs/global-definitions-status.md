@@ -1,4 +1,4 @@
-# Untitled object in BuildTest Test Configuration for Script Schema
+# Untitled object in script schema version 1.0 Schema
 
 ```txt
 https://buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/status
@@ -17,11 +17,11 @@ The status section describes how buildtest detects PASS/FAIL on test. By default
 
 # undefined Properties
 
-| Property                                        | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                             |
-| :---------------------------------------------- | --------- | -------- | -------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [slurm_job_state_codes](#slurm_job_state_codes) | `string`  | Optional | cannot be null | [buildtest global schema](global-definitions-status-properties-slurm_job_state_codes.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/slurm_job_state_codes") |
-| [returncode](#returncode)                       | `integer` | Optional | cannot be null | [buildtest global schema](global-definitions-status-properties-returncode.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/returncode")                       |
-| [regex](#regex)                                 | `object`  | Optional | cannot be null | [buildtest global schema](global-definitions-status-properties-regex.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex")                                 |
+| Property                                        | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                   |
+| :---------------------------------------------- | --------- | -------- | -------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [slurm_job_state_codes](#slurm_job_state_codes) | `string`  | Optional | cannot be null | [global schema](global-definitions-status-properties-slurm_job_state_codes.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/slurm_job_state_codes") |
+| [returncode](#returncode)                       | `integer` | Optional | cannot be null | [global schema](global-definitions-status-properties-returncode.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/returncode")                       |
+| [regex](#regex)                                 | `object`  | Optional | cannot be null | [global schema](global-definitions-status-properties-regex.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex")                                 |
 
 ## slurm_job_state_codes
 
@@ -33,7 +33,7 @@ This field can be used for checking Slurm Job State, if there is a match buildte
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [buildtest global schema](global-definitions-status-properties-slurm_job_state_codes.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/slurm_job_state_codes")
+-   defined in: [global schema](global-definitions-status-properties-slurm_job_state_codes.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/slurm_job_state_codes")
 
 ### slurm_job_state_codes Type
 
@@ -60,7 +60,7 @@ By default, returncode 0 is PASS, if you want to emulate a non-zero returncode t
 -   is optional
 -   Type: `integer`
 -   cannot be null
--   defined in: [buildtest global schema](global-definitions-status-properties-returncode.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/returncode")
+-   defined in: [global schema](global-definitions-status-properties-returncode.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/returncode")
 
 ### returncode Type
 
@@ -76,7 +76,7 @@ Perform regular expression search using `re.search` python module on stdout/stde
 -   is optional
 -   Type: `object` ([Details](global-definitions-status-properties-regex.md))
 -   cannot be null
--   defined in: [buildtest global schema](global-definitions-status-properties-regex.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex")
+-   defined in: [global schema](global-definitions-status-properties-regex.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex")
 
 ### regex Type
 

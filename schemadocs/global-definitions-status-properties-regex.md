@@ -1,4 +1,4 @@
-# Untitled object in buildtest global schema Schema
+# Untitled object in global schema Schema
 
 ```txt
 https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex
@@ -17,10 +17,10 @@ Perform regular expression search using `re.search` python module on stdout/stde
 
 # undefined Properties
 
-| Property          | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                                 |
-| :---------------- | -------- | -------- | -------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [stream](#stream) | `string` | Required | cannot be null | [buildtest global schema](global-definitions-status-properties-regex-properties-stream.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex/properties/stream") |
-| [exp](#exp)       | `string` | Required | cannot be null | [buildtest global schema](global-definitions-status-properties-regex-properties-exp.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex/properties/exp")       |
+| Property          | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                       |
+| :---------------- | -------- | -------- | -------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [stream](#stream) | `string` | Required | cannot be null | [global schema](global-definitions-status-properties-regex-properties-stream.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex/properties/stream") |
+| [exp](#exp)       | `string` | Required | cannot be null | [global schema](global-definitions-status-properties-regex-properties-exp.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex/properties/exp")       |
 
 ## stream
 
@@ -32,7 +32,7 @@ The stream field can be stdout or stderr. buildtest will read the output or erro
 -   is required
 -   Type: `string`
 -   cannot be null
--   defined in: [buildtest global schema](global-definitions-status-properties-regex-properties-stream.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex/properties/stream")
+-   defined in: [global schema](global-definitions-status-properties-regex-properties-stream.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex/properties/stream")
 
 ### stream Type
 
@@ -57,7 +57,7 @@ Specify a regular expression to run with input stream specified by `stream` fiel
 -   is required
 -   Type: `string`
 -   cannot be null
--   defined in: [buildtest global schema](global-definitions-status-properties-regex-properties-exp.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex/properties/exp")
+-   defined in: [global schema](global-definitions-status-properties-regex-properties-exp.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex/properties/exp")
 
 ### exp Type
 

@@ -1,4 +1,4 @@
-# Untitled boolean in buildtest compiler schema version 1.0 Schema
+# Untitled boolean in compiler schema version 1.0 Schema
 
 ```txt
 https://buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/skip

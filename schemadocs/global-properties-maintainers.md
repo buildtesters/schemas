@@ -1,4 +1,4 @@
-# Untitled array in buildtest global schema Schema
+# Untitled array in global schema Schema
 
 ```txt
 https://buildtesters.github.io/schemas/schemas/global.schema.json#/properties/maintainers

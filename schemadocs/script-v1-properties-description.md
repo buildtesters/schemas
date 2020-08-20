@@ -1,4 +1,4 @@
-# Untitled string in BuildTest Test Configuration for Script Schema
+# Untitled string in script schema version 1.0 Schema
 
 ```txt
 https://buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/description

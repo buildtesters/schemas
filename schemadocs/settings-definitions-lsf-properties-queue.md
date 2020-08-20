@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/queue
 ```
 
-
+Specify the lsf queue you want to use `-q <queue>`
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                   |

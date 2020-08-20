@@ -4,7 +4,7 @@
 https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/launcher
 ```
 
-
+Specify the lsf batch scheduler to use. This overrides the default `launcher` field. It must be `bsub`. 
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                   |

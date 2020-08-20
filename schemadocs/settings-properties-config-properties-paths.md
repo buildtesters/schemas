@@ -21,7 +21,6 @@ https://buildtesters.github.io/schemas/schemas/settings.schema.json#/properties/
 | :---------------------------------- | -------- | -------- | -------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [buildspec_roots](#buildspec_roots) | `array`  | Optional | cannot be null | [buildtest configuration schema](settings-properties-config-properties-paths-properties-buildspec_roots.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/properties/config/properties/paths/properties/buildspec_roots") |
 | [prefix](#prefix)                   | `string` | Optional | cannot be null | [buildtest configuration schema](settings-properties-config-properties-paths-properties-prefix.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/properties/config/properties/paths/properties/prefix")                   |
-| [clonepath](#clonepath)             | `string` | Optional | cannot be null | [buildtest configuration schema](settings-properties-config-properties-paths-properties-clonepath.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/properties/config/properties/paths/properties/clonepath")             |
 | [logdir](#logdir)                   | `string` | Optional | cannot be null | [buildtest configuration schema](settings-properties-config-properties-paths-properties-logdir.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/properties/config/properties/paths/properties/logdir")                   |
 | [testdir](#testdir)                 | `string` | Optional | cannot be null | [buildtest configuration schema](settings-properties-config-properties-paths-properties-testdir.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/properties/config/properties/paths/properties/testdir")                 |
 
@@ -54,22 +53,6 @@ Specify a list of directory paths to search buildspecs. This field can be used w
 -   defined in: [buildtest configuration schema](settings-properties-config-properties-paths-properties-prefix.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/properties/config/properties/paths/properties/prefix")
 
 ### prefix Type
-
-`string`
-
-## clonepath
-
-
-
-
-`clonepath`
-
--   is optional
--   Type: `string`
--   cannot be null
--   defined in: [buildtest configuration schema](settings-properties-config-properties-paths-properties-clonepath.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/properties/config/properties/paths/properties/clonepath")
-
-### clonepath Type
 
 `string`
 

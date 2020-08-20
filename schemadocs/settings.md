@@ -125,18 +125,14 @@ Reference this group by using
 {"$ref":"https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local"}
 ```
 
-| Property                    | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                  |
-| :-------------------------- | --------- | -------- | -------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [description](#description) | `string`  | Optional | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/description") |
-| [shell](#shell)             | `string`  | Required | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-shell.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/shell")             |
-| [environment](#environment) | `object`  | Optional | cannot be null | [buildtest configuration schema](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/environment")                            |
-| [variables](#variables)     | `object`  | Optional | cannot be null | [buildtest configuration schema](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/variables")                              |
-| [retry](#retry)             | `integer` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-retry.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/retry")             |
-| [modules](#modules)         | `object`  | Optional | cannot be null | [buildtest configuration schema](settings-definitions-modules.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/modules")                          |
+| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                  |
+| :-------------------------- | -------- | -------- | -------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [description](#description) | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/description") |
+| [shell](#shell)             | `string` | Required | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-shell.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/shell")             |
 
 ### description
 
-
+description field for documenting your executor
 
 
 `description`
@@ -152,7 +148,7 @@ Reference this group by using
 
 ### shell
 
-
+Specify the shell launcher you want to use when running tests locally
 
 
 `shell`
@@ -176,84 +172,6 @@ Reference this group by using
 
 [try pattern](https://regexr.com/?expression=%5E(%2Fbin%2Fbash%7C%2Fbin%2Fsh%7Csh%7Cbash%7Cpython).* "try regular expression with regexr.com")
 
-### environment
-
-One or more key value pairs for an environment (key=value)
-
-
-`environment`
-
--   is optional
--   Type: `object` ([Details](global-definitions-env.md))
--   cannot be null
--   defined in: [buildtest configuration schema](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/environment")
-
-#### environment Type
-
-`object` ([Details](global-definitions-env.md))
-
-#### environment Constraints
-
-**minimum number of items**: the minimum number of items for this array is: `1`
-
-### variables
-
-One or more key value pairs for an environment (key=value)
-
-
-`variables`
-
--   is optional
--   Type: `object` ([Details](global-definitions-env.md))
--   cannot be null
--   defined in: [buildtest configuration schema](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/variables")
-
-#### variables Type
-
-`object` ([Details](global-definitions-env.md))
-
-#### variables Constraints
-
-**minimum number of items**: the minimum number of items for this array is: `1`
-
-### retry
-
-
-
-
-`retry`
-
--   is optional
--   Type: `integer`
--   cannot be null
--   defined in: [buildtest configuration schema](settings-definitions-local-properties-retry.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/retry")
-
-#### retry Type
-
-`integer`
-
-#### retry Constraints
-
-**maximum**: the value of this number must smaller than or equal to: `5`
-
-**minimum**: the value of this number must greater than or equal to: `1`
-
-### modules
-
-
-
-
-`modules`
-
--   is optional
--   Type: `object` ([Details](settings-definitions-modules.md))
--   cannot be null
--   defined in: [buildtest configuration schema](settings-definitions-modules.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/modules")
-
-#### modules Type
-
-`object` ([Details](settings-definitions-modules.md))
-
 ## Definitions group slurm
 
 Reference this group by using
@@ -267,16 +185,13 @@ Reference this group by using
 | [description](#description) | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/description") |
 | [launcher](#launcher)       | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-launcher.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/launcher")       |
 | [options](#options)         | `array`  | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-options.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/options")         |
-| [environment](#environment) | `object` | Optional | cannot be null | [buildtest configuration schema](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/environment")                            |
-| [variables](#variables)     | `object` | Optional | cannot be null | [buildtest configuration schema](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/variables")                              |
 | [cluster](#cluster)         | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-cluster.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/cluster")         |
 | [partition](#partition)     | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-partition.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/partition")     |
 | [qos](#qos)                 | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-qos.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/qos")                 |
-| [modules](#modules)         | `object` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-modules.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/modules")                          |
 
 ### description
 
-
+description field for documenting your executor
 
 
 `description`
@@ -292,7 +207,7 @@ Reference this group by using
 
 ### launcher
 
-
+Specify the slurm batch scheduler to use. This overrides the default `launcher` field. This must be `sbatch`. 
 
 
 `launcher`
@@ -316,7 +231,7 @@ Reference this group by using
 
 ### options
 
-
+Specify any other options for `sbatch` used by this executor for running all jobs.
 
 
 `options`
@@ -330,49 +245,9 @@ Reference this group by using
 
 `string[]`
 
-### environment
-
-One or more key value pairs for an environment (key=value)
-
-
-`environment`
-
--   is optional
--   Type: `object` ([Details](global-definitions-env.md))
--   cannot be null
--   defined in: [buildtest configuration schema](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/environment")
-
-#### environment Type
-
-`object` ([Details](global-definitions-env.md))
-
-#### environment Constraints
-
-**minimum number of items**: the minimum number of items for this array is: `1`
-
-### variables
-
-One or more key value pairs for an environment (key=value)
-
-
-`variables`
-
--   is optional
--   Type: `object` ([Details](global-definitions-env.md))
--   cannot be null
--   defined in: [buildtest configuration schema](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/variables")
-
-#### variables Type
-
-`object` ([Details](global-definitions-env.md))
-
-#### variables Constraints
-
-**minimum number of items**: the minimum number of items for this array is: `1`
-
 ### cluster
 
-
+Specify the slurm cluster you want to use `-M <cluster>`
 
 
 `cluster`
@@ -388,7 +263,7 @@ One or more key value pairs for an environment (key=value)
 
 ### partition
 
-
+Specify the slurm partition you want to use `-p <partition>`
 
 
 `partition`
@@ -404,7 +279,7 @@ One or more key value pairs for an environment (key=value)
 
 ### qos
 
-
+Specify the slurm qos you want to use `-q <qos>`
 
 
 `qos`
@@ -417,22 +292,6 @@ One or more key value pairs for an environment (key=value)
 #### qos Type
 
 `string`
-
-### modules
-
-
-
-
-`modules`
-
--   is optional
--   Type: `object` ([Details](settings-definitions-modules.md))
--   cannot be null
--   defined in: [buildtest configuration schema](settings-definitions-modules.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/modules")
-
-#### modules Type
-
-`object` ([Details](settings-definitions-modules.md))
 
 ## Definitions group lsf
 
@@ -447,14 +306,11 @@ Reference this group by using
 | [description](#description) | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/description") |
 | [launcher](#launcher)       | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-launcher.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/launcher")       |
 | [options](#options)         | `array`  | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-options.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/options")         |
-| [environment](#environment) | `object` | Optional | cannot be null | [buildtest configuration schema](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/environment")                          |
-| [variables](#variables)     | `object` | Optional | cannot be null | [buildtest configuration schema](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/variables")                            |
 | [queue](#queue)             | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-queue.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/queue")             |
-| [modules](#modules)         | `object` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-modules.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/modules")                        |
 
 ### description
 
-
+description field for documenting your executor
 
 
 `description`
@@ -470,7 +326,7 @@ Reference this group by using
 
 ### launcher
 
-
+Specify the lsf batch scheduler to use. This overrides the default `launcher` field. It must be `bsub`. 
 
 
 `launcher`
@@ -494,7 +350,7 @@ Reference this group by using
 
 ### options
 
-
+Specify any options for `bsub` for this executor when running all jobs associated to this executor
 
 
 `options`
@@ -508,49 +364,9 @@ Reference this group by using
 
 `string[]`
 
-### environment
-
-One or more key value pairs for an environment (key=value)
-
-
-`environment`
-
--   is optional
--   Type: `object` ([Details](global-definitions-env.md))
--   cannot be null
--   defined in: [buildtest configuration schema](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/environment")
-
-#### environment Type
-
-`object` ([Details](global-definitions-env.md))
-
-#### environment Constraints
-
-**minimum number of items**: the minimum number of items for this array is: `1`
-
-### variables
-
-One or more key value pairs for an environment (key=value)
-
-
-`variables`
-
--   is optional
--   Type: `object` ([Details](global-definitions-env.md))
--   cannot be null
--   defined in: [buildtest configuration schema](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/variables")
-
-#### variables Type
-
-`object` ([Details](global-definitions-env.md))
-
-#### variables Constraints
-
-**minimum number of items**: the minimum number of items for this array is: `1`
-
 ### queue
 
-
+Specify the lsf queue you want to use `-q <queue>`
 
 
 `queue`
@@ -563,22 +379,6 @@ One or more key value pairs for an environment (key=value)
 #### queue Type
 
 `string`
-
-### modules
-
-
-
-
-`modules`
-
--   is optional
--   Type: `object` ([Details](settings-definitions-modules.md))
--   cannot be null
--   defined in: [buildtest configuration schema](settings-definitions-modules.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/modules")
-
-#### modules Type
-
-`object` ([Details](settings-definitions-modules.md))
 
 ## Definitions group ssh
 
@@ -594,9 +394,6 @@ Reference this group by using
 | [host](#host)                   | `string` | Required | cannot be null | [buildtest configuration schema](settings-definitions-ssh-properties-host.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/ssh/properties/host")                   |
 | [user](#user)                   | `string` | Required | cannot be null | [buildtest configuration schema](settings-definitions-ssh-properties-user.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/ssh/properties/user")                   |
 | [identity_file](#identity_file) | `string` | Required | cannot be null | [buildtest configuration schema](settings-definitions-ssh-properties-identity_file.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/ssh/properties/identity_file") |
-| [environment](#environment)     | `object` | Optional | cannot be null | [buildtest configuration schema](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/ssh/properties/environment")                              |
-| [variables](#variables)         | `object` | Optional | cannot be null | [buildtest configuration schema](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/ssh/properties/variables")                                |
-| [modules](#modules)             | `object` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-modules.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/ssh/properties/modules")                            |
 
 ### description
 
@@ -661,59 +458,3 @@ Reference this group by using
 #### identity_file Type
 
 `string`
-
-### environment
-
-One or more key value pairs for an environment (key=value)
-
-
-`environment`
-
--   is optional
--   Type: `object` ([Details](global-definitions-env.md))
--   cannot be null
--   defined in: [buildtest configuration schema](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/ssh/properties/environment")
-
-#### environment Type
-
-`object` ([Details](global-definitions-env.md))
-
-#### environment Constraints
-
-**minimum number of items**: the minimum number of items for this array is: `1`
-
-### variables
-
-One or more key value pairs for an environment (key=value)
-
-
-`variables`
-
--   is optional
--   Type: `object` ([Details](global-definitions-env.md))
--   cannot be null
--   defined in: [buildtest configuration schema](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/ssh/properties/variables")
-
-#### variables Type
-
-`object` ([Details](global-definitions-env.md))
-
-#### variables Constraints
-
-**minimum number of items**: the minimum number of items for this array is: `1`
-
-### modules
-
-
-
-
-`modules`
-
--   is optional
--   Type: `object` ([Details](settings-definitions-modules.md))
--   cannot be null
--   defined in: [buildtest configuration schema](settings-definitions-modules.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/ssh/properties/modules")
-
-#### modules Type
-
-`object` ([Details](settings-definitions-modules.md))

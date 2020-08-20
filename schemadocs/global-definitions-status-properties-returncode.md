@@ -1,4 +1,4 @@
-# Untitled integer in buildtest global schema Schema
+# Untitled integer in global schema Schema
 
 ```txt
 https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/returncode

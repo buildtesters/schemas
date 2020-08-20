@@ -1,37 +1,37 @@
-# BuildTest Test Configuration for Script Schema
+# script schema version 1.0 Schema
 
 ```txt
 https://buildtesters.github.io/schemas/schemas/script-v1.0.schema.json
 ```
 
-
+The script schema is of `type: script` in sub-schema which is used for running shell scripts
 
 
 | Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                       |
 | :------------------ | ---------- | -------------- | ------------ | :---------------- | --------------------- | ------------------- | -------------------------------------------------------------------------------- |
 | Can be instantiated | No         | Unknown status | No           | Forbidden         | Forbidden             | none                | [script-v1.0.schema.json](../out/script-v1.0.schema.json "open original schema") |
 
-## BuildTest Test Configuration for Script Type
+## script schema version 1.0 Type
 
-`object` ([BuildTest Test Configuration for Script](script-v1.md))
+`object` ([script schema version 1.0](script-v1.md))
 
-# BuildTest Test Configuration for Script Properties
+# script schema version 1.0 Properties
 
-| Property                    | Type      | Required | Nullable       | Defined by                                                                                                                                                                           |
-| :-------------------------- | --------- | -------- | -------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [type](#type)               | `string`  | Required | cannot be null | [BuildTest Test Configuration for Script](script-v1-properties-type.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/type")               |
-| [description](#description) | `string`  | Optional | cannot be null | [BuildTest Test Configuration for Script](script-v1-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/description") |
-| [sbatch](#sbatch)           | `array`   | Optional | cannot be null | [BuildTest Test Configuration for Script](global-definitions-sbatch.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/sbatch")             |
-| [bsub](#bsub)               | `array`   | Optional | cannot be null | [BuildTest Test Configuration for Script](global-definitions-bsub.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/bsub")                 |
-| [env](#env)                 | `object`  | Optional | cannot be null | [BuildTest Test Configuration for Script](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/env")                   |
-| [vars](#vars)               | `object`  | Optional | cannot be null | [BuildTest Test Configuration for Script](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/vars")                  |
-| [executor](#executor)       | `string`  | Required | cannot be null | [BuildTest Test Configuration for Script](global-definitions-executor.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/executor")         |
-| [shell](#shell)             | `string`  | Optional | cannot be null | [BuildTest Test Configuration for Script](script-v1-properties-shell.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/shell")             |
-| [shebang](#shebang)         | `string`  | Optional | cannot be null | [BuildTest Test Configuration for Script](script-v1-properties-shebang.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/shebang")         |
-| [run](#run)                 | `string`  | Required | cannot be null | [BuildTest Test Configuration for Script](script-v1-properties-run.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/run")                 |
-| [status](#status)           | `object`  | Optional | cannot be null | [BuildTest Test Configuration for Script](global-definitions-status.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/status")             |
-| [skip](#skip)               | `boolean` | Optional | cannot be null | [BuildTest Test Configuration for Script](global-definitions-skip.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/skip")                 |
-| [tags](#tags)               | `array`   | Optional | cannot be null | [BuildTest Test Configuration for Script](global-definitions-tags.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/tags")                 |
+| Property                    | Type      | Required | Nullable       | Defined by                                                                                                                                                             |
+| :-------------------------- | --------- | -------- | -------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [type](#type)               | `string`  | Required | cannot be null | [script schema version 1.0](script-v1-properties-type.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/type")               |
+| [description](#description) | `string`  | Optional | cannot be null | [script schema version 1.0](script-v1-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/description") |
+| [sbatch](#sbatch)           | `array`   | Optional | cannot be null | [script schema version 1.0](global-definitions-sbatch.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/sbatch")             |
+| [bsub](#bsub)               | `array`   | Optional | cannot be null | [script schema version 1.0](global-definitions-bsub.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/bsub")                 |
+| [env](#env)                 | `object`  | Optional | cannot be null | [script schema version 1.0](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/env")                   |
+| [vars](#vars)               | `object`  | Optional | cannot be null | [script schema version 1.0](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/vars")                  |
+| [executor](#executor)       | `string`  | Required | cannot be null | [script schema version 1.0](global-definitions-executor.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/executor")         |
+| [shell](#shell)             | `string`  | Optional | cannot be null | [script schema version 1.0](script-v1-properties-shell.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/shell")             |
+| [shebang](#shebang)         | `string`  | Optional | cannot be null | [script schema version 1.0](script-v1-properties-shebang.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/shebang")         |
+| [run](#run)                 | `string`  | Required | cannot be null | [script schema version 1.0](script-v1-properties-run.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/run")                 |
+| [status](#status)           | `object`  | Optional | cannot be null | [script schema version 1.0](global-definitions-status.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/status")             |
+| [skip](#skip)               | `boolean` | Optional | cannot be null | [script schema version 1.0](global-definitions-skip.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/skip")                 |
+| [tags](#tags)               | `array`   | Optional | cannot be null | [script schema version 1.0](global-definitions-tags.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/tags")                 |
 
 ## type
 
@@ -43,7 +43,7 @@ Select schema type to use when validating buildspec. This must be of set to 'scr
 -   is required
 -   Type: `string`
 -   cannot be null
--   defined in: [BuildTest Test Configuration for Script](script-v1-properties-type.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/type")
+-   defined in: [script schema version 1.0](script-v1-properties-type.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/type")
 
 ### type Type
 
@@ -69,7 +69,7 @@ The `description` field is used to document what the test is doing
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [BuildTest Test Configuration for Script](script-v1-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/description")
+-   defined in: [script schema version 1.0](script-v1-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/description")
 
 ### description Type
 
@@ -85,7 +85,7 @@ This field is used for specifying #SBATCH options in test script. buildtest will
 -   is optional
 -   Type: `string[]`
 -   cannot be null
--   defined in: [BuildTest Test Configuration for Script](global-definitions-sbatch.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/sbatch")
+-   defined in: [script schema version 1.0](global-definitions-sbatch.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/sbatch")
 
 ### sbatch Type
 
@@ -101,7 +101,7 @@ This field is used for specifying #BSUB options in test script. buildtest will i
 -   is optional
 -   Type: `string[]`
 -   cannot be null
--   defined in: [BuildTest Test Configuration for Script](global-definitions-bsub.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/bsub")
+-   defined in: [script schema version 1.0](global-definitions-bsub.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/bsub")
 
 ### bsub Type
 
@@ -117,7 +117,7 @@ One or more key value pairs for an environment (key=value)
 -   is optional
 -   Type: `object` ([Details](global-definitions-env.md))
 -   cannot be null
--   defined in: [BuildTest Test Configuration for Script](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/env")
+-   defined in: [script schema version 1.0](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/env")
 
 ### env Type
 
@@ -137,7 +137,7 @@ One or more key value pairs for an environment (key=value)
 -   is optional
 -   Type: `object` ([Details](global-definitions-env.md))
 -   cannot be null
--   defined in: [BuildTest Test Configuration for Script](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/vars")
+-   defined in: [script schema version 1.0](global-definitions-env.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/vars")
 
 ### vars Type
 
@@ -157,7 +157,7 @@ Select one of the executor name defined in your configuration file (`config.yml`
 -   is required
 -   Type: `string`
 -   cannot be null
--   defined in: [BuildTest Test Configuration for Script](global-definitions-executor.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/executor")
+-   defined in: [script schema version 1.0](global-definitions-executor.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/executor")
 
 ### executor Type
 
@@ -173,7 +173,7 @@ Specify a shell launcher to use when running jobs. This sets the shebang line in
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [BuildTest Test Configuration for Script](script-v1-properties-shell.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/shell")
+-   defined in: [script schema version 1.0](script-v1-properties-shell.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/shell")
 
 ### shell Type
 
@@ -199,7 +199,7 @@ Specify a custom shebang line. If not specified buildtest will automatically add
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [BuildTest Test Configuration for Script](script-v1-properties-shebang.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/shebang")
+-   defined in: [script schema version 1.0](script-v1-properties-shebang.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/shebang")
 
 ### shebang Type
 
@@ -215,7 +215,7 @@ A script to run using the default shell.
 -   is required
 -   Type: `string`
 -   cannot be null
--   defined in: [BuildTest Test Configuration for Script](script-v1-properties-run.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/run")
+-   defined in: [script schema version 1.0](script-v1-properties-run.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/run")
 
 ### run Type
 
@@ -231,7 +231,7 @@ The status section describes how buildtest detects PASS/FAIL on test. By default
 -   is optional
 -   Type: `object` ([Details](global-definitions-status.md))
 -   cannot be null
--   defined in: [BuildTest Test Configuration for Script](global-definitions-status.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/status")
+-   defined in: [script schema version 1.0](global-definitions-status.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/status")
 
 ### status Type
 
@@ -247,7 +247,7 @@ The `skip` is a boolean field that can be used to skip tests during builds. By d
 -   is optional
 -   Type: `boolean`
 -   cannot be null
--   defined in: [BuildTest Test Configuration for Script](global-definitions-skip.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/skip")
+-   defined in: [script schema version 1.0](global-definitions-skip.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/skip")
 
 ### skip Type
 
@@ -263,7 +263,7 @@ Classify tests using a tag name, this can be used for categorizing test and buil
 -   is optional
 -   Type: `string[]`
 -   cannot be null
--   defined in: [BuildTest Test Configuration for Script](global-definitions-tags.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/tags")
+-   defined in: [script schema version 1.0](global-definitions-tags.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/tags")
 
 ### tags Type
 

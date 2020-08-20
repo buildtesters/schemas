@@ -1,36 +1,36 @@
-# python schema Schema
+# python schema version 1.0 Schema
 
 ```txt
 https://buildtesters.github.io/schemas/schemas/python-v1.0.schema.json
 ```
 
-
+The script schema is of `type: python` in sub-schema which is used for running python scripts
 
 
 | Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                       |
 | :------------------ | ---------- | -------------- | ------------ | :---------------- | --------------------- | ------------------- | -------------------------------------------------------------------------------- |
 | Can be instantiated | No         | Unknown status | No           | Forbidden         | Forbidden             | none                | [python-v1.0.schema.json](../out/python-v1.0.schema.json "open original schema") |
 
-## python schema Type
+## python schema version 1.0 Type
 
-`object` ([python schema](python-v1.md))
+`object` ([python schema version 1.0](python-v1.md))
 
-# python schema Properties
+# python schema version 1.0 Properties
 
-| Property                    | Type          | Required | Nullable       | Defined by                                                                                                                                                 |
-| :-------------------------- | ------------- | -------- | -------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [type](#type)               | `string`      | Required | cannot be null | [python schema](python-v1-properties-type.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/type")               |
-| [description](#description) | `string`      | Optional | cannot be null | [python schema](python-v1-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/description") |
-| [executor](#executor)       | Not specified | Required | cannot be null | [python schema](python-v1-properties-executor.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/executor")       |
-| [pyver](#pyver)             | `array`       | Required | cannot be null | [python schema](python-v1-properties-pyver.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/pyver")             |
-| [package](#package)         | `object`      | Optional | cannot be null | [python schema](python-v1-properties-package.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/package")         |
-| [module](#module)           | `array`       | Optional | cannot be null | [python schema](python-v1-properties-module.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/module")           |
-| [sbatch](#sbatch)           | `array`       | Optional | cannot be null | [python schema](python-v1-properties-sbatch.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/sbatch")           |
-| [python](#python)           | `string`      | Required | cannot be null | [python schema](python-v1-properties-python.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/python")           |
-| [script](#script)           | `string`      | Optional | cannot be null | [python schema](python-v1-properties-script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/script")           |
-| [status](#status)           | `object`      | Optional | cannot be null | [python schema](global-definitions-status.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/status")             |
-| [skip](#skip)               | `boolean`     | Optional | cannot be null | [python schema](global-definitions-skip.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/skip")                 |
-| [tags](#tags)               | `array`       | Optional | cannot be null | [python schema](global-definitions-tags.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/tags")                 |
+| Property                    | Type          | Required | Nullable       | Defined by                                                                                                                                                             |
+| :-------------------------- | ------------- | -------- | -------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [type](#type)               | `string`      | Required | cannot be null | [python schema version 1.0](python-v1-properties-type.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/type")               |
+| [description](#description) | `string`      | Optional | cannot be null | [python schema version 1.0](python-v1-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/description") |
+| [executor](#executor)       | Not specified | Required | cannot be null | [python schema version 1.0](python-v1-properties-executor.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/executor")       |
+| [pyver](#pyver)             | `array`       | Required | cannot be null | [python schema version 1.0](python-v1-properties-pyver.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/pyver")             |
+| [package](#package)         | `object`      | Optional | cannot be null | [python schema version 1.0](python-v1-properties-package.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/package")         |
+| [module](#module)           | `array`       | Optional | cannot be null | [python schema version 1.0](python-v1-properties-module.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/module")           |
+| [sbatch](#sbatch)           | `array`       | Optional | cannot be null | [python schema version 1.0](python-v1-properties-sbatch.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/sbatch")           |
+| [python](#python)           | `string`      | Required | cannot be null | [python schema version 1.0](python-v1-properties-python.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/python")           |
+| [script](#script)           | `string`      | Optional | cannot be null | [python schema version 1.0](python-v1-properties-script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/script")           |
+| [status](#status)           | `object`      | Optional | cannot be null | [python schema version 1.0](global-definitions-status.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/status")             |
+| [skip](#skip)               | `boolean`     | Optional | cannot be null | [python schema version 1.0](global-definitions-skip.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/skip")                 |
+| [tags](#tags)               | `array`       | Optional | cannot be null | [python schema version 1.0](global-definitions-tags.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/tags")                 |
 
 ## type
 
@@ -42,7 +42,7 @@ https://buildtesters.github.io/schemas/schemas/python-v1.0.schema.json
 -   is required
 -   Type: `string`
 -   cannot be null
--   defined in: [python schema](python-v1-properties-type.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/type")
+-   defined in: [python schema version 1.0](python-v1-properties-type.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/type")
 
 ### type Type
 
@@ -68,7 +68,7 @@ https://buildtesters.github.io/schemas/schemas/python-v1.0.schema.json
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [python schema](python-v1-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/description")
+-   defined in: [python schema version 1.0](python-v1-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/description")
 
 ### description Type
 
@@ -84,7 +84,7 @@ https://buildtesters.github.io/schemas/schemas/python-v1.0.schema.json
 -   is required
 -   Type: unknown
 -   cannot be null
--   defined in: [python schema](python-v1-properties-executor.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/executor")
+-   defined in: [python schema version 1.0](python-v1-properties-executor.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/executor")
 
 ### executor Type
 
@@ -100,7 +100,7 @@ unknown
 -   is required
 -   Type: `number[]`
 -   cannot be null
--   defined in: [python schema](python-v1-properties-pyver.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/pyver")
+-   defined in: [python schema version 1.0](python-v1-properties-pyver.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/pyver")
 
 ### pyver Type
 
@@ -116,7 +116,7 @@ unknown
 -   is optional
 -   Type: `object` ([Details](python-v1-properties-package.md))
 -   cannot be null
--   defined in: [python schema](python-v1-properties-package.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/package")
+-   defined in: [python schema version 1.0](python-v1-properties-package.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/package")
 
 ### package Type
 
@@ -132,7 +132,7 @@ unknown
 -   is optional
 -   Type: `string[]`
 -   cannot be null
--   defined in: [python schema](python-v1-properties-module.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/module")
+-   defined in: [python schema version 1.0](python-v1-properties-module.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/module")
 
 ### module Type
 
@@ -148,7 +148,7 @@ unknown
 -   is optional
 -   Type: `string[]`
 -   cannot be null
--   defined in: [python schema](python-v1-properties-sbatch.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/sbatch")
+-   defined in: [python schema version 1.0](python-v1-properties-sbatch.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/sbatch")
 
 ### sbatch Type
 
@@ -164,7 +164,7 @@ A python script to run
 -   is required
 -   Type: `string`
 -   cannot be null
--   defined in: [python schema](python-v1-properties-python.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/python")
+-   defined in: [python schema version 1.0](python-v1-properties-python.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/python")
 
 ### python Type
 
@@ -180,7 +180,7 @@ A python script to run
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [python schema](python-v1-properties-script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/script")
+-   defined in: [python schema version 1.0](python-v1-properties-script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/script")
 
 ### script Type
 
@@ -196,7 +196,7 @@ The status section describes how buildtest detects PASS/FAIL on test. By default
 -   is optional
 -   Type: `object` ([Details](global-definitions-status.md))
 -   cannot be null
--   defined in: [python schema](global-definitions-status.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/status")
+-   defined in: [python schema version 1.0](global-definitions-status.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/status")
 
 ### status Type
 
@@ -212,7 +212,7 @@ The `skip` is a boolean field that can be used to skip tests during builds. By d
 -   is optional
 -   Type: `boolean`
 -   cannot be null
--   defined in: [python schema](global-definitions-skip.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/skip")
+-   defined in: [python schema version 1.0](global-definitions-skip.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/skip")
 
 ### skip Type
 
@@ -228,7 +228,7 @@ Classify tests using a tag name, this can be used for categorizing test and buil
 -   is optional
 -   Type: `string[]`
 -   cannot be null
--   defined in: [python schema](global-definitions-tags.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/tags")
+-   defined in: [python schema version 1.0](global-definitions-tags.md "https&#x3A;//buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/tags")
 
 ### tags Type
 
