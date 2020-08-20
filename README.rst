@@ -10,7 +10,7 @@
 .. |checkurls| image:: https://github.com/buildtesters/schemas/workflows/Check%20URLs/badge.svg
     :target: https://github.com/buildtesters/schemas/actions
               
-.. |license| image:: https://img.shields.io/github/license/buildtesters/schema.svg
+.. |license| image:: https://img.shields.io/github/license/buildtesters/schemas.svg
     :target: https://github.com/buildtesters/schemas/blob/master/LICENSE
 
 Buildtest Schema
