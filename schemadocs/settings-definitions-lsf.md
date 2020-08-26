@@ -17,12 +17,14 @@ https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions
 
 # undefined Properties
 
-| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                              |
-| :-------------------------- | -------- | -------- | -------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [description](#description) | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/description") |
-| [launcher](#launcher)       | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-launcher.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/launcher")       |
-| [options](#options)         | `array`  | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-options.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/options")         |
-| [queue](#queue)             | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-queue.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/queue")             |
+| Property                        | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                  |
+| :------------------------------ | ------------- | -------- | -------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [description](#description)     | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/description")     |
+| [launcher](#launcher)           | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-launcher.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/launcher")           |
+| [options](#options)             | `array`       | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-options.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/options")             |
+| [queue](#queue)                 | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-queue.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/queue")                 |
+| [before_script](#before_script) | Not specified | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-before_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/before_script") |
+| [after_script](#after_script)   | Not specified | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-after_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/after_script")   |
 
 ## description
 
@@ -95,3 +97,35 @@ Specify the lsf queue you want to use `-q <queue>`
 ### queue Type
 
 `string`
+
+## before_script
+
+
+
+
+`before_script`
+
+-   is optional
+-   Type: unknown
+-   cannot be null
+-   defined in: [buildtest configuration schema](settings-definitions-lsf-properties-before_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/before_script")
+
+### before_script Type
+
+unknown
+
+## after_script
+
+
+
+
+`after_script`
+
+-   is optional
+-   Type: unknown
+-   cannot be null
+-   defined in: [buildtest configuration schema](settings-definitions-lsf-properties-after_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/after_script")
+
+### after_script Type
+
+unknown

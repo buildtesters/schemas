@@ -17,14 +17,16 @@ https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions
 
 # undefined Properties
 
-| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                  |
-| :-------------------------- | -------- | -------- | -------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [description](#description) | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/description") |
-| [launcher](#launcher)       | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-launcher.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/launcher")       |
-| [options](#options)         | `array`  | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-options.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/options")         |
-| [cluster](#cluster)         | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-cluster.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/cluster")         |
-| [partition](#partition)     | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-partition.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/partition")     |
-| [qos](#qos)                 | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-qos.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/qos")                 |
+| Property                        | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                      |
+| :------------------------------ | ------------- | -------- | -------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [description](#description)     | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/description")     |
+| [launcher](#launcher)           | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-launcher.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/launcher")           |
+| [options](#options)             | `array`       | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-options.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/options")             |
+| [cluster](#cluster)             | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-cluster.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/cluster")             |
+| [partition](#partition)         | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-partition.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/partition")         |
+| [qos](#qos)                     | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-qos.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/qos")                     |
+| [before_script](#before_script) | Not specified | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-before_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/before_script") |
+| [after_script](#after_script)   | Not specified | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-after_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/after_script")   |
 
 ## description
 
@@ -129,3 +131,35 @@ Specify the slurm qos you want to use `-q <qos>`
 ### qos Type
 
 `string`
+
+## before_script
+
+
+
+
+`before_script`
+
+-   is optional
+-   Type: unknown
+-   cannot be null
+-   defined in: [buildtest configuration schema](settings-definitions-slurm-properties-before_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/before_script")
+
+### before_script Type
+
+unknown
+
+## after_script
+
+
+
+
+`after_script`
+
+-   is optional
+-   Type: unknown
+-   cannot be null
+-   defined in: [buildtest configuration schema](settings-definitions-slurm-properties-after_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/after_script")
+
+### after_script Type
+
+unknown

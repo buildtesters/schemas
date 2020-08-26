@@ -17,10 +17,12 @@ https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions
 
 # undefined Properties
 
-| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                  |
-| :-------------------------- | -------- | -------- | -------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [description](#description) | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/description") |
-| [shell](#shell)             | `string` | Required | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-shell.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/shell")             |
+| Property                        | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                      |
+| :------------------------------ | ------------- | -------- | -------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [description](#description)     | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/description")     |
+| [shell](#shell)                 | `string`      | Required | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-shell.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/shell")                 |
+| [before_script](#before_script) | Not specified | Optional | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-before_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/before_script") |
+| [after_script](#after_script)   | Not specified | Optional | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-after_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/after_script")   |
 
 ## description
 
@@ -63,3 +65,35 @@ Specify the shell launcher you want to use when running tests locally
 ```
 
 [try pattern](https://regexr.com/?expression=%5E(%2Fbin%2Fbash%7C%2Fbin%2Fsh%7Csh%7Cbash%7Cpython).* "try regular expression with regexr.com")
+
+## before_script
+
+
+
+
+`before_script`
+
+-   is optional
+-   Type: unknown
+-   cannot be null
+-   defined in: [buildtest configuration schema](settings-definitions-local-properties-before_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/before_script")
+
+### before_script Type
+
+unknown
+
+## after_script
+
+
+
+
+`after_script`
+
+-   is optional
+-   Type: unknown
+-   cannot be null
+-   defined in: [buildtest configuration schema](settings-definitions-local-properties-after_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/after_script")
+
+### after_script Type
+
+unknown

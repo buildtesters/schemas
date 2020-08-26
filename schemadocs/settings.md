@@ -117,6 +117,17 @@ Reference this group by using
 
 `string[]`
 
+## Definitions group script
+
+Reference this group by using
+
+```json
+{"$ref":"https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/script"}
+```
+
+| Property | Type | Required | Nullable | Defined by |
+| :------- | ---- | -------- | -------- | :--------- |
+
 ## Definitions group local
 
 Reference this group by using
@@ -125,10 +136,12 @@ Reference this group by using
 {"$ref":"https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local"}
 ```
 
-| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                  |
-| :-------------------------- | -------- | -------- | -------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [description](#description) | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/description") |
-| [shell](#shell)             | `string` | Required | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-shell.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/shell")             |
+| Property                        | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                      |
+| :------------------------------ | ------------- | -------- | -------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [description](#description)     | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/description")     |
+| [shell](#shell)                 | `string`      | Required | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-shell.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/shell")                 |
+| [before_script](#before_script) | Not specified | Optional | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-before_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/before_script") |
+| [after_script](#after_script)   | Not specified | Optional | cannot be null | [buildtest configuration schema](settings-definitions-local-properties-after_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/after_script")   |
 
 ### description
 
@@ -172,6 +185,38 @@ Specify the shell launcher you want to use when running tests locally
 
 [try pattern](https://regexr.com/?expression=%5E(%2Fbin%2Fbash%7C%2Fbin%2Fsh%7Csh%7Cbash%7Cpython).* "try regular expression with regexr.com")
 
+### before_script
+
+
+
+
+`before_script`
+
+-   is optional
+-   Type: unknown
+-   cannot be null
+-   defined in: [buildtest configuration schema](settings-definitions-local-properties-before_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/before_script")
+
+#### before_script Type
+
+unknown
+
+### after_script
+
+
+
+
+`after_script`
+
+-   is optional
+-   Type: unknown
+-   cannot be null
+-   defined in: [buildtest configuration schema](settings-definitions-local-properties-after_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/local/properties/after_script")
+
+#### after_script Type
+
+unknown
+
 ## Definitions group slurm
 
 Reference this group by using
@@ -180,14 +225,16 @@ Reference this group by using
 {"$ref":"https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm"}
 ```
 
-| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                                  |
-| :-------------------------- | -------- | -------- | -------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [description](#description) | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/description") |
-| [launcher](#launcher)       | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-launcher.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/launcher")       |
-| [options](#options)         | `array`  | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-options.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/options")         |
-| [cluster](#cluster)         | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-cluster.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/cluster")         |
-| [partition](#partition)     | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-partition.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/partition")     |
-| [qos](#qos)                 | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-qos.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/qos")                 |
+| Property                        | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                      |
+| :------------------------------ | ------------- | -------- | -------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [description](#description)     | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/description")     |
+| [launcher](#launcher)           | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-launcher.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/launcher")           |
+| [options](#options)             | `array`       | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-options.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/options")             |
+| [cluster](#cluster)             | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-cluster.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/cluster")             |
+| [partition](#partition)         | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-partition.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/partition")         |
+| [qos](#qos)                     | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-qos.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/qos")                     |
+| [before_script](#before_script) | Not specified | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-before_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/before_script") |
+| [after_script](#after_script)   | Not specified | Optional | cannot be null | [buildtest configuration schema](settings-definitions-slurm-properties-after_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/after_script")   |
 
 ### description
 
@@ -293,6 +340,38 @@ Specify the slurm qos you want to use `-q <qos>`
 
 `string`
 
+### before_script
+
+
+
+
+`before_script`
+
+-   is optional
+-   Type: unknown
+-   cannot be null
+-   defined in: [buildtest configuration schema](settings-definitions-slurm-properties-before_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/before_script")
+
+#### before_script Type
+
+unknown
+
+### after_script
+
+
+
+
+`after_script`
+
+-   is optional
+-   Type: unknown
+-   cannot be null
+-   defined in: [buildtest configuration schema](settings-definitions-slurm-properties-after_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/after_script")
+
+#### after_script Type
+
+unknown
+
 ## Definitions group lsf
 
 Reference this group by using
@@ -301,12 +380,14 @@ Reference this group by using
 {"$ref":"https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf"}
 ```
 
-| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                              |
-| :-------------------------- | -------- | -------- | -------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [description](#description) | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/description") |
-| [launcher](#launcher)       | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-launcher.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/launcher")       |
-| [options](#options)         | `array`  | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-options.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/options")         |
-| [queue](#queue)             | `string` | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-queue.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/queue")             |
+| Property                        | Type          | Required | Nullable       | Defined by                                                                                                                                                                                                  |
+| :------------------------------ | ------------- | -------- | -------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [description](#description)     | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-description.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/description")     |
+| [launcher](#launcher)           | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-launcher.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/launcher")           |
+| [options](#options)             | `array`       | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-options.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/options")             |
+| [queue](#queue)                 | `string`      | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-queue.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/queue")                 |
+| [before_script](#before_script) | Not specified | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-before_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/before_script") |
+| [after_script](#after_script)   | Not specified | Optional | cannot be null | [buildtest configuration schema](settings-definitions-lsf-properties-after_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/after_script")   |
 
 ### description
 
@@ -379,6 +460,38 @@ Specify the lsf queue you want to use `-q <queue>`
 #### queue Type
 
 `string`
+
+### before_script
+
+
+
+
+`before_script`
+
+-   is optional
+-   Type: unknown
+-   cannot be null
+-   defined in: [buildtest configuration schema](settings-definitions-lsf-properties-before_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/before_script")
+
+#### before_script Type
+
+unknown
+
+### after_script
+
+
+
+
+`after_script`
+
+-   is optional
+-   Type: unknown
+-   cannot be null
+-   defined in: [buildtest configuration schema](settings-definitions-lsf-properties-after_script.md "https&#x3A;//buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/after_script")
+
+#### after_script Type
+
+unknown
 
 ## Definitions group ssh
 
