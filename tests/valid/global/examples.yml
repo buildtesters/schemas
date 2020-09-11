@@ -11,17 +11,17 @@ buildspecs:
     type: script
     run: "hostname"
 
-  # testing both caps and lowercase and numbers
-  ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789:
+  # testing '_' in beginning followed by all numbers
+  _0123456789:
     type: script
     run: "hostname"
 
-  # testing '_' followed by all caps, lowercase and numbers
-  _ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789:
+  # testing '_' in combination with caps, lowercase and numbers
+  _ABCDEFabcdef0123456789:
     type: script
     run: "hostname"
 
-  # testing '_' in middle and end of word
-  ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz_0123456789_:
+  # testing '_' at end of word
+  abcdefghijklmnopqrstuvwxyz_:
     type: script
     run: "hostname"
