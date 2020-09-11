@@ -75,6 +75,10 @@ The `description` field is used to document what the test is doing
 
 `string`
 
+### description Constraints
+
+**maximum length**: the maximum number of characters for this string is: `80`
+
 ## sbatch
 
 This field is used for specifying #SBATCH options in test script. buildtest will insert #SBATCH in front of each value

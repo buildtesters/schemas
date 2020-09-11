@@ -17,6 +17,8 @@ unknown
 
 ## propertyNames Constraints
 
+**maximum length**: the maximum number of characters for this string is: `32`
+
 **pattern**: the string must match the following regular expression: 
 
 ```regexp

@@ -79,6 +79,10 @@ The `description` field is used to document what the test is doing
 
 `string`
 
+### description Constraints
+
+**maximum length**: the maximum number of characters for this string is: `80`
+
 ## module
 
 A list of modules to load into test script

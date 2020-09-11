@@ -14,3 +14,7 @@ The `description` field is used to document what the test is doing
 ## description Type
 
 `string`
+
+## description Constraints
+
+**maximum length**: the maximum number of characters for this string is: `80`
