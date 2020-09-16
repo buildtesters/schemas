@@ -32,6 +32,7 @@ The script schema is of `type: script` in sub-schema which is used for running s
 | [status](#status)           | `object`  | Optional | cannot be null | [script schema version 1.0](global-definitions-status.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/status")             |
 | [skip](#skip)               | `boolean` | Optional | cannot be null | [script schema version 1.0](global-definitions-skip.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/skip")                 |
 | [tags](#tags)               | `array`   | Optional | cannot be null | [script schema version 1.0](global-definitions-tags.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/tags")                 |
+| [rerun](#rerun)             | `integer` | Optional | cannot be null | [script schema version 1.0](global-definitions-rerun.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/rerun")               |
 
 ## type
 
@@ -276,3 +277,23 @@ Classify tests using a tag name, this can be used for categorizing test and buil
 ### tags Constraints
 
 **minimum number of items**: the minimum number of items for this array is: `1`
+
+## rerun
+
+Number of times to rerun test. By default every test is run once. Rerun expects a value >= 1
+
+
+`rerun`
+
+-   is optional
+-   Type: `integer`
+-   cannot be null
+-   defined in: [script schema version 1.0](global-definitions-rerun.md "https&#x3A;//buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/rerun")
+
+### rerun Type
+
+`integer`
+
+### rerun Constraints
+
+**minimum**: the value of this number must greater than or equal to: `1`
