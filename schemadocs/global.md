@@ -143,17 +143,6 @@ Reference this group by using
 | Property | Type | Required | Nullable | Defined by |
 | :------- | ---- | -------- | -------- | :--------- |
 
-## Definitions group rerun
-
-Reference this group by using
-
-```json
-{"$ref":"https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/rerun"}
-```
-
-| Property | Type | Required | Nullable | Defined by |
-| :------- | ---- | -------- | -------- | :--------- |
-
 ## Definitions group status
 
 Reference this group by using
