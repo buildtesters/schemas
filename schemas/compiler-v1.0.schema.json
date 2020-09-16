@@ -124,6 +124,9 @@
           "description": "The ``args`` field is used to specify arguments to executable."
         }
       },
+    "rerun": {
+      "$ref": "https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/rerun"
+    },
       "additionalProperties": false
     }
   }

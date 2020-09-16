@@ -156,3 +156,10 @@ buildspecs:
     tags:
       - "slurm"
     run: hostname
+
+  rerun_example:
+    type: script
+    executor: local.bash
+    description: this test is rerun 2 times
+    rerun: 2
+    run: hostname

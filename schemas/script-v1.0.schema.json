@@ -53,6 +53,9 @@
     },
     "tags": {
       "$ref": "https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/tags"
+    },
+    "rerun": {
+      "$ref": "https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/rerun"
     }
   }
 }

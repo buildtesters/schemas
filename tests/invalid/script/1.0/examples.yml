@@ -116,6 +116,7 @@ buildspecs:
     executor: slurm.debug
     description: test additional properties in status object. This is not allowed
     sbatch: [ "-n 2", "-q normal", "-t 10"]
+    run: hostname
     status:
       slurm_job_state_codes: "COMPLETED"
       FOO: BAR
@@ -128,6 +129,14 @@ buildspecs:
       - "-n 2"
       - "-q normal"
       - "-t 10"
+    run: hostname
     status:
       slurm_job_state_codes: "FINISH"
+
+  invalid_rerun_value:
+    type: script
+    executor: local.bash
+    description: rerun value must be 1 or higher
+    rerun: 0
+    run: hostname
 

@@ -71,6 +71,11 @@
         "type": "string"
       }
     },
+    "rerun": {
+      "type": "integer",
+      "description": "Number of times to rerun test. By default every test is run once. Rerun expects a value >= 1",
+      "minimum": 1
+    },
     "status": {
       "type": "object",
       "description": "The status section describes how buildtest detects PASS/FAIL on test. By default returncode 0 is a PASS and anything else is a FAIL, however buildtest can support other types of PASS/FAIL conditions.",
