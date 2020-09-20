@@ -151,29 +151,29 @@ Reference this group by using
 {"$ref":"https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status"}
 ```
 
-| Property                                        | Type      | Required | Nullable       | Defined by                                                                                                                                                                                                   |
-| :---------------------------------------------- | --------- | -------- | -------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [slurm_job_state_codes](#slurm_job_state_codes) | `string`  | Optional | cannot be null | [global schema](global-definitions-status-properties-slurm_job_state_codes.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/slurm_job_state_codes") |
-| [returncode](#returncode)                       | `integer` | Optional | cannot be null | [global schema](global-definitions-status-properties-returncode.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/returncode")                       |
-| [regex](#regex)                                 | `object`  | Optional | cannot be null | [global schema](global-definitions-status-properties-regex.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex")                                 |
+| Property                            | Type     | Required | Nullable       | Defined by                                                                                                                                                                                       |
+| :---------------------------------- | -------- | -------- | -------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [slurm_job_state](#slurm_job_state) | `string` | Optional | cannot be null | [global schema](global-definitions-status-properties-slurm_job_state.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/slurm_job_state") |
+| [returncode](#returncode)           | `array`  | Optional | cannot be null | [global schema](global-definitions-status-properties-returncode.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/returncode")           |
+| [regex](#regex)                     | `object` | Optional | cannot be null | [global schema](global-definitions-status-properties-regex.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex")                     |
 
-### slurm_job_state_codes
+### slurm_job_state
 
 This field can be used for checking Slurm Job State, if there is a match buildtest will report as `PASS` 
 
 
-`slurm_job_state_codes`
+`slurm_job_state`
 
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [global schema](global-definitions-status-properties-slurm_job_state_codes.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/slurm_job_state_codes")
+-   defined in: [global schema](global-definitions-status-properties-slurm_job_state.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/slurm_job_state")
 
-#### slurm_job_state_codes Type
+#### slurm_job_state Type
 
 `string`
 
-#### slurm_job_state_codes Constraints
+#### slurm_job_state Constraints
 
 **enum**: the value of this property must be equal to one of the following values:
 
@@ -186,19 +186,25 @@ This field can be used for checking Slurm Job State, if there is a match buildte
 
 ### returncode
 
-By default, returncode 0 is PASS, if you want to emulate a non-zero returncode to pass then specify an expected return code. buildtest will match actual returncode with one defined in this field, if there is a match buildtest will report as `PASS`
+Specify a list of returncodes to match with script's exit code. buildtest will PASS test if script's exit code is found in list of returncodes. You must specify unique numbers as list and a minimum of 1 item in array
 
 
 `returncode`
 
 -   is optional
--   Type: `integer`
+-   Type: `integer[]`
 -   cannot be null
 -   defined in: [global schema](global-definitions-status-properties-returncode.md "https&#x3A;//buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/returncode")
 
 #### returncode Type
 
-`integer`
+`integer[]`
+
+#### returncode Constraints
+
+**minimum number of items**: the minimum number of items for this array is: `1`
+
+**unique items**: all items in this array must be unique. Duplicates are not allowed.
 
 ### regex
 

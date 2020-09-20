@@ -1,7 +1,7 @@
 # Untitled undefined type in compiler schema version 1.0 Schema
 
 ```txt
-https://buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/executor
+https://buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/sbatch
 ```
 
 
@@ -11,6 +11,6 @@ https://buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/proper
 | :------------------ | ---------- | -------------- | ----------------------- | :---------------- | --------------------- | ------------------- | -------------------------------------------------------------------------------------- |
 | Can be instantiated | No         | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [compiler-v1.0.schema.json\*](../out/compiler-v1.0.schema.json "open original schema") |
 
-## executor Type
+## sbatch Type
 
 unknown

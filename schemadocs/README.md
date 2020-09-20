@@ -29,28 +29,16 @@
 -   [Untitled object in buildtest configuration schema](./settings-definitions-slurm.md) – `https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm`
 -   [Untitled object in buildtest configuration schema](./settings-definitions-lsf.md) – `https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf`
 -   [Untitled object in buildtest configuration schema](./settings-definitions-ssh.md) – `https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/ssh`
--   [Untitled object in compiler schema version 1.0](./compiler-v1-properties-env.md "One or more key value pairs for an environment (key=value)") – `https://buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/env`
--   [Untitled object in compiler schema version 1.0](./compiler-v1-properties-vars.md "One or more key value pairs for an environment (key=value)") – `https://buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/vars`
--   [Untitled object in compiler schema version 1.0](./compiler-v1-properties-status.md "The status section describes how buildtest detects PASS/FAIL on test") – `https://buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/status`
 -   [Untitled object in compiler schema version 1.0](./compiler-v1-properties-build.md "The build section is used for compiling a single program, this section specifies fields for setting C, C++, Fortran compiler and flags including CPP flags and linker flags") – `https://buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/build`
 -   [Untitled object in compiler schema version 1.0](./compiler-v1-properties-run.md "The run section is used for specifying launch configuration of executable") – `https://buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/run`
--   [Untitled object in global schema](./global-definitions-env-items.md) – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/env/items`
--   [Untitled object in global schema](./global-definitions-env-items.md) – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/env/items`
--   [Untitled object in global schema](./global-definitions-status-properties-regex.md "Perform regular expression search using re") – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex`
 -   [Untitled object in global schema](./global-properties-buildspecs.md "This section is used to define one or more tests (buildspecs)") – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/properties/buildspecs`
 -   [Untitled object in global schema](./global-definitions-env.md "One or more key value pairs for an environment (key=value)") – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/env`
 -   [Untitled object in global schema](./global-definitions-env-items.md) – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/env/items`
 -   [Untitled object in global schema](./global-definitions-status.md "The status section describes how buildtest detects PASS/FAIL on test") – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status`
 -   [Untitled object in global schema](./global-definitions-status-properties-regex.md "Perform regular expression search using re") – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex`
 -   [Untitled object in global schema](./global-definitions-status-properties-regex.md "Perform regular expression search using re") – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex`
--   [Untitled object in global schema](./global-definitions-env-items.md) – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/env/items`
--   [Untitled object in global schema](./global-definitions-env-items.md) – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/env/items`
--   [Untitled object in global schema](./global-definitions-status-properties-regex.md "Perform regular expression search using re") – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/regex`
 -   [Untitled object in python schema version 1.0](./python-v1-properties-package.md) – `https://buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/package`
 -   [Untitled object in python schema version 1.0](./python-v1-properties-status.md "The status section describes how buildtest detects PASS/FAIL on test") – `https://buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/status`
--   [Untitled object in script schema version 1.0](./script-v1-properties-env.md "One or more key value pairs for an environment (key=value)") – `https://buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/env`
--   [Untitled object in script schema version 1.0](./script-v1-properties-vars.md "One or more key value pairs for an environment (key=value)") – `https://buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/vars`
--   [Untitled object in script schema version 1.0](./script-v1-properties-status.md "The status section describes how buildtest detects PASS/FAIL on test") – `https://buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/status`
 
 ### Arrays
 
@@ -62,21 +50,17 @@
 -   [Untitled array in buildtest configuration schema](./settings-definitions-slurm-properties-options.md "Specify any other options for sbatch used by this executor for running all jobs") – `https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/slurm/properties/options`
 -   [Untitled array in buildtest configuration schema](./settings-definitions-lsf-properties-options.md "Specify any options for bsub for this executor when running all jobs associated to this executor") – `https://buildtesters.github.io/schemas/schemas/settings.schema.json#/definitions/lsf/properties/options`
 -   [Untitled array in compiler schema version 1.0](./compiler-v1-properties-module.md "A list of modules to load into test script") – `https://buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/module`
--   [Untitled array in compiler schema version 1.0](./compiler-v1-properties-sbatch.md "This field is used for specifying #SBATCH options in test script") – `https://buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/sbatch`
--   [Untitled array in compiler schema version 1.0](./compiler-v1-properties-bsub.md "This field is used for specifying #BSUB options in test script") – `https://buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/bsub`
--   [Untitled array in compiler schema version 1.0](./compiler-v1-properties-tags.md "Classify tests using a tag name, this can be used for categorizing test and building tests using --tags option") – `https://buildtesters.github.io/schemas/schemas/compiler-v1.0.schema.json#/properties/tags`
 -   [Untitled array in global schema](./global-properties-maintainers.md "One or more maintainers or aliases") – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/properties/maintainers`
 -   [Untitled array in global schema](./global-definitions-tags.md "Classify tests using a tag name, this can be used for categorizing test and building tests using --tags option") – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/tags`
 -   [Untitled array in global schema](./global-definitions-sbatch.md "This field is used for specifying #SBATCH options in test script") – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/sbatch`
 -   [Untitled array in global schema](./global-definitions-bsub.md "This field is used for specifying #BSUB options in test script") – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/bsub`
+-   [Untitled array in global schema](./global-definitions-status-properties-returncode.md "Specify a list of returncodes to match with script's exit code") – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/returncode`
+-   [Untitled array in global schema](./global-definitions-status-properties-returncode.md "Specify a list of returncodes to match with script's exit code") – `https://buildtesters.github.io/schemas/schemas/global.schema.json#/definitions/status/properties/returncode`
 -   [Untitled array in python schema version 1.0](./python-v1-properties-pyver.md) – `https://buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/pyver`
 -   [Untitled array in python schema version 1.0](./python-v1-properties-package-properties-pypi.md) – `https://buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/package/properties/pypi`
 -   [Untitled array in python schema version 1.0](./python-v1-properties-module.md) – `https://buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/module`
 -   [Untitled array in python schema version 1.0](./python-v1-properties-sbatch.md) – `https://buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/sbatch`
 -   [Untitled array in python schema version 1.0](./python-v1-properties-tags.md "Classify tests using a tag name, this can be used for categorizing test and building tests using --tags option") – `https://buildtesters.github.io/schemas/schemas/python-v1.0.schema.json#/properties/tags`
--   [Untitled array in script schema version 1.0](./script-v1-properties-sbatch.md "This field is used for specifying #SBATCH options in test script") – `https://buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/sbatch`
--   [Untitled array in script schema version 1.0](./script-v1-properties-bsub.md "This field is used for specifying #BSUB options in test script") – `https://buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/bsub`
--   [Untitled array in script schema version 1.0](./script-v1-properties-tags.md "Classify tests using a tag name, this can be used for categorizing test and building tests using --tags option") – `https://buildtesters.github.io/schemas/schemas/script-v1.0.schema.json#/properties/tags`
 
 ## Version Note
 
