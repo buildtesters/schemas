@@ -86,6 +86,8 @@ buildspecs:
       source: "src/hello.cpp"
       name: gnu
       cxx: g++
+    status:
+      slurm_job_state_codes: "COMPLETED"
 
   bsub_example:
     type: compiler

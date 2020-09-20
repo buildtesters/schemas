@@ -69,6 +69,23 @@ buildspecs:
     status:
       returncode: ["1"]
 
+  empty_returncode_list:
+    type: script
+    executor: local.bash
+    description: An empty returncode list will cause an error
+    run: hostname
+    status:
+      returncode: []
+
+
+  unique_returncodes:
+    type: script
+    executor: local.bash
+    description: The returncode list must be unique
+    run: exit 1
+    status:
+      returncode: [1, 2, 1]
+
   invalid_shell_usr_bin_bash:
     type: script
     executor: local.bash
@@ -118,7 +135,7 @@ buildspecs:
     sbatch: [ "-n 2", "-q normal", "-t 10"]
     run: hostname
     status:
-      slurm_job_state_codes: "COMPLETED"
+      slurm_job_state: "COMPLETED"
       FOO: BAR
 
   invalid_slurm_job_state:
@@ -131,4 +148,4 @@ buildspecs:
       - "-t 10"
     run: hostname
     status:
-      slurm_job_state_codes: "FINISH"
+      slurm_job_state: "FINISH"

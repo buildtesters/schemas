@@ -134,7 +134,6 @@ buildspecs:
       name: gnu
       cflags: "-O1"
       ldflags: "-lm"
-
     run:
       args: 1
 
